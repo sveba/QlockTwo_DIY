@@ -8,5 +8,9 @@
 
 #include "ClockModule.h"
 
-ClockModule::ClockModule()  {}
+ClockModule::ClockModule(RtcDS3231<TwoWire> _rtc) : rtc(_rtc) {}
 ClockModule::~ClockModule() {}
+
+void ClockModule::setup() {
+    rtc.Begin();
+}

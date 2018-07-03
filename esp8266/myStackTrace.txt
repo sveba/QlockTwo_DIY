@@ -1,0 +1,19 @@
+Exception (3):
+epc1=0x4022ca68 epc2=0x00000000 epc3=0x00000000 excvaddr=0x4026b579 depc=0x00000000
+
+ctx: cont
+sp: 3ffef7f0 end: 3ffefa50 offset: 01b0
+
+>>>stack>>>
+3ffef9a0:  feefeffe 00000000 0000000c 40201f35
+3ffef9b0:  3ffef990 0000000a 00000004 3ffee86c
+3ffef9c0:  00003286 3ffee844 0000000a 00000004
+3ffef9d0:  40201b76 3fff18bc 3fff188c 3ffeea24
+3ffef9e0:  3fffdad0 00000000 3ffee86c 402024b4
+3ffef9f0:  3ffef990 0000000a 00000004 00000000
+3ffefa00:  0a1d0612 00000034 ff000000 eeeeeee8
+3ffefa10:  3fffdad0 00000000 3ffeea1c 4020279f
+3ffefa20:  0a1d0612 00000034 3ffeff00 40202748
+3ffefa30:  feefeffe feefeffe feefeffe 40202f34
+3ffefa40:  feefeffe feefeffe 3ffeea30 40100700
+<<<stack<<<

@@ -4,12 +4,13 @@
 
 class LedWord {
 public:
+    LedWord();
     LedWord(int firstPixelX, int firstPixelY, int length);
-    int getFirstPixelX();
+    int getFirstPixelX() const;
     void setFirstPixelX(int firstPixelX);
-    int getFirstPixelY();
+    int getFirstPixelY() const;
     void setFirstPixelY(int firstPixelX);
-    int getLength();
+    int getLength() const;
     void setLength(int length);
 private:
     int firstPixelX;

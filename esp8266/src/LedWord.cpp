@@ -1,12 +1,11 @@
 #include "LedWord.h"
 
-LedWord::LedWord(int firstPixelX, int firstPixelY, int length)  {
-  this->firstPixelX =  firstPixelX;
-  this->firstPixelY = firstPixelY;
-  this->length = length;
+LedWord::LedWord(){};
+
+LedWord::LedWord(int _firstPixelX, int _firstPixelY, int _length) : firstPixelX(_firstPixelX), firstPixelY(_firstPixelY), length(_length) {
 }
 
-int LedWord::getFirstPixelX() {
+int LedWord::getFirstPixelX() const{
         return firstPixelX;
 };
 
@@ -14,7 +13,7 @@ void LedWord::setFirstPixelX(int firstPixelX) {
         this->firstPixelX = firstPixelX;
 };
 
-int LedWord::getFirstPixelY() {
+int LedWord::getFirstPixelY() const{
         return firstPixelY;
 };
 
@@ -22,7 +21,7 @@ void LedWord::setFirstPixelY(int firstPixelY) {
         this->firstPixelY = firstPixelY;
 };
 
-int LedWord::getLength() {
+int LedWord::getLength() const {
         return length;
 };
 

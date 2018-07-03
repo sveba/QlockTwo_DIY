@@ -1,0 +1,11 @@
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_REBUILD_PROJECT_INDEX.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_UPDATE_ALL.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOADFS.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/esp8266.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_BUILD.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_PROGRAM.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_TEST.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_CLEAN.dir
+/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/cmake-build-debug/CMakeFiles/PLATFORMIO_UPLOAD.dir

@@ -15,8 +15,9 @@
 
 class ClockModule {
 private:
+  RtcDS3231<TwoWire> rtc;
 public:
-    ClockModule();
+    ClockModule(RtcDS3231<TwoWire> _rtc);
     ~ClockModule();
     void setup();
     bool update();

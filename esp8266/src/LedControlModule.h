@@ -13,23 +13,23 @@
 #include <NeoPixelBus.h>
 #include <RtcDateTime.h>
 #include "LedWord.h"
+#include "LedMapping.h"
 
 typedef  NeoPixelBus<NeoGrbwFeature, Neo800KbpsMethod>  NeoPixelBusType;
+typedef RowMajorAlternating270Layout MyPanelLayout;
 
 class LedControlModule {
 private:
     NeoPixelBusType* pixelStrip;
-    LedWord[] getTimeAffixes();
-    LedWord getHourWord(RtcDateTime rtcDateTime);
-    LedWord[] getMinuteWords(RtcDateTime rtcDateTime);
-    LedWord[] getMinuteDots(RtcDateTime rtcDateTime);
+    NeoTopology<MyPanelLayout> topo;
+    void enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& ledColor);
+    void enableLedWord(const LedWord* ledWord, RgbwColor& ledColor);
+    void enableMinuteDots(int n, RgbwColor& ledColor);
 public:
-    LedControlModule();
+    LedControlModule(NeoTopology<MyPanelLayout> _topo);
     ~LedControlModule();
-    void setup(NeoPixelBusType& pixelStrip);
-    void setTime(RtcDateTime rtcDateTime);
-protected:
-
+    void setup(NeoPixelBusType* _pixelStrip);
+    void setTime(const RtcDateTime rtcDateTime, RgbwColor _ledColor = RgbwColor(0, 0, 0, 255));
 };
 
 
