@@ -32,13 +32,60 @@ void LedControlModule::setTime(const RtcDateTime rtcDateTime, RgbwColor ledColor
 
 void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& ledColor) {
     enableLedWord(&PREFIX_IT, ledColor);
-    enableLedWord(&SUFFIX_OCLOCK, ledColor);
     enableLedWord(&PREFIX_IS, ledColor);
-    enableLedWord(&MINUTE_QUARTER, ledColor);
-    enableLedWord(&INFIX_AFTER, ledColor);
-    enableLedWord(&HOURS[4], ledColor);
+    switch(rtcDateTime.Minute()/5){
+        case 0:
+            enableLedWord(&SUFFIX_OCLOCK, ledColor);
+            break;
+        case 1:
+            enableLedWord(&MINUTE_FIVE, ledColor);
+            enableLedWord(&INFIX_AFTER, ledColor);
+            break;
+        case 2:
+            enableLedWord(&MINUTE_TEN, ledColor);
+            enableLedWord(&INFIX_AFTER, ledColor);
+            break;
+        case 3:
+            enableLedWord(&MINUTE_QUARTER, ledColor);
+            enableLedWord(&INFIX_AFTER, ledColor);
+            break;
+        case 4:
+            enableLedWord(&MINUTE_TWENTY, ledColor);
+            enableLedWord(&INFIX_AFTER, ledColor);
+            break;
+        case 5:
+            enableLedWord(&MINUTE_FIVE, ledColor);
+            enableLedWord(&INFIX_BEFORE, ledColor);
+            enableLedWord(&MINUTE_HALF, ledColor);
+            break;
+        case 6:
+            enableLedWord(&MINUTE_HALF, ledColor);
+            break;
+        case 7:
+            enableLedWord(&MINUTE_FIVE, ledColor);
+            enableLedWord(&INFIX_AFTER, ledColor);
+            enableLedWord(&MINUTE_HALF, ledColor);
+            break;
+        case 8:
+            enableLedWord(&MINUTE_TWENTY, ledColor);
+            enableLedWord(&INFIX_BEFORE, ledColor);
+            break;
+        case 9:
+            enableLedWord(&MINUTE_THREEQUARTER, ledColor);
+            break;
+        case 10:
+            enableLedWord(&MINUTE_TEN, ledColor);
+            enableLedWord(&INFIX_BEFORE, ledColor);
+            break;
+        case 11:
+            enableLedWord(&MINUTE_FIVE, ledColor);
+            enableLedWord(&INFIX_BEFORE, ledColor);
+            break;
 
-    // TODO write code to add minute and hour words
+    }
+
+    enableLedWord(&HOURS[rtcDateTime.Hour() - 1], ledColor);
+
 };
 
 void LedControlModule::enableLedWord(const LedWord* ledWord, RgbwColor& ledColor) {
