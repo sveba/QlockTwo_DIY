@@ -1,12 +1,8 @@
 #include <Arduino.h>
-#include <ESP8266WiFi.h>
-#include <WiFiClient.h> // needed?
-#include <DNSServer.h>
-#include <ESP8266WebServer.h>
-#include <ESP8266mDNS.h> // needed?
-#include <NeoPixelBus.h>
-#include <WiFiManager.h>
 #include "LedControlModule.h"
+#include "ClockModule.h"
+#include "WifiModule.h"
+#include "Settings.h"
 
 const uint8_t PanelWidth = 11;  // 8 pixel x 8 pixel matrix of leds
 const uint8_t PanelHeight = 10;
@@ -15,6 +11,26 @@ const uint16_t PixelCount = PanelWidth * PanelHeight + 4;
 NeoTopology<MyPanelLayout> topo(PanelWidth, PanelHeight);
 LedControlModule ledControlModule(topo);
 NeoPixelBusType pixelStrip(PixelCount);
+
+ClockModule clockModule(Wire, CLOCK_UPDATE_INTERVAL);
+
+WifiModule wifiModule(DEVICE_NAME);
+
+void printDateTime(const RtcDateTime &dt) {
+    char datestring[20];
+
+    snprintf_P(datestring,
+               countof(datestring),
+               PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
+               dt.Month(),
+               dt.Day(),
+               dt.Year(),
+               dt.Hour(),
+               dt.Minute(),
+               dt.Second());
+    Serial.println(datestring);
+}
+
 
 /*
 //gets called when WiFiManager enters configuration mode
@@ -40,35 +56,50 @@ void setupWifiManager() {
   }
 
   Serial.println("connected...yeey :)");
-}*/
-
-//RtcDS3231<TwoWire> Rtc(Wire);
-
-RgbColor white(128);
-
-void setup() {
-  Serial.begin(9600);
-
-  pinMode(BUILTIN_LED, OUTPUT);
-  //setupWifiManager();
-
-
- /* pixelStrip.Begin();
-  pixelStrip.Show();*/
-
-  ledControlModule.setup(&pixelStrip);
 }
 
+RgbColor white(128);
+*/
+
+void setup() {
+    Serial.begin(9600);
+
+    pinMode(BUILTIN_LED, OUTPUT);
+
+    clockModule.setup(CLOCK_TIMEZONE_OFFSET);
+
+    wifiModule.setup();
+
+    wifiModule.reset();
+
+    wifiModule.connect();
+
+    ledControlModule.setup(&pixelStrip);
+}
+
+
 void loop() {
- /* pixelStrip.SetPixelColor(topo.Map(0, 0), white);
-  pixelStrip.Show();*/
+    /* pixelStrip.SetPixelColor(topo.Map(0, 0), white);
+     pixelStrip.Show();
 
-  const RtcDateTime time(2018, 6, 29, 10, 52, 0);
-  ledControlModule.setTime(time);
+    /*const RtcDateTime time(2018, 6, 29, 10, 52, 0);*/
 
-  Serial.println("loop start");
-  digitalWrite(BUILTIN_LED, HIGH);
-  delay(1000);
-  digitalWrite(BUILTIN_LED, LOW);
-  delay(1000);
+    if(clockModule.isUpdateNeeded()) {
+        Serial.println("Update Clock");
+        if (!wifiModule.isConnected()) {
+            wifiModule.connect();
+        }
+
+        clockModule.update();
+    }
+
+    printDateTime(clockModule.getTime());
+
+    ledControlModule.setTime(clockModule.getTime());
+
+    Serial.println("loop start");
+    digitalWrite(BUILTIN_LED, HIGH);
+    delay(1000);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(1000);
 }

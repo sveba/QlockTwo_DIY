@@ -1,3 +1,7 @@
+
+#ifndef LedMapping_H
+#define LedMapping_H
+
 #include "LedWord.h"
 
 const LedWord PREFIX_IT = LedWord(0, 0, 2); // ES
@@ -28,3 +32,5 @@ const LedWord HOURS[] = {   LedWord(0, 5, 4), // EINS
                             LedWord(5, 4, 3), // ELF
                             LedWord(6, 8, 5) // ZWÖLF
                         };
+
+#endif /* LedMapping_H */
