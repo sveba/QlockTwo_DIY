@@ -14,3 +14,26 @@ ClockModule::~ClockModule() {}
 void ClockModule::setup() {
     rtc.Begin();
 }
+
+/**
+ * Return when the RTC was updated last.
+ * @return RtcDateTime when RTC was updated last.
+ */
+RtcDateTime ClockModule::lastUpdated() {
+    return RtcDateTime();
+}
+
+/**
+ * Get current time from NTP server and update RTC.
+ * @return true if updating successful
+ */
+bool ClockModule::update() {
+    return false;
+}
+
+/*
+ * Get current time from RTC.
+ */
+RtcDateTime ClockModule::getTime() {
+    return RtcDateTime();
+}

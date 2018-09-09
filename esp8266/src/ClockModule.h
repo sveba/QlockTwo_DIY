@@ -21,7 +21,7 @@ public:
     ~ClockModule();
     void setup();
     bool update();
-    bool isUpdated();
+    RtcDateTime lastUpdated();
     RtcDateTime getTime();
 protected:
 

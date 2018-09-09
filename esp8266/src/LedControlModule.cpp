@@ -85,7 +85,6 @@ void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& 
     }
 
     enableLedWord(&HOURS[rtcDateTime.Hour() - 1], ledColor);
-
 };
 
 void LedControlModule::enableLedWord(const LedWord* ledWord, RgbwColor& ledColor) {
