@@ -26,7 +26,7 @@ void LedControlModule::setTime(const RtcDateTime rtcDateTime, RgbwColor ledColor
     enableLedWords(rtcDateTime, ledColor);
 
     int minuteDots = rtcDateTime.Minute() % 5;
-    enableMinuteDots(2, ledColor);
+    enableMinuteDots(minuteDots, ledColor);
     pixelStrip->Show();
 };
 

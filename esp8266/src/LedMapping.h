@@ -8,7 +8,7 @@ const LedWord PREFIX_IT = LedWord(0, 0, 2); // ES
 const LedWord PREFIX_IS = LedWord(3, 0, 3); // IST
 
 const LedWord INFIX_AFTER = LedWord(0, 3, 3); // VOR
-const LedWord INFIX_BEFORE = LedWord(3, 3, 4); // NACH
+const LedWord INFIX_BEFORE = LedWord(7, 3, 4); // NACH
 
 const LedWord SUFFIX_OCLOCK = LedWord(8, 9, 3); // UHR
 
