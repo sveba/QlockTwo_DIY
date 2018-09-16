@@ -15,13 +15,9 @@ void LedControlModule::setup(NeoPixelBusType* _pixelStrip) {
     pixelStrip = _pixelStrip;
     pixelStrip->Begin();
     pixelStrip->Show();
-
-    /*RgbwColor color(255);
-    enableMinuteDots(2, color);
-    pixelStrip->Show();*/
 };
 
-void LedControlModule::setTime(const RtcDateTime rtcDateTime, RgbwColor ledColor){
+void LedControlModule::showTime(const RtcDateTime rtcDateTime, RgbwColor ledColor){
     pixelStrip->ClearTo(RgbwColor(0));
     enableLedWords(rtcDateTime, ledColor);
 
@@ -81,7 +77,6 @@ void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& 
             enableLedWord(&MINUTE_FIVE, ledColor);
             enableLedWord(&INFIX_BEFORE, ledColor);
             break;
-
     }
 
     enableLedWord(&HOURS[rtcDateTime.Hour() - 1], ledColor);
@@ -93,24 +88,14 @@ void LedControlModule::enableLedWord(const LedWord* ledWord, RgbwColor& ledColor
     }
 }
 
-void LedControlModule::enableMinuteDots(int n, RgbwColor& ledColor){
-    //pixelStrip->SetPixelColor(114, ledColor);
+void LedControlModule::enableMinuteDots(int n, RgbwColor& ledColor) {
     for (int i = 1; i <= n; i++) {
-        // TODO write it prettier
-        switch (i) {
-            case 1:
-                pixelStrip->SetPixelColor(114, ledColor);
-                break;
-            case 2:
-                pixelStrip->SetPixelColor(111, ledColor);
-                break;
-            case 3:
-                pixelStrip->SetPixelColor(112, ledColor);
-                break;
-            case 4:
-                pixelStrip->SetPixelColor(113, ledColor);
-                break;
-        }
-
+        int j = 111 + ((i + 3) % 4);
+        pixelStrip->SetPixelColor(j, ledColor);
     }
+}
+
+void LedControlModule::disableLeds() {
+    pixelStrip->ClearTo(RgbwColor(0));
+    pixelStrip->Show();
 };

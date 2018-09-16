@@ -31,6 +31,7 @@ bool WifiModule::isConnected() {
 }
 
 bool WifiModule::connect() {
+    Serial.println("WifiModule: Connect.");
     if(!wifiManager.autoConnect(this->deviceName.c_str())) {
         Serial.println("failed to connect and hit timeout");
         //reset and try again, or maybe put it to deep sleep
@@ -46,9 +47,6 @@ bool WifiModule::connect() {
 }
 
 void WifiModule::reset() {
+    Serial.println("WifiModule: Reset.");
     wifiManager.resetSettings();
 }
-
-
-
-

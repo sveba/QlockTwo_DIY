@@ -29,7 +29,8 @@ public:
     LedControlModule(NeoTopology<MyPanelLayout> _topo);
     ~LedControlModule();
     void setup(NeoPixelBusType* _pixelStrip);
-    void setTime(const RtcDateTime rtcDateTime, RgbwColor _ledColor = RgbwColor(0, 0, 0, 255));
+    void disableLeds();
+    void showTime(const RtcDateTime rtcDateTime, RgbwColor _ledColor = RgbwColor(0, 0, 0, 255));
 };
 
 

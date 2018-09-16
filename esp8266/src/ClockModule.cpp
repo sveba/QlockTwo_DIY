@@ -41,6 +41,8 @@ bool ClockModule::isUpdateNeeded() {
  * @return true if updating successful
  */
 void ClockModule::update() {
+    Serial.println("ClockModule: Update Clock.");
+
     timeClient.forceUpdate();
     long ntpTime = timeClient.getEpochTime();
 

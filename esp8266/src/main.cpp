@@ -1,20 +1,170 @@
 #include <Arduino.h>
+#include <Ticker.h>
 #include "LedControlModule.h"
 #include "ClockModule.h"
 #include "WifiModule.h"
 #include "Settings.h"
+#include "AceButton.h"
+using namespace ace_button;
 
-const uint8_t PanelWidth = 11;  // 8 pixel x 8 pixel matrix of leds
-const uint8_t PanelHeight = 10;
-const uint16_t PixelCount = PanelWidth * PanelHeight + 4;
-
-NeoTopology<MyPanelLayout> topo(PanelWidth, PanelHeight);
+// Member Variables
+NeoTopology<MyPanelLayout> topo(PANEL_WIDTH, PANEL_HEIGHT);
 LedControlModule ledControlModule(topo);
-NeoPixelBusType pixelStrip(PixelCount);
+NeoPixelBusType pixelStrip(PIXEL_COUNT);
 
 ClockModule clockModule(Wire, CLOCK_UPDATE_INTERVAL);
 
 WifiModule wifiModule(DEVICE_NAME);
+
+AceButton buttonOne(new ButtonConfig());
+AceButton buttonTwo(new ButtonConfig());
+AceButton buttonThree(new ButtonConfig());
+AceButton buttonFour(new ButtonConfig());
+
+Ticker showTimeTicker;
+
+// Function Declaration
+void handleButtonOneEvent(AceButton*, uint8_t, uint8_t);
+void handleButtonTwoEvent(AceButton*, uint8_t, uint8_t);
+void handleButtonThreeEvent(AceButton*, uint8_t, uint8_t);
+void handleButtonFourEvent(AceButton*, uint8_t, uint8_t);
+
+void updateClock();
+
+void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler eventHandler);
+void setupButtons();
+void showTime();
+
+void printDateTime(const RtcDateTime &dt);
+
+void setup() {
+    Serial.begin(9600);
+
+    pinMode(BUILTIN_LED, OUTPUT);
+
+    setupButtons();
+
+    clockModule.setup(CLOCK_TIMEZONE_OFFSET);
+
+    wifiModule.setup();
+    //wifiModule.reset();
+    wifiModule.connect();
+
+    ledControlModule.setup(&pixelStrip);
+
+    showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
+
+    Serial.println("Setup done.");
+}
+
+void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler eventHandler) {
+    buttonConfig->setEventHandler(eventHandler);
+    buttonConfig->setFeature(ButtonConfig::kFeatureClick);
+    buttonConfig->setFeature(ButtonConfig::kFeatureDoubleClick);
+    buttonConfig->setFeature(ButtonConfig::kFeatureLongPress);
+    // buttonConfig->setFeature(ButtonConfig::kFeatureRepeatPress);
+}
+
+void setupButtons() {
+    pinMode(BUTTON_ONE_PIN, INPUT);
+    buttonOne.init(BUTTON_ONE_PIN, LOW);
+
+    pinMode(BUTTON_TWO_PIN, INPUT);
+    buttonTwo.init(BUTTON_TWO_PIN, LOW);
+
+    pinMode(BUTTON_THREE_PIN, INPUT);
+    buttonThree.init(BUTTON_THREE_PIN, LOW);
+
+    pinMode(BUTTON_FOUR_PIN, INPUT);
+    buttonFour.init(BUTTON_FOUR_PIN, LOW);
+
+    setButtonConfig(buttonOne.getButtonConfig(), handleButtonOneEvent);
+    setButtonConfig(buttonTwo.getButtonConfig(), handleButtonTwoEvent);
+    setButtonConfig(buttonThree.getButtonConfig(), handleButtonThreeEvent);
+    setButtonConfig(buttonFour.getButtonConfig(), handleButtonFourEvent);
+}
+
+void loop() {
+    buttonOne.check();
+    buttonTwo.check();
+    buttonThree.check();
+    buttonFour.check();
+
+    if(clockModule.isUpdateNeeded()) {
+        updateClock();
+    }
+}
+
+void showTime() {
+    printDateTime(clockModule.getTime());
+    ledControlModule.showTime(clockModule.getTime());
+}
+
+void updateClock() {
+    Serial.println("Connect to wifi and update clock.");
+    if (!wifiModule.isConnected()) {
+        wifiModule.connect();
+    }
+
+    clockModule.update();
+}
+
+void handleButtonOneEvent(AceButton* button, uint8_t eventType,
+                           uint8_t buttonState) {
+    switch (eventType) {
+        case AceButton::kEventClicked:
+            Serial.println("Button One Clicked");
+            if(showTimeTicker.active()) {
+                showTimeTicker.detach();
+                ledControlModule.disableLeds();
+            } else {
+                showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
+            }
+            break;
+        case AceButton::kEventLongPressed:
+            Serial.println("Button One Long Press");
+            break;
+    }
+}
+
+void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
+                          uint8_t buttonState) {
+    switch (eventType) {
+        case AceButton::kEventClicked:
+            Serial.println("Button Two Clicked");
+            break;
+        case AceButton::kEventLongPressed:
+            Serial.println("Button Two Long Press");
+            break;
+    }
+}
+
+void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
+                          uint8_t buttonState) {
+    switch (eventType) {
+        case AceButton::kEventClicked:
+            Serial.println("Button Three Clicked");
+            break;
+        case AceButton::kEventLongPressed:
+            Serial.println("Button Three Long Press");
+            break;
+    }
+}
+
+void handleButtonFourEvent(AceButton* button, uint8_t eventType,
+                           uint8_t buttonState) {
+    switch (eventType) {
+        case AceButton::kEventClicked:
+            Serial.println("Button Four Clicked");
+            updateClock();
+            break;
+        case AceButton::kEventLongPressed:
+            Serial.println("Button Four Long Press");
+            wifiModule.reset();
+            wifiModule.connect();
+            break;
+    }
+}
 
 void printDateTime(const RtcDateTime &dt) {
     char datestring[20];
@@ -29,77 +179,4 @@ void printDateTime(const RtcDateTime &dt) {
                dt.Minute(),
                dt.Second());
     Serial.println(datestring);
-}
-
-
-/*
-//gets called when WiFiManager enters configuration mode
-void configModeCallback (WiFiManager *myWiFiManager) {
-  Serial.println("Entered config mode");
-  Serial.println(WiFi.softAPIP());
-  //if you used auto generated SSID, print it
-  Serial.println(myWiFiManager->getConfigPortalSSID());
-}
-
-void setupWifiManager() {
-  WiFiManager wifiManager;
-  //reset settings - for testing
-  wifiManager.resetSettings();
-
-  wifiManager.setAPCallback(configModeCallback);
-
-  if(!wifiManager.autoConnect("QlockTwo No.1")) {
-    Serial.println("failed to connect and hit timeout");
-    //reset and try again, or maybe put it to deep sleep
-    ESP.reset();
-    delay(1000);
-  }
-
-  Serial.println("connected...yeey :)");
-}
-
-RgbColor white(128);
-*/
-
-void setup() {
-    Serial.begin(9600);
-
-    pinMode(BUILTIN_LED, OUTPUT);
-
-    clockModule.setup(CLOCK_TIMEZONE_OFFSET);
-
-    wifiModule.setup();
-
-    wifiModule.reset();
-
-    wifiModule.connect();
-
-    ledControlModule.setup(&pixelStrip);
-}
-
-
-void loop() {
-    /* pixelStrip.SetPixelColor(topo.Map(0, 0), white);
-     pixelStrip.Show();
-
-    /*const RtcDateTime time(2018, 6, 29, 10, 52, 0);*/
-
-    if(clockModule.isUpdateNeeded()) {
-        Serial.println("Update Clock");
-        if (!wifiModule.isConnected()) {
-            wifiModule.connect();
-        }
-
-        clockModule.update();
-    }
-
-    printDateTime(clockModule.getTime());
-
-    ledControlModule.setTime(clockModule.getTime());
-
-    Serial.println("loop start");
-    digitalWrite(BUILTIN_LED, HIGH);
-    delay(1000);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(1000);
 }
