@@ -5,6 +5,9 @@
 #include "WifiModule.h"
 #include "Settings.h"
 #include "AceButton.h"
+#include "SimpleTime.h"
+#include "ConfigModule.h"
+
 using namespace ace_button;
 
 // Member Variables
@@ -16,12 +19,17 @@ ClockModule clockModule(Wire, CLOCK_UPDATE_INTERVAL);
 
 WifiModule wifiModule(DEVICE_NAME);
 
+ConfigModule configModule(CONFIG_FILE_PATH);
+
 AceButton buttonOne(new ButtonConfig());
 AceButton buttonTwo(new ButtonConfig());
 AceButton buttonThree(new ButtonConfig());
 AceButton buttonFour(new ButtonConfig());
 
 Ticker showTimeTicker;
+Ticker updateTimeTicker;
+
+Config config;
 
 // Function Declaration
 void handleButtonOneEvent(AceButton*, uint8_t, uint8_t);
@@ -35,6 +43,8 @@ void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler even
 void setupButtons();
 void showTime();
 
+void saveConfigCallback();
+
 void printDateTime(const RtcDateTime &dt);
 
 void setup() {
@@ -42,19 +52,56 @@ void setup() {
 
     pinMode(BUILTIN_LED, OUTPUT);
 
+    Serial.println("Setup start.");
+
+    /*String timeString = "3:55";
+    uint16_t a, b;
+    sscanf(timeString.c_str(), "%hu:%hu", &a, &b);
+    Serial.println(String("test: ") + String(a) + "::" + String(b));
+
+    SimpleTime simpleTime("3:55");
+    Serial.println(String("simpleTime: ") + String(simpleTime.getHour()) + "::" + String(simpleTime.getMinute()));
+    String s = simpleTime.toString();
+    Serial.println(s);*/
+
+    configModule.setup();
+    config = configModule.loadConfig();
+    Serial.println("Config loaded:");
+    Serial.println("Config.enableTime: " + config.enableTime.toString());
+    Serial.println("Config.disableTime: " + config.disableTime.toString());
+
+    /*SimpleTime st;
+    st = parse("21:30");
+    Serial.println("hour: " + String(st.tm_hour));
+    Serial.println("minute: " + String(st.tm_min));
+    Serial.println("simpleTime: " + toString(st));*/
+
+    /*Config config;
+    config.enableTime = parseSimpleTime("07:30");
+    config.disableTime = parse("21:30");
+
+    Serial.println("saveConfig:");
+    configModule.saveConfig(config);*/
+
+    Serial.println("loadConfig:");
+    Config readConfig = configModule.loadConfig();
+
     setupButtons();
 
     clockModule.setup(CLOCK_TIMEZONE_OFFSET);
 
-    wifiModule.setup();
+    wifiModule.setup(saveConfigCallback);
     //wifiModule.reset();
     wifiModule.connect();
 
     ledControlModule.setup(&pixelStrip);
 
     showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
+    updateTimeTicker.attach(CLOCK_UPDATE_INTERVAL, updateClock);
 
     Serial.println("Setup done.");
+
+
 }
 
 void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler eventHandler) {
@@ -89,15 +136,36 @@ void loop() {
     buttonTwo.check();
     buttonThree.check();
     buttonFour.check();
+}
 
-    if(clockModule.isUpdateNeeded()) {
-        updateClock();
-    }
+void saveConfigCallback() {
+    Serial.println("Save callback.");
+    config = wifiModule.getConfig();
+    configModule.saveConfig(config);
+}
+
+SimpleTime convert(const RtcDateTime& rtcDateTime) {
+    return SimpleTime(rtcDateTime.Hour(), rtcDateTime.Minute());
 }
 
 void showTime() {
-    printDateTime(clockModule.getTime());
-    ledControlModule.showTime(clockModule.getTime());
+    Serial.println("disableTime: " + config.disableTime.toString());
+    Serial.println("enableTime: " + config.enableTime.toString());
+
+    if(!clockModule.isDateTimeValid()) {
+        updateClock();
+    }
+
+    const RtcDateTime dt = clockModule.getTime();
+    const SimpleTime st = convert(dt);
+
+    if(config.disableTime != config.enableTime &&
+        (config.disableTime <= st || config.enableTime >= st)) {
+        printDateTime(dt);
+        ledControlModule.showTime(dt);
+    } else {
+        ledControlModule.disableLeds();
+    }
 }
 
 void updateClock() {

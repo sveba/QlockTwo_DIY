@@ -15,19 +15,24 @@
 #include <DNSServer.h>            //Local DNS Server used for redirecting all requests to the configuration portal
 #include <ESP8266WebServer.h>     //Local WebServer used to serve the configuration portal
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include "ConfigModule.h"
 
 class WifiModule {
 private:
     String deviceName;
     WiFiManager wifiManager;
     //void configModeCallback (WiFiManager *myWiFiManager);
+
+    WiFiManagerParameter parameterEnableTime = WiFiManagerParameter("enable_time", "Enable Time (HH:MM)", "", 6);
+    WiFiManagerParameter parameterDisableTime = WiFiManagerParameter("disable_time", "Disable Time (HH:MM)", "", 6);
 public:
     WifiModule(String _deviceName);
     ~WifiModule();
-    void setup();
+    void setup(void (*func)(void));
     bool isConnected();
     bool connect();
     void reset();
+    Config getConfig();
 protected:
 
 };

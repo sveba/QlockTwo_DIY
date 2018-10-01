@@ -20,11 +20,13 @@ typedef RowMajorAlternating270Layout MyPanelLayout;
 
 class LedControlModule {
 private:
+    // enum States { DISABLED, SHOWING_TIME, WIRELESS_ANIMATION, FEEDBACK_ANIMATION };
     NeoPixelBusType* pixelStrip;
     NeoTopology<MyPanelLayout> topo;
     void enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& ledColor);
     void enableLedWord(const LedWord* ledWord, RgbwColor& ledColor);
     void enableMinuteDots(int n, RgbwColor& ledColor);
+    // States state;
 public:
     LedControlModule(NeoTopology<MyPanelLayout> _topo);
     ~LedControlModule();

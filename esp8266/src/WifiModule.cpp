@@ -20,8 +20,12 @@ void configModeCallback (WiFiManager *myWiFiManager) {
   Serial.println(myWiFiManager->getConfigPortalSSID());
 }
 
-void WifiModule::setup() {
+void WifiModule::setup(void (*func)(void)) {
     wifiManager.setAPCallback(configModeCallback);
+    wifiManager.setSaveConfigCallback(func);
+
+    wifiManager.addParameter(&parameterDisableTime);
+    wifiManager.addParameter(&parameterEnableTime);
   //void (WifiModule::*func)(WiFiManager *myWiFiManager);
   //func = &WifiModule::configModeCallback;
 }
@@ -49,4 +53,14 @@ bool WifiModule::connect() {
 void WifiModule::reset() {
     Serial.println("WifiModule: Reset.");
     wifiManager.resetSettings();
+}
+
+Config WifiModule::getConfig() {
+    Config config;
+    config.enableTime = SimpleTime::parse(parameterEnableTime.getValue());
+    config.disableTime = SimpleTime::parse(parameterDisableTime.getValue());
+
+    Serial.println("Config.enableTime: " + config.enableTime.toString());
+    Serial.println("Config.disableTime: " + config.disableTime.toString());
+    return config;
 }

@@ -29,7 +29,7 @@ void LedControlModule::showTime(const RtcDateTime rtcDateTime, RgbwColor ledColo
 void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& ledColor) {
     enableLedWord(&PREFIX_IT, ledColor);
     enableLedWord(&PREFIX_IS, ledColor);
-    switch(rtcDateTime.Minute()/5){
+    switch(rtcDateTime.Minute() / 5){
         case 0:
             enableLedWord(&SUFFIX_OCLOCK, ledColor);
             break;
@@ -98,4 +98,6 @@ void LedControlModule::enableMinuteDots(int n, RgbwColor& ledColor) {
 void LedControlModule::disableLeds() {
     pixelStrip->ClearTo(RgbwColor(0));
     pixelStrip->Show();
+
+//    state = DISABLED;
 };

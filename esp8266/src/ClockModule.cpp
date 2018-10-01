@@ -7,13 +7,18 @@
 //
 
 #include "ClockModule.h"
+#include <Arduino.h>
+
+#ifndef countof
+#define countof(array) (sizeof(array)/sizeof(array[0]))
+#endif
 
 /**
  * ClockModule is handling the RTC and keeps it updated over NTP.
  * @param _rtc
  * @param _updateInterval Interval of updating RTC in Seconds
  */
-ClockModule::ClockModule(RtcDS3231<TwoWire> _rtc, long _updateInterval) : rtc(_rtc), updateInterval(_updateInterval), timeClient(ntpUDP) {}
+ClockModule::ClockModule(RtcDS3231<TwoWire> _rtc, long _updateInterval) : rtc(_rtc), timeClient(ntpUDP) {}
 ClockModule::~ClockModule() {}
 
 void ClockModule::setup(int timeOffset) {
@@ -32,8 +37,23 @@ void ClockModule::setup(int timeOffset) {
  * Either true if rtc time is not valid or the updateInterval is reached.
  * @return
  */
-bool ClockModule::isUpdateNeeded() {
-    return !rtc.IsDateTimeValid() || ((getTime().TotalSeconds() - lastUpdated.TotalSeconds()) >= updateInterval);
+bool ClockModule::isDateTimeValid() {
+    return rtc.IsDateTimeValid();
+}
+
+void printDateTimel(const RtcDateTime &dt) {
+    char datestring[20];
+
+    snprintf_P(datestring,
+               countof(datestring),
+               PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
+               dt.Month(),
+               dt.Day(),
+               dt.Year(),
+               dt.Hour(),
+               dt.Minute(),
+               dt.Second());
+    Serial.println(datestring);
 }
 
 /**
@@ -48,10 +68,10 @@ void ClockModule::update() {
 
     RtcDateTime ntpRtcDateTime;
     ntpRtcDateTime.InitWithEpoch32Time(ntpTime);
+    Serial.print("NTPtime: ");
+    printDateTimel(ntpRtcDateTime);
 
     rtc.SetDateTime(ntpRtcDateTime);
-
-    lastUpdated = ntpRtcDateTime;
 }
 
 /*

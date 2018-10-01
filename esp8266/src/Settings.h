@@ -22,4 +22,6 @@ const int CLOCK_TIMEZONE_OFFSET = 7200;
 
 const String DEVICE_NAME = "QlockTwo_No1";
 
+static const char *const CONFIG_FILE_PATH = "/config.json";
+
 #endif //Settings_H

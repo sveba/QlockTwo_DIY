@@ -21,13 +21,11 @@ private:
   RtcDS3231<TwoWire> rtc;
   WiFiUDP ntpUDP;
   NTPClient timeClient;
-  RtcDateTime lastUpdated;
-  long updateInterval = 0;
 public:
     ClockModule(RtcDS3231<TwoWire> _rtc, long _updateInterval);
     ~ClockModule();
     void setup(int timeOffset);
-    bool isUpdateNeeded();
+    bool isDateTimeValid();
     void update();
     RtcDateTime getTime();
 protected:
