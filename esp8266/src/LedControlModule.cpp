@@ -21,7 +21,7 @@ void LedControlModule::setup(NeoPixelBusType* _pixelStrip) {
     pixelStrip->Show();*/
 };
 
-void LedControlModule::setTime(const RtcDateTime rtcDateTime, RgbwColor ledColor){
+void LedControlModule::showTime(const RtcDateTime rtcDateTime, RgbwColor ledColor){
     pixelStrip->ClearTo(RgbwColor(0));
     enableLedWords(rtcDateTime, ledColor);
 
@@ -87,13 +87,13 @@ void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& 
 
     }
 
-    enableLedWord(&HOURS[20], ledColor);
+    //enableLedWord(&HOURS[5], ledColor);
 
-    /*if (fiveminutes <= 5){
+    if (fiveminutes <= 5){
       enableLedWord(&HOURS[rtcDateTime.Hour() - 1], ledColor);
     } else{
       enableLedWord(&HOURS[rtcDateTime.Hour()], ledColor);
-    } */
+    } 
 
 
 };
