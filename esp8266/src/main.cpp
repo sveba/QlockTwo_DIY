@@ -19,15 +19,15 @@ ClockModule clockModule(Wire, CLOCK_UPDATE_INTERVAL);
 
 WifiModule wifiModule(DEVICE_NAME);
 
-ConfigModule configModule(CONFIG_FILE_PATH);
+//ConfigModule configModule(CONFIG_FILE_PATH);
 
 AceButton buttonOne(new ButtonConfig());
 AceButton buttonTwo(new ButtonConfig());
 AceButton buttonThree(new ButtonConfig());
 AceButton buttonFour(new ButtonConfig());
 
-Ticker showTimeTicker;
-Ticker updateTimeTicker;
+//Ticker showTimeTicker;
+//Ticker updateTimeTicker;
 
 Config config;
 
@@ -47,8 +47,13 @@ void saveConfigCallback();
 
 void printDateTime(const RtcDateTime &dt);
 
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP);
+
 void setup() {
     Serial.begin(9600);
+
+//    timeClient.setUpdateInterval(1);
 
     pinMode(BUILTIN_LED, OUTPUT);
 
@@ -64,12 +69,12 @@ void setup() {
     String s = simpleTime.toString();
     Serial.println(s);*/
 
-    configModule.setup();
+    /*configModule.setup();
     config = configModule.loadConfig();
     Serial.println("Config loaded:");
     Serial.println("Config.enableTime: " + config.enableTime.toString());
     Serial.println("Config.disableTime: " + config.disableTime.toString());
-
+*/
     /*SimpleTime st;
     st = parse("21:30");
     Serial.println("hour: " + String(st.tm_hour));
@@ -84,20 +89,25 @@ void setup() {
     configModule.saveConfig(config);*/
 
     Serial.println("loadConfig:");
-    Config readConfig = configModule.loadConfig();
+    //Config readConfig = configModule.loadConfig();
 
     setupButtons();
 
-    clockModule.setup(CLOCK_TIMEZONE_OFFSET);
+
 
     wifiModule.setup(saveConfigCallback);
     //wifiModule.reset();
     wifiModule.connect();
 
+    //clockModule.setup(CLOCK_TIMEZONE_OFFSET);
+
+    timeClient.begin();
+    //timeClient.setTimeOffset(7200);
+
     ledControlModule.setup(&pixelStrip);
 
-    showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
-    updateTimeTicker.attach(CLOCK_UPDATE_INTERVAL, updateClock);
+    //showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
+    //updateTimeTicker.attach(CLOCK_UPDATE_INTERVAL, updateClock);
 
     Serial.println("Setup done.");
 
@@ -132,6 +142,17 @@ void setupButtons() {
 }
 
 void loop() {
+    bool succ = timeClient.update();
+    if(succ) {
+        Serial.println("updated ntp worked");
+    } else {
+        Serial.println("updated ntp failed");
+    }
+
+    delay(1000);
+
+    Serial.println("new ntpclient: " +timeClient.getFormattedTime());
+
     buttonOne.check();
     buttonTwo.check();
     buttonThree.check();
@@ -140,8 +161,8 @@ void loop() {
 
 void saveConfigCallback() {
     Serial.println("Save callback.");
-    config = wifiModule.getConfig();
-    configModule.saveConfig(config);
+    //config = wifiModule.getConfig();
+    //configModule.saveConfig(config);
 }
 
 SimpleTime convert(const RtcDateTime& rtcDateTime) {
@@ -149,8 +170,18 @@ SimpleTime convert(const RtcDateTime& rtcDateTime) {
 }
 
 void showTime() {
-    Serial.println("disableTime: " + config.disableTime.toString());
-    Serial.println("enableTime: " + config.enableTime.toString());
+    bool succ = timeClient.forceUpdate();
+    if(succ) {
+        Serial.println("updated ntp worked");
+    } else {
+        Serial.println("updated ntp failed");
+    }
+
+
+    Serial.println("new ntpclient: " +timeClient.getFormattedTime());
+
+    //Serial.println("disableTime: " + config.disableTime.toString());
+    //Serial.println("enableTime: " + config.enableTime.toString());
 
     if(!clockModule.isDateTimeValid()) {
         updateClock();
@@ -182,12 +213,12 @@ void handleButtonOneEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button One Clicked");
-            if(showTimeTicker.active()) {
+            /*if(showTimeTicker.active()) {
                 showTimeTicker.detach();
                 ledControlModule.disableLeds();
             } else {
                 showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
-            }
+            }*/
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button One Long Press");

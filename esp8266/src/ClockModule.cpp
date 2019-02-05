@@ -23,7 +23,7 @@ ClockModule::~ClockModule() {}
 
 void ClockModule::setup(int timeOffset) {
     timeClient.begin();
-    timeClient.setTimeOffset(timeOffset);
+    timeClient.setTimeOffset(7200);
 
     rtc.Begin();
 
@@ -64,11 +64,12 @@ void ClockModule::update() {
     Serial.println("ClockModule: Update Clock.");
 
     timeClient.forceUpdate();
+    Serial.println("real NtpTime: " + timeClient.getFormattedTime());
     long ntpTime = timeClient.getEpochTime();
 
     RtcDateTime ntpRtcDateTime;
     ntpRtcDateTime.InitWithEpoch32Time(ntpTime);
-    Serial.print("NTPtime: ");
+    Serial.print("Converted NTPtime: ");
     printDateTimel(ntpRtcDateTime);
 
     rtc.SetDateTime(ntpRtcDateTime);
@@ -79,4 +80,9 @@ void ClockModule::update() {
  */
 RtcDateTime ClockModule::getTime() {
     return rtc.GetDateTime();
+}
+
+RtcDateTime ClockModule::getLocalTime() {
+
+    return RtcDateTime();
 }

@@ -28,6 +28,7 @@ public:
     bool isDateTimeValid();
     void update();
     RtcDateTime getTime();
+    RtcDateTime getLocalTime();
 protected:
 
 };
