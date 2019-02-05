@@ -17,19 +17,19 @@ void LedControlModule::setup(NeoPixelBusType* _pixelStrip) {
     pixelStrip->Show();
 };
 
-void LedControlModule::showTime(const RtcDateTime rtcDateTime, RgbwColor ledColor){
+void LedControlModule::showTime(const SimpleTime simpleTime, RgbwColor ledColor){
     pixelStrip->ClearTo(RgbwColor(0));
-    enableLedWords(rtcDateTime, ledColor);
+    enableLedWords(simpleTime, ledColor);
 
-    int minuteDots = rtcDateTime.Minute() % 5;
+    int minuteDots = simpleTime.getMinute() % 5;
     enableMinuteDots(minuteDots, ledColor);
     pixelStrip->Show();
 };
 
-void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& ledColor) {
+void LedControlModule::enableLedWords(const SimpleTime simpleTime, RgbwColor& ledColor) {
     enableLedWord(&PREFIX_IT, ledColor);
     enableLedWord(&PREFIX_IS, ledColor);
-    int fiveminutes = rtcDateTime.Minute()/5;
+    int fiveminutes = simpleTime.getMinute() / 5;
 
     switch(fiveminutes){
         case 0:
@@ -84,9 +84,9 @@ void LedControlModule::enableLedWords(const RtcDateTime rtcDateTime, RgbwColor& 
     //enableLedWord(&HOURS[5], ledColor);
 
     if (fiveminutes <= 5){
-      enableLedWord(&HOURS[rtcDateTime.Hour() - 1], ledColor);
+      enableLedWord(&HOURS[simpleTime.getHour() - 1], ledColor);
     } else{
-      enableLedWord(&HOURS[rtcDateTime.Hour()], ledColor);
+      enableLedWord(&HOURS[simpleTime.getHour()], ledColor);
     } 
 };
 

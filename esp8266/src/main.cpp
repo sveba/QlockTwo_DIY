@@ -15,11 +15,11 @@ NeoTopology<MyPanelLayout> topo(PANEL_WIDTH, PANEL_HEIGHT);
 LedControlModule ledControlModule(topo);
 NeoPixelBusType pixelStrip(PIXEL_COUNT);
 
-ClockModule clockModule(Wire, CLOCK_UPDATE_INTERVAL);
+ClockModule clockModule(Wire, LOCAL_TIMEZONE);
 
 WifiModule wifiModule(DEVICE_NAME);
 
-//ConfigModule configModule(CONFIG_FILE_PATH);
+ConfigModule configModule(CONFIG_FILE_PATH);
 
 AceButton buttonOne(new ButtonConfig());
 AceButton buttonTwo(new ButtonConfig());
@@ -45,15 +45,12 @@ void showTime();
 
 void saveConfigCallback();
 
-void printDateTime(const RtcDateTime &dt);
-
-WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP);
+unsigned long lastClockUpdate = 0;
+unsigned long lastShowTime = 0;
+bool ledDisabled = false;
 
 void setup() {
     Serial.begin(9600);
-
-//    timeClient.setUpdateInterval(1);
 
     pinMode(BUILTIN_LED, OUTPUT);
 
@@ -89,29 +86,26 @@ void setup() {
     configModule.saveConfig(config);*/
 
     Serial.println("loadConfig:");
-    //Config readConfig = configModule.loadConfig();
+    configModule.setup();
+    config = configModule.loadConfig();
 
     setupButtons();
-
-
 
     wifiModule.setup(saveConfigCallback);
     //wifiModule.reset();
     wifiModule.connect();
 
-    //clockModule.setup(CLOCK_TIMEZONE_OFFSET);
-
-    timeClient.begin();
-    //timeClient.setTimeOffset(7200);
+    clockModule.setup();
 
     ledControlModule.setup(&pixelStrip);
 
-    //showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
-    //updateTimeTicker.attach(CLOCK_UPDATE_INTERVAL, updateClock);
+    updateClock();
+    lastClockUpdate = millis();
+
+    showTime();
+    lastShowTime = millis();
 
     Serial.println("Setup done.");
-
-
 }
 
 void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler eventHandler) {
@@ -141,17 +135,22 @@ void setupButtons() {
     setButtonConfig(buttonFour.getButtonConfig(), handleButtonFourEvent);
 }
 
+
+
 void loop() {
-    bool succ = timeClient.update();
-    if(succ) {
-        Serial.println("updated ntp worked");
-    } else {
-        Serial.println("updated ntp failed");
+    /*Serial.println("millis: " + String(millis()));
+    Serial.println("lastClockUpdate: " + String(lastClockUpdate));
+    Serial.println("lastClockUpdate diff: " + String(millis() - lastClockUpdate));*/
+
+    if((millis() - lastClockUpdate) > (CLOCK_UPDATE_INTERVAL * 1000)) {
+        updateClock();
+        lastClockUpdate = millis();
     }
 
-    delay(1000);
-
-    Serial.println("new ntpclient: " +timeClient.getFormattedTime());
+    if((millis() - lastShowTime) > (TIME_UPDATE_INTERVAL * 1000) && !ledDisabled) {
+        showTime();
+        lastShowTime = millis();
+    }
 
     buttonOne.check();
     buttonTwo.check();
@@ -161,40 +160,27 @@ void loop() {
 
 void saveConfigCallback() {
     Serial.println("Save callback.");
-    //config = wifiModule.getConfig();
-    //configModule.saveConfig(config);
-}
-
-SimpleTime convert(const RtcDateTime& rtcDateTime) {
-    return SimpleTime(rtcDateTime.Hour(), rtcDateTime.Minute());
+    config = wifiModule.getConfig();
+    configModule.saveConfig(config);
 }
 
 void showTime() {
-    bool succ = timeClient.forceUpdate();
-    if(succ) {
-        Serial.println("updated ntp worked");
-    } else {
-        Serial.println("updated ntp failed");
-    }
-
-
-    Serial.println("new ntpclient: " +timeClient.getFormattedTime());
-
-    //Serial.println("disableTime: " + config.disableTime.toString());
-    //Serial.println("enableTime: " + config.enableTime.toString());
+    Serial.println("disableTime: " + config.disableTime.toString());
+    Serial.println("enableTime: " + config.enableTime.toString());
 
     if(!clockModule.isDateTimeValid()) {
         updateClock();
     }
 
-    const RtcDateTime dt = clockModule.getTime();
-    const SimpleTime st = convert(dt);
+    const SimpleTime st = clockModule.getLocalSimpleTime();
 
-    if(config.disableTime != config.enableTime &&
-        (config.disableTime <= st || config.enableTime >= st)) {
-        printDateTime(dt);
-        ledControlModule.showTime(dt);
+    if(config.disableTime == config.enableTime ||
+        !(((config.disableTime > config.enableTime) && (config.disableTime <= st && config.enableTime <= st)) ||
+        ((config.disableTime < config.enableTime) && (config.disableTime <= st && config.enableTime >= st)))) {
+        Serial.println("Show Time: " + st.toString());
+        ledControlModule.showTime(st);
     } else {
+        Serial.println("Show Time: LED DISABLED");
         ledControlModule.disableLeds();
     }
 }
@@ -205,6 +191,8 @@ void updateClock() {
         wifiModule.connect();
     }
 
+    //delay(2000);
+
     clockModule.update();
 }
 
@@ -213,12 +201,15 @@ void handleButtonOneEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button One Clicked");
-            /*if(showTimeTicker.active()) {
-                showTimeTicker.detach();
+            if(!ledDisabled) {
+                Serial.println("Disable LED");
                 ledControlModule.disableLeds();
+                ledDisabled = true;
             } else {
-                showTimeTicker.attach(TIME_UPDATE_INTERVAL, showTime);
-            }*/
+                Serial.println("Enable LED");
+                showTime();
+                ledDisabled = false;
+            }
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button One Long Press");
@@ -260,22 +251,8 @@ void handleButtonFourEvent(AceButton* button, uint8_t eventType,
         case AceButton::kEventLongPressed:
             Serial.println("Button Four Long Press");
             wifiModule.reset();
+            delay(1000);
             wifiModule.connect();
             break;
     }
-}
-
-void printDateTime(const RtcDateTime &dt) {
-    char datestring[20];
-
-    snprintf_P(datestring,
-               countof(datestring),
-               PSTR("%02u/%02u/%04u %02u:%02u:%02u"),
-               dt.Month(),
-               dt.Day(),
-               dt.Year(),
-               dt.Hour(),
-               dt.Minute(),
-               dt.Second());
-    Serial.println(datestring);
 }
