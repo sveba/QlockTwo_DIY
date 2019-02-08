@@ -17,7 +17,7 @@ void LedControlModule::setup(NeoPixelBusType* _pixelStrip) {
     pixelStrip->Show();
 };
 
-void LedControlModule::showTime(const SimpleTime simpleTime, RgbwColor ledColor){
+void LedControlModule::showTime(const SimpleTime &simpleTime, const RgbwColor &ledColor) {
     pixelStrip->ClearTo(RgbwColor(0));
     enableLedWords(simpleTime, ledColor);
 
@@ -26,12 +26,18 @@ void LedControlModule::showTime(const SimpleTime simpleTime, RgbwColor ledColor)
     pixelStrip->Show();
 };
 
-void LedControlModule::enableLedWords(const SimpleTime simpleTime, RgbwColor& ledColor) {
+void LedControlModule::showConfigWifi(const RgbwColor &ledColor) {
+    pixelStrip->ClearTo(RgbwColor(0));
+    enableLedWord(&WORD_FUNK, ledColor);
+    pixelStrip->Show();
+}
+
+void LedControlModule::enableLedWords(const SimpleTime &simpleTime, const RgbwColor &ledColor) {
     enableLedWord(&PREFIX_IT, ledColor);
     enableLedWord(&PREFIX_IS, ledColor);
-    int fiveminutes = simpleTime.getMinute() / 5;
+    int fiveMinutes = simpleTime.getMinute() / 5;
 
-    switch(fiveminutes){
+    switch(fiveMinutes){
         case 0:
             enableLedWord(&SUFFIX_OCLOCK, ledColor);
             break;
@@ -69,7 +75,8 @@ void LedControlModule::enableLedWords(const SimpleTime simpleTime, RgbwColor& le
             enableLedWord(&INFIX_BEFORE, ledColor);
             break;
         case 9:
-            enableLedWord(&MINUTE_THREEQUARTER, ledColor);
+            enableLedWord(&MINUTE_QUARTER, ledColor);
+            enableLedWord(&INFIX_BEFORE, ledColor);
             break;
         case 10:
             enableLedWord(&MINUTE_TEN, ledColor);
@@ -81,24 +88,24 @@ void LedControlModule::enableLedWords(const SimpleTime simpleTime, RgbwColor& le
             break;
     }
 
-    //enableLedWord(&HOURS[5], ledColor);
-
-    if (fiveminutes <= 5){
-      enableLedWord(&HOURS[simpleTime.getHour() - 1], ledColor);
+    if (fiveMinutes < 5){
+        int hourIndex = (simpleTime.getHour() + 11) % 12;
+        enableLedWord(&HOURS[hourIndex], ledColor);
     } else{
-      enableLedWord(&HOURS[simpleTime.getHour()], ledColor);
-    } 
+        int hourIndex = (simpleTime.getHour()) % 12;
+        enableLedWord(&HOURS[hourIndex], ledColor);
+    }
 };
 
-void LedControlModule::enableLedWord(const LedWord* ledWord, RgbwColor& ledColor) {
+void LedControlModule::enableLedWord(const LedWord* ledWord, const RgbwColor &ledColor) {
     for (int j = 0; j < ledWord->getLength(); j++) {
         pixelStrip->SetPixelColor(topo.Map(ledWord->getFirstPixelX() + j, ledWord->getFirstPixelY()), ledColor);
     }
 }
 
-void LedControlModule::enableMinuteDots(int n, RgbwColor& ledColor) {
+void LedControlModule::enableMinuteDots(int n, const RgbwColor &ledColor) {
     for (int i = 1; i <= n; i++) {
-        int j = 111 + ((i + 3) % 4);
+        int j = 110 + ((i + 2) % 4);
         pixelStrip->SetPixelColor(j, ledColor);
     }
 }
@@ -106,6 +113,4 @@ void LedControlModule::enableMinuteDots(int n, RgbwColor& ledColor) {
 void LedControlModule::disableLeds() {
     pixelStrip->ClearTo(RgbwColor(0));
     pixelStrip->Show();
-
-//    state = DISABLED;
 };

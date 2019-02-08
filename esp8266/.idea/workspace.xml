@@ -2,17 +2,17 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="esp8266" targetName="PLATFORMIO" />
-      <config projectName="esp8266" targetName="PLATFORMIO_REBUILD_PROJECT_INDEX" />
-      <config projectName="esp8266" targetName="esp8266" />
-      <config projectName="esp8266" targetName="PLATFORMIO_UPDATE_ALL" />
-      <config projectName="esp8266" targetName="PLATFORMIO_PROGRAM" />
-      <config projectName="esp8266" targetName="PLATFORMIO_UPLOAD" />
-      <config projectName="esp8266" targetName="DEBUG" />
-      <config projectName="esp8266" targetName="PLATFORMIO_TEST" />
-      <config projectName="esp8266" targetName="PLATFORMIO_BUILD" />
       <config projectName="esp8266" targetName="PLATFORMIO_CLEAN" />
       <config projectName="esp8266" targetName="PLATFORMIO_UPLOADFS" />
+      <config projectName="esp8266" targetName="PLATFORMIO_PROGRAM" />
+      <config projectName="esp8266" targetName="PLATFORMIO_BUILD" />
+      <config projectName="esp8266" targetName="PLATFORMIO" />
+      <config projectName="esp8266" targetName="PLATFORMIO_REBUILD_PROJECT_INDEX" />
+      <config projectName="esp8266" targetName="PLATFORMIO_TEST" />
+      <config projectName="esp8266" targetName="PLATFORMIO_UPDATE_ALL" />
+      <config projectName="esp8266" targetName="DEBUG" />
+      <config projectName="esp8266" targetName="PLATFORMIO_UPLOAD" />
+      <config projectName="esp8266" targetName="esp8266" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -22,15 +22,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec922180-b3d3-40f1-af0b-2568113a9075" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/clion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/clion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platformio.ini" beforeDir="false" afterPath="$PROJECT_DIR$/platformio.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClockModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClockModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClockModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClockModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AmbientLightModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/AmbientLightModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LedControlModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/LedControlModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LedControlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LedControlModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Settings.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LedMapping.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/LedMapping.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <ignored path="platformio.iws" />
@@ -52,31 +50,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClockModule.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-              <folding>
-                <element signature="e#127#145#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ClockModule.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="173" column="16" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
+            <state relative-caret-position="277">
+              <caret line="166" column="71" selection-start-line="166" selection-start-column="71" selection-end-line="166" selection-end-column="71" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -84,11 +61,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConfigModule.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConfigModule.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SimpleTime.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+            <state relative-caret-position="55">
+              <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -96,26 +91,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Settings.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="30" />
+            <state relative-caret-position="311">
+              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AmbientLightModule.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AmbientLightModule.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LedControlModule.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+            <state relative-caret-position="168">
+              <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LedMapping.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-150" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LedControlModule.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="311">
+              <caret line="36" column="77" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="77" />
               <folding>
                 <element signature="e#142#160#0" expanded="true" />
               </folding>
@@ -137,19 +153,20 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/SimpleTime.h" />
-        <option value="$PROJECT_DIR$/src/LedControlModule.h" />
-        <option value="$PROJECT_DIR$/src/LedControlModule.cpp" />
         <option value="$PROJECT_DIR$/src/Settings.h" />
         <option value="$PROJECT_DIR$/src/ClockModule.h" />
         <option value="$PROJECT_DIR$/src/ClockModule.cpp" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/src/AmbientLightModule.h" />
+        <option value="$PROJECT_DIR$/src/LedControlModule.h" />
+        <option value="$PROJECT_DIR$/src/LedControlModule.cpp" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1400" />
+    <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -173,7 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,6 +206,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -198,6 +215,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/platformio.ini" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunDashboard">
@@ -294,30 +312,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1435919971910</updated>
-      <workItem from="1549395491474" duration="2516000" />
+      <workItem from="1549395491474" duration="2735000" />
+      <workItem from="1549548965274" duration="6273000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2516000" />
+    <option name="totallyTimeSpent" value="9008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info active="true" id="Project" order="0" visible="true" weight="0.24606581" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Serial Monitor" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.3299363" />
-      <window_info anchor="bottom" id="Find" />
-      <window_info anchor="bottom" id="CMake" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="right" id="Database" />
+      <window_info active="true" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="3" />
+      <window_info anchor="bottom" id="CMake" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Serial Monitor" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.3299363" />
+      <window_info anchor="right" id="Database" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,26 +351,9 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/LedControlModule.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LedControlModule.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding>
-            <element signature="e#142#160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ClockModule.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
+        <state relative-caret-position="525">
           <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
           <folding>
             <element signature="e#127#145#0" expanded="true" />
@@ -361,32 +363,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClockModule.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="243">
+          <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SimpleTime.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="44" column="18" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConfigModule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConfigModule.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Settings.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="30" />
+        <state relative-caret-position="311">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AmbientLightModule.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AmbientLightModule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="173" column="16" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
+        <state relative-caret-position="277">
+          <caret line="166" column="71" selection-start-line="166" selection-start-column="71" selection-end-line="166" selection-end-column="71" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SimpleTime.h">
+    <entry file="file://$PROJECT_DIR$/src/LedControlModule.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        <state relative-caret-position="311">
+          <caret line="36" column="77" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="77" />
+          <folding>
+            <element signature="e#142#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LedMapping.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LedControlModule.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
         </state>
       </provider>
     </entry>

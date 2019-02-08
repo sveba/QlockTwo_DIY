@@ -13,7 +13,7 @@ public:
     AmbientLightModule();
     ~AmbientLightModule();
     void setup(int pinNumber);
-    void setBrightnessCorrection(int correctio);
+    void setBrightnessCorrection(int correction);
     int getBrightnessCorrection();
     int getBrightness();
 };

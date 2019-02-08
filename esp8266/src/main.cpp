@@ -49,7 +49,14 @@ unsigned long lastClockUpdate = 0;
 unsigned long lastShowTime = 0;
 bool ledDisabled = false;
 
+time_t timeTester;
+SimpleTime simpleTimeTester;
+
 void setup() {
+    timeTester = clockModule.getUtcTime();
+    simpleTimeTester.setHour(hour(timeTester));
+    simpleTimeTester.setMinute(minute(timeTester));
+
     Serial.begin(9600);
 
     pinMode(BUILTIN_LED, OUTPUT);
@@ -99,11 +106,11 @@ void setup() {
 
     ledControlModule.setup(&pixelStrip);
 
-    updateClock();
+    /*updateClock();
     lastClockUpdate = millis();
 
     showTime();
-    lastShowTime = millis();
+    lastShowTime = millis();*/
 
     Serial.println("Setup done.");
 }
@@ -135,7 +142,16 @@ void setupButtons() {
     setButtonConfig(buttonFour.getButtonConfig(), handleButtonFourEvent);
 }
 
+SimpleTime convertToSimpleTimel(const time_t &time) {
+    return SimpleTime(hour(time), minute(time));
+}
 
+void test() {
+    //tt += 60;
+    const SimpleTime st = convertToSimpleTimel(timeTester);
+    ledControlModule.showTime(st);
+    Serial.println("Show Test Time: " + st.toString());
+}
 
 void loop() {
     /*Serial.println("millis: " + String(millis()));
@@ -151,6 +167,11 @@ void loop() {
         showTime();
         lastShowTime = millis();
     }
+
+    //showTime();
+    //test();
+
+    //delay(100);
 
     buttonOne.check();
     buttonTwo.check();
@@ -175,8 +196,8 @@ void showTime() {
     const SimpleTime st = clockModule.getLocalSimpleTime();
 
     if(config.disableTime == config.enableTime ||
-        !(((config.disableTime > config.enableTime) && (config.disableTime <= st && config.enableTime <= st)) ||
-        ((config.disableTime < config.enableTime) && (config.disableTime <= st && config.enableTime >= st)))) {
+        !(((config.disableTime > config.enableTime) && (config.disableTime <= st && config.enableTime < st)) ||
+        ((config.disableTime < config.enableTime) && (config.disableTime <= st && config.enableTime > st)))) {
         Serial.println("Show Time: " + st.toString());
         ledControlModule.showTime(st);
     } else {
@@ -222,6 +243,7 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button Two Clicked");
+            timeTester += 3600;
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Two Long Press");
