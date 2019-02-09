@@ -25,6 +25,15 @@ const Timezone LOCAL_TIMEZONE(TIME_CHANGE_RULE_DST, TIME_CHANGE_RULE_STD);
 
 const String DEVICE_NAME = "QlockTwo_No1";
 
-static const char *const CONFIG_FILE_PATH = "/config.json";
+const char *const CONFIG_FILE_PATH = "/config.json";
+
+const int LED_COLORS_SIZE = 4;
+
+const RgbwColor LED_COLORS[] = {
+      RgbwColor(255),
+      RgbwColor(255, 0, 0, 0),
+      RgbwColor(0, 255, 0, 0),
+      RgbwColor(0, 0, 255, 0)
+};
 
 #endif //Settings_H

@@ -37,7 +37,7 @@ bool ConfigModule::saveConfig(const Config &config) {
 
 }
 
-const Config& ConfigModule::loadConfig() {
+const Config ConfigModule::loadConfig() {
     if (SPIFFS.exists(configFilePath)) {
         //file exists, reading and loading
         Serial.println("reading config file");
@@ -71,6 +71,8 @@ Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
 
     config.enableTime = SimpleTime::parse(jsonObject[ENABLE_TIME_ID]);
     config.disableTime = SimpleTime::parse(jsonObject[DISABLE_TIME_ID]);
+    config.setLedColor = jsonObject[SET_LED_COLOR_ID];
+    config.brightnessCorrection = jsonObject[BRIGHTNESS_CORRECTION_ID];
 
     return config;
 }
@@ -78,5 +80,6 @@ Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
 void ConfigModule::copyToJsonConfig(JsonObject &json, const Config &config) {
     json[ENABLE_TIME_ID] = config.enableTime.toString();
     json[DISABLE_TIME_ID] = config.disableTime.toString();
+    json[SET_LED_COLOR_ID] = config.setLedColor;
+    json[BRIGHTNESS_CORRECTION_ID] = config.brightnessCorrection;
 }
-

@@ -12,10 +12,14 @@
 
 static const String ENABLE_TIME_ID = "enable_time";
 static const String DISABLE_TIME_ID = "disable_time";
+static const String SET_LED_COLOR_ID = "set_led_color";
+static const String BRIGHTNESS_CORRECTION_ID = "brightness_correction";
 
 struct Config {
     SimpleTime enableTime;
     SimpleTime disableTime;
+    int setLedColor;
+    int brightnessCorrection;
 };
 
 class ConfigModule {
@@ -27,7 +31,7 @@ public:
     ConfigModule(String _configFilePath);
     void setup();
     bool saveConfig(const Config &config);
-    const Config& loadConfig();
+    const Config loadConfig();
 };
 
 

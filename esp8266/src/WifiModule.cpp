@@ -12,22 +12,17 @@ WifiModule::WifiModule(String _deviceName) : deviceName(_deviceName) { }
 
 WifiModule::~WifiModule() {}
 
-//gets called when WiFiManager enters configuration mode
-void configModeCallback (WiFiManager *myWiFiManager) {
-  Serial.println("Entered config mode");
-  Serial.println(WiFi.softAPIP());
-  //if you used auto generated SSID, print it
-  Serial.println(myWiFiManager->getConfigPortalSSID());
-}
-
-void WifiModule::setup(void (*func)(void)) {
+void WifiModule::setup(void (*configModeCallback)(WiFiManager *myWiFiManager), void (*saveConfig)(void)) {
     wifiManager.setAPCallback(configModeCallback);
-    wifiManager.setSaveConfigCallback(func);
+    wifiManager.setSaveConfigCallback(saveConfig);
+
+    // timeout for case of power outage, retry connect after 180s
+    wifiManager.setConfigPortalTimeout(180);
 
     wifiManager.addParameter(&parameterDisableTime);
     wifiManager.addParameter(&parameterEnableTime);
-  //void (WifiModule::*func)(WiFiManager *myWiFiManager);
-  //func = &WifiModule::configModeCallback;
+  //void (WifiModule::*saveConfig)(WiFiManager *myWiFiManager);
+  //saveConfig = &WifiModule::configModeCallback;
 }
 
 bool WifiModule::isConnected() {
@@ -55,12 +50,10 @@ void WifiModule::reset() {
     wifiManager.resetSettings();
 }
 
-Config WifiModule::getConfig() {
-    Config config;
-    config.enableTime = SimpleTime::parse(parameterEnableTime.getValue());
-    config.disableTime = SimpleTime::parse(parameterDisableTime.getValue());
+SimpleTime WifiModule::getEnableTime() {
+    return SimpleTime::parse(parameterEnableTime.getValue());
+}
 
-    Serial.println("Config.enableTime: " + config.enableTime.toString());
-    Serial.println("Config.disableTime: " + config.disableTime.toString());
-    return config;
+SimpleTime WifiModule::getDisableTime() {
+    return SimpleTime::parse(parameterDisableTime.getValue());
 }

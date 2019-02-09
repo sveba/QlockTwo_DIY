@@ -28,11 +28,12 @@ private:
 public:
     WifiModule(String _deviceName);
     ~WifiModule();
-    void setup(void (*func)(void));
+    void setup(void (*configModeCallback)(WiFiManager *myWiFiManager), void (*saveConfig)(void));
     bool isConnected();
     bool connect();
     void reset();
-    Config getConfig();
+    SimpleTime getEnableTime();
+    SimpleTime getDisableTime();
 protected:
 
 };
