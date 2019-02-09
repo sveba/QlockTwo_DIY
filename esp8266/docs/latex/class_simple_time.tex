@@ -1,0 +1,78 @@
+\hypertarget{class_simple_time}{}\section{Simple\+Time Class Reference}
+\label{class_simple_time}\index{SimpleTime@{SimpleTime}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_simple_time_abf929f0ba662f85ab42a9d2eb6a98a4d}\label{class_simple_time_abf929f0ba662f85ab42a9d2eb6a98a4d}} 
+{\bfseries Simple\+Time} (\mbox{\hyperlink{class_simple_time}{Simple\+Time}} const \&\+\_\+simple\+Time)
+\item 
+\mbox{\Hypertarget{class_simple_time_ac9bd49ce2f132b593d3d0d47c9efdb08}\label{class_simple_time_ac9bd49ce2f132b593d3d0d47c9efdb08}} 
+{\bfseries Simple\+Time} (uint16\+\_\+t \+\_\+hour, uint16\+\_\+t \+\_\+minute)
+\item 
+\mbox{\Hypertarget{class_simple_time_a95825a96f5afb95060a3b36d78ac11e9}\label{class_simple_time_a95825a96f5afb95060a3b36d78ac11e9}} 
+{\bfseries Simple\+Time} (String time\+String)
+\item 
+\mbox{\Hypertarget{class_simple_time_a386922a41d88aaab69497730b163cadf}\label{class_simple_time_a386922a41d88aaab69497730b163cadf}} 
+uint16\+\_\+t {\bfseries get\+Hour} () const
+\item 
+\mbox{\Hypertarget{class_simple_time_aba0375d3ee93859fdb37b15532c149a4}\label{class_simple_time_aba0375d3ee93859fdb37b15532c149a4}} 
+void {\bfseries set\+Hour} (uint16\+\_\+t hour)
+\item 
+\mbox{\Hypertarget{class_simple_time_a02c7df278fb87be73998306330198018}\label{class_simple_time_a02c7df278fb87be73998306330198018}} 
+uint16\+\_\+t {\bfseries get\+Minute} () const
+\item 
+\mbox{\Hypertarget{class_simple_time_ac5b1e04be8f134f378950dcb6f22f966}\label{class_simple_time_ac5b1e04be8f134f378950dcb6f22f966}} 
+void {\bfseries set\+Minute} (uint16\+\_\+t minute)
+\item 
+const int \mbox{\hyperlink{class_simple_time_a9fd5a5025ccd3bd60d4049c5c113ec4c}{total\+Minutes}} () const
+\item 
+\mbox{\hyperlink{class_simple_time_a9d034d06249024ed0366c99029243168}{operator int}} () const
+\item 
+String \mbox{\hyperlink{class_simple_time_a9de383bf9aaf23dbba9b13e0b9b4f0ed}{to\+String}} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_simple_time_ad2d133f20de1ac63166308bc77906dfb}{parse}} (String time\+String)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_simple_time_a9d034d06249024ed0366c99029243168}\label{class_simple_time_a9d034d06249024ed0366c99029243168}} 
+\index{SimpleTime@{SimpleTime}!operator int@{operator int}}
+\index{operator int@{operator int}!SimpleTime@{SimpleTime}}
+\subsubsection{\texorpdfstring{operator int()}{operator int()}}
+{\footnotesize\ttfamily Simple\+Time\+::operator int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compare Simple\+Times over total minutes since 00\+:00. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_simple_time_ad2d133f20de1ac63166308bc77906dfb}\label{class_simple_time_ad2d133f20de1ac63166308bc77906dfb}} 
+\index{SimpleTime@{SimpleTime}!parse@{parse}}
+\index{parse@{parse}!SimpleTime@{SimpleTime}}
+\subsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Simple\+Time\+::parse (\begin{DoxyParamCaption}\item[{String}]{time\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Parse String in format HH\+:MM \mbox{\Hypertarget{class_simple_time_a9de383bf9aaf23dbba9b13e0b9b4f0ed}\label{class_simple_time_a9de383bf9aaf23dbba9b13e0b9b4f0ed}} 
+\index{SimpleTime@{SimpleTime}!toString@{toString}}
+\index{toString@{toString}!SimpleTime@{SimpleTime}}
+\subsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String Simple\+Time\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_simple_time}{Simple\+Time}} as String in format HH\+:MM 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_simple_time_a9fd5a5025ccd3bd60d4049c5c113ec4c}\label{class_simple_time_a9fd5a5025ccd3bd60d4049c5c113ec4c}} 
+\index{SimpleTime@{SimpleTime}!totalMinutes@{totalMinutes}}
+\index{totalMinutes@{totalMinutes}!SimpleTime@{SimpleTime}}
+\subsubsection{\texorpdfstring{totalMinutes()}{totalMinutes()}}
+{\footnotesize\ttfamily const int Simple\+Time\+::total\+Minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calculate total minutes since 00\+:00. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Simple\+Time.\+h\end{DoxyCompactItemize}

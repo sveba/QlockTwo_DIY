@@ -1,0 +1,86 @@
+\hypertarget{class_clock_module}{}\section{Clock\+Module Class Reference}
+\label{class_clock_module}\index{ClockModule@{ClockModule}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_clock_module_a13599210b0032bbc5312d93e690c763b}{Clock\+Module}} (Rtc\+D\+S3231$<$ Two\+Wire $>$ \+\_\+rtc, Timezone \+\_\+local\+TZ, String \+\_\+ntp\+Server\+Name)
+\item 
+void \mbox{\hyperlink{class_clock_module_a6113cfe778efff0aa237696f85516796}{setup}} ()
+\item 
+bool \mbox{\hyperlink{class_clock_module_a05053d7409ef43d1729113a7912fa866}{is\+Date\+Time\+Valid}} ()
+\item 
+void \mbox{\hyperlink{class_clock_module_afbc823bb09d912dbdc25f9d38ec78624}{update}} ()
+\item 
+time\+\_\+t \mbox{\hyperlink{class_clock_module_af0faab0171ded0fdb37dcbff757f451e}{get\+Utc\+Time}} ()
+\item 
+\mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_clock_module_aa208cd29a002d60e4e5f064813acf9f3}{get\+Local\+Simple\+Time}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_clock_module_a13599210b0032bbc5312d93e690c763b}\label{class_clock_module_a13599210b0032bbc5312d93e690c763b}} 
+\index{ClockModule@{ClockModule}!ClockModule@{ClockModule}}
+\index{ClockModule@{ClockModule}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{ClockModule()}{ClockModule()}}
+{\footnotesize\ttfamily Clock\+Module\+::\+Clock\+Module (\begin{DoxyParamCaption}\item[{Rtc\+D\+S3231$<$ Two\+Wire $>$}]{\+\_\+rtc,  }\item[{Timezone}]{\+\_\+local\+TZ,  }\item[{String}]{\+\_\+ntp\+Server\+Name }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_clock_module}{Clock\+Module}} is handling the R\+TC and keeps it updated over N\+TP. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+rtc} & Arduino Wire object \\
+\hline
+{\em \+\_\+update\+Interval} & Interval of updating R\+TC in Seconds \\
+\hline
+{\em \+\_\+ntp\+Server\+Name} & N\+TP server address. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_clock_module_aa208cd29a002d60e4e5f064813acf9f3}\label{class_clock_module_aa208cd29a002d60e4e5f064813acf9f3}} 
+\index{ClockModule@{ClockModule}!getLocalSimpleTime@{getLocalSimpleTime}}
+\index{getLocalSimpleTime@{getLocalSimpleTime}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{getLocalSimpleTime()}{getLocalSimpleTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Clock\+Module\+::get\+Local\+Simple\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current time from R\+TC in local time. With timezone and daylight saving adjustment. \begin{DoxyReturn}{Returns}
+Current Local Time as \mbox{\hyperlink{class_simple_time}{Simple\+Time}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_clock_module_af0faab0171ded0fdb37dcbff757f451e}\label{class_clock_module_af0faab0171ded0fdb37dcbff757f451e}} 
+\index{ClockModule@{ClockModule}!getUtcTime@{getUtcTime}}
+\index{getUtcTime@{getUtcTime}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{getUtcTime()}{getUtcTime()}}
+{\footnotesize\ttfamily time\+\_\+t Clock\+Module\+::get\+Utc\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current time from R\+TC in U\+TC. \begin{DoxyReturn}{Returns}
+Current Time as time\+\_\+t in U\+TC. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_clock_module_a05053d7409ef43d1729113a7912fa866}\label{class_clock_module_a05053d7409ef43d1729113a7912fa866}} 
+\index{ClockModule@{ClockModule}!isDateTimeValid@{isDateTimeValid}}
+\index{isDateTimeValid@{isDateTimeValid}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{isDateTimeValid()}{isDateTimeValid()}}
+{\footnotesize\ttfamily bool Clock\+Module\+::is\+Date\+Time\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Either true if rtc time is not valid or the update\+Interval is reached. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_clock_module_a6113cfe778efff0aa237696f85516796}\label{class_clock_module_a6113cfe778efff0aa237696f85516796}} 
+\index{ClockModule@{ClockModule}!setup@{setup}}
+\index{setup@{setup}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Clock\+Module\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Setup N\+TP client and R\+TC connection. \mbox{\Hypertarget{class_clock_module_afbc823bb09d912dbdc25f9d38ec78624}\label{class_clock_module_afbc823bb09d912dbdc25f9d38ec78624}} 
+\index{ClockModule@{ClockModule}!update@{update}}
+\index{update@{update}!ClockModule@{ClockModule}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Clock\+Module\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current time from N\+TP server and update R\+TC. \begin{DoxyReturn}{Returns}
+true if updating successful 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Clock\+Module.\+h\item 
+src/Clock\+Module.\+cpp\end{DoxyCompactItemize}

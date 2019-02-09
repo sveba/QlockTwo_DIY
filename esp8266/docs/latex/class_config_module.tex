@@ -1,0 +1,47 @@
+\hypertarget{class_config_module}{}\section{Config\+Module Class Reference}
+\label{class_config_module}\index{ConfigModule@{ConfigModule}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_config_module_a0f7c95e0a768a56c7f4ff835b09657b2}\label{class_config_module_a0f7c95e0a768a56c7f4ff835b09657b2}} 
+{\bfseries Config\+Module} (String \+\_\+config\+File\+Path)
+\item 
+\mbox{\Hypertarget{class_config_module_a3ab8220b02e11fdb12af8111ef77c6ac}\label{class_config_module_a3ab8220b02e11fdb12af8111ef77c6ac}} 
+void {\bfseries setup} ()
+\item 
+bool \mbox{\hyperlink{class_config_module_ab7b7cb9aba4ab90bec664eef2b4a00f3}{save\+Config}} (const \mbox{\hyperlink{struct_config}{Config}} \&config)
+\item 
+const \mbox{\hyperlink{struct_config}{Config}} \mbox{\hyperlink{class_config_module_a1a9cda5559839cac0f4444d6352e9067}{load\+Config}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_config_module_a1a9cda5559839cac0f4444d6352e9067}\label{class_config_module_a1a9cda5559839cac0f4444d6352e9067}} 
+\index{ConfigModule@{ConfigModule}!loadConfig@{loadConfig}}
+\index{loadConfig@{loadConfig}!ConfigModule@{ConfigModule}}
+\subsubsection{\texorpdfstring{loadConfig()}{loadConfig()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_config}{Config}} Config\+Module\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Load config J\+S\+ON from S\+P\+I\+FF and deserialize it. \begin{DoxyReturn}{Returns}
+On success\+: Saved \mbox{\hyperlink{struct_config}{Config}}; On Failure\+: Empty \mbox{\hyperlink{struct_config}{Config}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_config_module_ab7b7cb9aba4ab90bec664eef2b4a00f3}\label{class_config_module_ab7b7cb9aba4ab90bec664eef2b4a00f3}} 
+\index{ConfigModule@{ConfigModule}!saveConfig@{saveConfig}}
+\index{saveConfig@{saveConfig}!ConfigModule@{ConfigModule}}
+\subsubsection{\texorpdfstring{saveConfig()}{saveConfig()}}
+{\footnotesize\ttfamily bool Config\+Module\+::save\+Config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_config}{Config}} \&}]{config }\end{DoxyParamCaption})}
+
+Serialize \mbox{\hyperlink{struct_config}{Config}} to J\+S\+ON and save to S\+P\+I\+FF. 
+\begin{DoxyParams}{Parameters}
+{\em config} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Config\+Module.\+h\item 
+src/Config\+Module.\+cpp\end{DoxyCompactItemize}

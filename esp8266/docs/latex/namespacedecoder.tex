@@ -1,0 +1,136 @@
+\hypertarget{namespacedecoder}{}\section{decoder Namespace Reference}
+\label{namespacedecoder}\index{decoder@{decoder}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdecoder_1_1_address_resolver}{Address\+Resolver}}
+\item 
+class \mbox{\hyperlink{classdecoder_1_1_exception_data_parser}{Exception\+Data\+Parser}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacedecoder_a89d16221d7f9e232743edc5fe336fc65}\label{namespacedecoder_a89d16221d7f9e232743edc5fe336fc65}} 
+def {\bfseries print\+\_\+addr} (name, value, resolver)
+\item 
+\mbox{\Hypertarget{namespacedecoder_a327191303799877f3acc7f2468b5427c}\label{namespacedecoder_a327191303799877f3acc7f2468b5427c}} 
+def {\bfseries print\+\_\+stack\+\_\+full} (lines, resolver)
+\item 
+\mbox{\Hypertarget{namespacedecoder_a0da171fca090b030a6442be72460a695}\label{namespacedecoder_a0da171fca090b030a6442be72460a695}} 
+def {\bfseries print\+\_\+stack} (lines, resolver)
+\item 
+\mbox{\Hypertarget{namespacedecoder_a1c630b1370c511ddf5c920dcfccd2789}\label{namespacedecoder_a1c630b1370c511ddf5c920dcfccd2789}} 
+def {\bfseries print\+\_\+result} (parser, resolver, full=True, stack\+\_\+only=False)
+\item 
+\mbox{\Hypertarget{namespacedecoder_a6791b7e0bad342ffcf9cb0e11b828cf0}\label{namespacedecoder_a6791b7e0bad342ffcf9cb0e11b828cf0}} 
+def {\bfseries parse\+\_\+args} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacedecoder_a9a000bcf9aeda05a334a99f023e59b95}\label{namespacedecoder_a9a000bcf9aeda05a334a99f023e59b95}} 
+list {\bfseries E\+X\+C\+E\+P\+T\+I\+O\+NS}
+\item 
+dictionary {\bfseries P\+L\+A\+T\+F\+O\+R\+MS}
+\item 
+\mbox{\Hypertarget{namespacedecoder_a872fb10c414b933ca47c8258749e55d6}\label{namespacedecoder_a872fb10c414b933ca47c8258749e55d6}} 
+{\bfseries E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+R\+E\+G\+EX} = re.\+compile(\char`\"{}$^\wedge$Exception \textbackslash{}\textbackslash{}((?P$<$exc$>$\mbox{[}0-\/9\mbox{]}$\ast$)\textbackslash{}\textbackslash{})\+:\$\char`\"{})
+\item 
+{\bfseries C\+O\+U\+N\+T\+E\+R\+\_\+\+R\+E\+G\+EX}
+\item 
+\mbox{\Hypertarget{namespacedecoder_ad18cc14fb5d58c9b49e56b56826c5ec1}\label{namespacedecoder_ad18cc14fb5d58c9b49e56b56826c5ec1}} 
+{\bfseries C\+T\+X\+\_\+\+R\+E\+G\+EX} = re.\+compile(\char`\"{}$^\wedge$ctx\+: (?P$<$ctx$>$.+)\$\char`\"{})
+\item 
+\mbox{\Hypertarget{namespacedecoder_abf5346d8fbb225f94c2df2eadb313512}\label{namespacedecoder_abf5346d8fbb225f94c2df2eadb313512}} 
+{\bfseries P\+O\+I\+N\+T\+E\+R\+\_\+\+R\+E\+G\+EX} = re.\+compile(\textquotesingle{}$^\wedge$sp\+: (?P$<$sp$>$\mbox{[}0-\/9a-\/f\mbox{]}+) end\+: (?\+P$<$end$>$\mbox{[}0-\/9a-\/f\mbox{]}+) offset\+: (?\+P$<$offset$>$\mbox{[}0-\/9a-\/f\mbox{]}+)\$\textquotesingle{})
+\item 
+\mbox{\Hypertarget{namespacedecoder_a653689b0368bee2d1a6619d0a6a48a60}\label{namespacedecoder_a653689b0368bee2d1a6619d0a6a48a60}} 
+string {\bfseries S\+T\+A\+C\+K\+\_\+\+B\+E\+G\+IN} = \textquotesingle{}$>$$>$$>$stack$>$$>$$>$\textquotesingle{}
+\item 
+\mbox{\Hypertarget{namespacedecoder_a037630a3f47c24159ea9680f7aa31851}\label{namespacedecoder_a037630a3f47c24159ea9680f7aa31851}} 
+string {\bfseries S\+T\+A\+C\+K\+\_\+\+E\+ND} = \textquotesingle{}$<$$<$$<$stack$<$$<$$<$\textquotesingle{}
+\item 
+{\bfseries S\+T\+A\+C\+K\+\_\+\+R\+E\+G\+EX}
+\item 
+\mbox{\Hypertarget{namespacedecoder_a69e0a99334dd1534e0d172b5e3891745}\label{namespacedecoder_a69e0a99334dd1534e0d172b5e3891745}} 
+{\bfseries Stack\+Line} = namedtuple(\char`\"{}Stack\+Line\char`\"{}, \mbox{[}\char`\"{}offset\char`\"{}, \char`\"{}content\char`\"{}\mbox{]})
+\item 
+\mbox{\Hypertarget{namespacedecoder_a17b29289061f7d4f4ead11ba35a45843}\label{namespacedecoder_a17b29289061f7d4f4ead11ba35a45843}} 
+def {\bfseries args} = parse\+\_\+args()
+\item 
+\mbox{\Hypertarget{namespacedecoder_a20a0ba5d4c33ecac43cc5e00ae13493b}\label{namespacedecoder_a20a0ba5d4c33ecac43cc5e00ae13493b}} 
+{\bfseries file} = sys.\+stdin
+\item 
+{\bfseries addr2line}
+\item 
+\mbox{\Hypertarget{namespacedecoder_af40c49fe9d421f8feaf3177a6b3e9eda}\label{namespacedecoder_af40c49fe9d421f8feaf3177a6b3e9eda}} 
+{\bfseries elf\+\_\+file} = os.\+path.\+abspath(os.\+path.\+expanduser(args.\+elf))
+\item 
+\mbox{\Hypertarget{namespacedecoder_a74a58ed8ff14ea75bd62711ce9bd4934}\label{namespacedecoder_a74a58ed8ff14ea75bd62711ce9bd4934}} 
+{\bfseries parser} = \mbox{\hyperlink{classdecoder_1_1_exception_data_parser}{Exception\+Data\+Parser}}()
+\item 
+\mbox{\Hypertarget{namespacedecoder_a860678485df5be02ecdb467f64ab2db3}\label{namespacedecoder_a860678485df5be02ecdb467f64ab2db3}} 
+{\bfseries resolver} = \mbox{\hyperlink{classdecoder_1_1_address_resolver}{Address\+Resolver}}(addr2line, elf\+\_\+file)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}ESP Exception Decoder
+
+github:  https://github.com/janLo/EspArduinoExceptionDecoder
+license: GPL v3
+author:  Jan Losinski
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedecoder_a33f11414906f128a4f93627a55c8983f}\label{namespacedecoder_a33f11414906f128a4f93627a55c8983f}} 
+\index{decoder@{decoder}!addr2line@{addr2line}}
+\index{addr2line@{addr2line}!decoder@{decoder}}
+\subsubsection{\texorpdfstring{addr2line}{addr2line}}
+{\footnotesize\ttfamily decoder.\+addr2line}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  os.path.join(os.path.abspath(os.path.expanduser(args.tool)),}
+\DoxyCodeLine{2                              \textcolor{stringliteral}{"bin/xtensa-"} + PLATFORMS[args.platform] + \textcolor{stringliteral}{"-elf-addr2line"})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacedecoder_afcfff5cb6e601ca65a8b42f0ce83701e}\label{namespacedecoder_afcfff5cb6e601ca65a8b42f0ce83701e}} 
+\index{decoder@{decoder}!COUNTER\_REGEX@{COUNTER\_REGEX}}
+\index{COUNTER\_REGEX@{COUNTER\_REGEX}!decoder@{decoder}}
+\subsubsection{\texorpdfstring{COUNTER\_REGEX}{COUNTER\_REGEX}}
+{\footnotesize\ttfamily decoder.\+C\+O\+U\+N\+T\+E\+R\+\_\+\+R\+E\+G\+EX}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  re.compile(\textcolor{stringliteral}{'\string^epc1=(?P<epc1>0x[0-9a-f]+) epc2=(?P<epc2>0x[0-9a-f]+) epc3=(?P<epc3>0x[0-9a-f]+) '}}
+\DoxyCodeLine{2                            \textcolor{stringliteral}{'excvaddr=(?P<excvaddr>0x[0-9a-f]+) depc=(?P<depc>0x[0-9a-f]+)\$'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacedecoder_a2d8256488ca2fc7a9a0a5f9a2e94c21e}\label{namespacedecoder_a2d8256488ca2fc7a9a0a5f9a2e94c21e}} 
+\index{decoder@{decoder}!PLATFORMS@{PLATFORMS}}
+\index{PLATFORMS@{PLATFORMS}!decoder@{decoder}}
+\subsubsection{\texorpdfstring{PLATFORMS}{PLATFORMS}}
+{\footnotesize\ttfamily dictionary decoder.\+P\+L\+A\+T\+F\+O\+R\+MS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  \{}
+\DoxyCodeLine{2     \textcolor{stringliteral}{"ESP8266"}: \textcolor{stringliteral}{"lx106"},}
+\DoxyCodeLine{3     \textcolor{stringliteral}{"ESP32"}: \textcolor{stringliteral}{"esp32"}}
+\DoxyCodeLine{4 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacedecoder_a352cfabf8509e821978a2a6c1dd53e6d}\label{namespacedecoder_a352cfabf8509e821978a2a6c1dd53e6d}} 
+\index{decoder@{decoder}!STACK\_REGEX@{STACK\_REGEX}}
+\index{STACK\_REGEX@{STACK\_REGEX}!decoder@{decoder}}
+\subsubsection{\texorpdfstring{STACK\_REGEX}{STACK\_REGEX}}
+{\footnotesize\ttfamily decoder.\+S\+T\+A\+C\+K\+\_\+\+R\+E\+G\+EX}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 =  re.compile(}
+\DoxyCodeLine{2     \textcolor{stringliteral}{'\string^(?P<off>[0-9a-f]+):\(\backslash\)W+(?P<c1>[0-9a-f]+) (?P<c2>[0-9a-f]+) (?P<c3>[0-9a-f]+) (?P<c4>[0-9a-f]+)(\(\backslash\)W.*)?\$'})}
+
+\end{DoxyCode}
