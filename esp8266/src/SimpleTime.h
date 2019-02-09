@@ -36,15 +36,26 @@ public:
         SimpleTime::minute = minute;
     }
 
+    /**
+     * Calculate total minutes since 00:00.
+     * @return
+     */
     const int totalMinutes() const {
         return hour * 60 + minute;
     }
 
+    /**
+     * Compare SimpleTimes over total minutes since 00:00.
+     * @return
+     */
     operator int() const
     {
         return totalMinutes();
     }
 
+    /**
+     * Parse String in format HH:MM
+     */
     static SimpleTime parse(String timeString) {
         SimpleTime time;
 
@@ -56,6 +67,9 @@ public:
         return time;
     }
 
+    /**
+     * @return SimpleTime as String in format HH:MM
+     */
     String toString() const {
         char str[6];
         sprintf(str, "%02hu:%02hu", hour, minute);

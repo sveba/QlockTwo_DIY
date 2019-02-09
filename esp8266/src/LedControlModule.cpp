@@ -11,12 +11,21 @@
 LedControlModule::LedControlModule(NeoTopology<MyPanelLayout> _topo) : topo(_topo) {}
 LedControlModule::~LedControlModule() {}
 
+/**
+ * Setup LEDs in NeoPixel library.
+ * @param _pixelStrip NeoPixelBusType object
+ */
 void LedControlModule::setup(NeoPixelBusType* _pixelStrip) {
     pixelStrip = _pixelStrip;
     pixelStrip->Begin();
     pixelStrip->Show();
 };
 
+/**
+ * Show Time with LEDs.
+ * @param simpleTime Time to be shown.
+ * @param ledColor Optional, set LED color.
+ */
 void LedControlModule::showTime(const SimpleTime &simpleTime, const RgbwColor &ledColor) {
     pixelStrip->ClearTo(RgbwColor(0));
     enableLedWords(simpleTime, ledColor);
@@ -26,12 +35,21 @@ void LedControlModule::showTime(const SimpleTime &simpleTime, const RgbwColor &l
     pixelStrip->Show();
 };
 
+/**
+ * Show that clock is in Wifi configuration mode, in german show Word "Funk".
+ * @param ledColor Optional, set LED color.
+ */
 void LedControlModule::showConfigWifi(const RgbwColor &ledColor) {
     pixelStrip->ClearTo(RgbwColor(0));
     enableLedWord(&WORD_FUNK, ledColor);
     pixelStrip->Show();
 }
 
+/**
+ * Enable time words.
+ * @param simpleTime Time to be shown.
+ * @param ledColor Optional, set LED color.
+ */
 void LedControlModule::enableLedWords(const SimpleTime &simpleTime, const RgbwColor &ledColor) {
     enableLedWord(&PREFIX_IT, ledColor);
     enableLedWord(&PREFIX_IS, ledColor);
@@ -97,19 +115,32 @@ void LedControlModule::enableLedWords(const SimpleTime &simpleTime, const RgbwCo
     }
 };
 
+/**
+ * Enable single LedWord on LED Matrix.
+ * @param ledWord
+ * @param ledColor
+ */
 void LedControlModule::enableLedWord(const LedWord* ledWord, const RgbwColor &ledColor) {
     for (int j = 0; j < ledWord->getLength(); j++) {
         pixelStrip->SetPixelColor(topo.Map(ledWord->getFirstPixelX() + j, ledWord->getFirstPixelY()), ledColor);
     }
 }
 
-void LedControlModule::enableMinuteDots(int n, const RgbwColor &ledColor) {
-    for (int i = 1; i <= n; i++) {
+/**
+ * Enable minute dots in edges.
+ * @param subMinute Starts from 1.
+ * @param ledColor
+ */
+void LedControlModule::enableMinuteDots(int subMinute, const RgbwColor &ledColor) {
+    for (int i = 1; i <= subMinute; i++) {
         int j = 110 + ((i + 2) % 4);
         pixelStrip->SetPixelColor(j, ledColor);
     }
 }
 
+/**
+ * Show on all LEDs black.
+ */
 void LedControlModule::disableLeds() {
     pixelStrip->ClearTo(RgbwColor(0));
     pixelStrip->Show();

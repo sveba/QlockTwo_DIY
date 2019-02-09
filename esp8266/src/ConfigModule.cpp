@@ -15,6 +15,11 @@ void ConfigModule::setup() {
     //SPIFFS.format();
 }
 
+/**
+ * Serialize Config to JSON and save to SPIFF.
+ * @param config
+ * @return true on success
+ */
 bool ConfigModule::saveConfig(const Config &config) {
     Serial.println("saving config");
     DynamicJsonBuffer jsonBuffer;
@@ -37,6 +42,10 @@ bool ConfigModule::saveConfig(const Config &config) {
 
 }
 
+/**
+ * Load config JSON from SPIFF and deserialize it.
+ * @return On success: Saved Config; On Failure: Empty Config
+ */
 const Config ConfigModule::loadConfig() {
     if (SPIFFS.exists(configFilePath)) {
         //file exists, reading and loading
@@ -66,6 +75,11 @@ const Config ConfigModule::loadConfig() {
     return Config();
 }
 
+/**
+ * Fill config values from JsonObject to Config struct.
+ * @param jsonObject
+ * @return Filled Config Object.
+ */
 Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
     Config config;
 
@@ -77,6 +91,15 @@ Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
     return config;
 }
 
+/**
+ *
+ */
+
+/**
+ * Copy Config values to JsonObject
+ * @param json To be filled JsonObject, by reference
+ * @param config Source Config
+ */
 void ConfigModule::copyToJsonConfig(JsonObject &json, const Config &config) {
     json[ENABLE_TIME_ID] = config.enableTime.toString();
     json[DISABLE_TIME_ID] = config.disableTime.toString();

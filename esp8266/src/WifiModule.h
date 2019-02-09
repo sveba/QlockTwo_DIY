@@ -21,7 +21,6 @@ class WifiModule {
 private:
     String deviceName;
     WiFiManager wifiManager;
-    //void configModeCallback (WiFiManager *myWiFiManager);
 
     WiFiManagerParameter parameterEnableTime = WiFiManagerParameter("enable_time", "Enable Time (HH:MM)", "", 6);
     WiFiManagerParameter parameterDisableTime = WiFiManagerParameter("disable_time", "Disable Time (HH:MM)", "", 6);

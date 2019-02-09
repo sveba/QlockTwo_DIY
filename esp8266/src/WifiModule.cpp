@@ -12,6 +12,11 @@ WifiModule::WifiModule(String _deviceName) : deviceName(_deviceName) { }
 
 WifiModule::~WifiModule() {}
 
+/**
+ * Setup WifiManger
+ * @param configModeCallback Gets called when WiFiManager enters configuration mode.
+ * @param saveConfig Gets called when WifiManager when custom parameters have been set AND a connection has been established.
+ */
 void WifiModule::setup(void (*configModeCallback)(WiFiManager *myWiFiManager), void (*saveConfig)(void)) {
     wifiManager.setAPCallback(configModeCallback);
     wifiManager.setSaveConfigCallback(saveConfig);
@@ -25,10 +30,18 @@ void WifiModule::setup(void (*configModeCallback)(WiFiManager *myWiFiManager), v
   //saveConfig = &WifiModule::configModeCallback;
 }
 
+/**
+ * Check if Wifi is connected.
+ * @return true on connected
+ */
 bool WifiModule::isConnected() {
     return WiFi.status() == WL_CONNECTED;
 }
 
+/**
+ * Try to connect to presaved Wifi, otherwise go into AP mode. Restarts ESP on failure.
+ * @return Success
+ */
 bool WifiModule::connect() {
     Serial.println("WifiModule: Connect.");
     if(!wifiManager.autoConnect(this->deviceName.c_str())) {
@@ -45,15 +58,26 @@ bool WifiModule::connect() {
     return true;
 }
 
+/**
+ * Delete saved Wifi network credentials.
+ */
 void WifiModule::reset() {
     Serial.println("WifiModule: Reset.");
     wifiManager.resetSettings();
 }
 
+/**
+ * Return EnableTime from set Parameters.
+ * @return EnableTime
+ */
 SimpleTime WifiModule::getEnableTime() {
     return SimpleTime::parse(parameterEnableTime.getValue());
 }
 
+/**
+ * Return DisableTime from set Parameters.
+ * @return DisableTime
+ */
 SimpleTime WifiModule::getDisableTime() {
     return SimpleTime::parse(parameterDisableTime.getValue());
 }

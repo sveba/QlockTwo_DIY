@@ -23,11 +23,14 @@ private:
   RtcDS3231<TwoWire> rtc;
   Timezone localTZ;
   WiFiUDP ntpUDP;
+  String ntpServerName;
+  static const int NTP_PACKET_SIZE = 48; // NTP time is in the first 48 bytes of message
+  byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming & outgoing packets
   unsigned int localPort = 8888; // local port to listen for UDP packets
   time_t getNtpTime();
   void sendNTPpacket(IPAddress &address);
 public:
-    ClockModule(RtcDS3231<TwoWire> _rtc, Timezone _localTZ);
+    ClockModule(RtcDS3231<TwoWire> _rtc, Timezone _localTZ, String _ntpServerName);
     ~ClockModule();
     void setup();
     bool isDateTimeValid();
