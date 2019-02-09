@@ -19,6 +19,9 @@
 typedef  NeoPixelBus<NeoGrbwFeature, Neo800KbpsMethod>  NeoPixelBusType;
 typedef RowMajorAlternating270Layout MyPanelLayout;
 
+/**
+ * Control the LEDs resp. show the words and minute dots.
+ */
 class LedControlModule {
 private:
     // enum States { DISABLED, SHOWING_TIME, WIRELESS_ANIMATION, FEEDBACK_ANIMATION };

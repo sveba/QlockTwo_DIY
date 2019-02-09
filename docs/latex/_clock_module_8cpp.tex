@@ -1,0 +1,82 @@
+\hypertarget{_clock_module_8cpp}{}\section{src/\+Clock\+Module.cpp File Reference}
+\label{_clock_module_8cpp}\index{src/ClockModule.cpp@{src/ClockModule.cpp}}
+{\ttfamily \#include \char`\"{}Clock\+Module.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_clock_module_8cpp_ab317c73e51fb8a68f86165ac831f7b8c}{countof}}(array)~(sizeof(array)/sizeof(array\mbox{[}0\mbox{]}))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_clock_module_8cpp_a8771a313ed8db0ac1d4ce6524940ab4f}{print\+Date\+Time}} (const Rtc\+Date\+Time \&dt)
+\item 
+void \mbox{\hyperlink{_clock_module_8cpp_ac3d77ab2877b4e0cb0b2d5c469ce5f4e}{print\+Date\+Time}} (const time\+\_\+t \&dt)
+\item 
+\mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{_clock_module_8cpp_ab0f0086402130646275572caf9cea3e0}{convert\+To\+Simple\+Time}} (const time\+\_\+t \&time)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_clock_module_8cpp_ab317c73e51fb8a68f86165ac831f7b8c}\label{_clock_module_8cpp_ab317c73e51fb8a68f86165ac831f7b8c}} 
+\index{ClockModule.cpp@{ClockModule.cpp}!countof@{countof}}
+\index{countof@{countof}!ClockModule.cpp@{ClockModule.cpp}}
+\subsubsection{\texorpdfstring{countof}{countof}}
+{\footnotesize\ttfamily \#define countof(\begin{DoxyParamCaption}\item[{}]{array }\end{DoxyParamCaption})~(sizeof(array)/sizeof(array\mbox{[}0\mbox{]}))}
+
+
+
+Definition at line 13 of file Clock\+Module.\+cpp.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_clock_module_8cpp_ab0f0086402130646275572caf9cea3e0}\label{_clock_module_8cpp_ab0f0086402130646275572caf9cea3e0}} 
+\index{ClockModule.cpp@{ClockModule.cpp}!convertToSimpleTime@{convertToSimpleTime}}
+\index{convertToSimpleTime@{convertToSimpleTime}!ClockModule.cpp@{ClockModule.cpp}}
+\subsubsection{\texorpdfstring{convertToSimpleTime()}{convertToSimpleTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} convert\+To\+Simple\+Time (\begin{DoxyParamCaption}\item[{const time\+\_\+t \&}]{time }\end{DoxyParamCaption})}
+
+Convert time\+\_\+t to \mbox{\hyperlink{class_simple_time}{Simple\+Time}} 
+\begin{DoxyParams}{Parameters}
+{\em time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Converted \mbox{\hyperlink{class_simple_time}{Simple\+Time}} 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Clock\+Module.\+cpp.
+
+\mbox{\Hypertarget{_clock_module_8cpp_a8771a313ed8db0ac1d4ce6524940ab4f}\label{_clock_module_8cpp_a8771a313ed8db0ac1d4ce6524940ab4f}} 
+\index{ClockModule.cpp@{ClockModule.cpp}!printDateTime@{printDateTime}}
+\index{printDateTime@{printDateTime}!ClockModule.cpp@{ClockModule.cpp}}
+\subsubsection{\texorpdfstring{printDateTime()}{printDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void print\+Date\+Time (\begin{DoxyParamCaption}\item[{const Rtc\+Date\+Time \&}]{dt }\end{DoxyParamCaption})}
+
+Print Rtc\+Date\+Time in human readable on Serial. 
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file Clock\+Module.\+cpp.
+
+\mbox{\Hypertarget{_clock_module_8cpp_ac3d77ab2877b4e0cb0b2d5c469ce5f4e}\label{_clock_module_8cpp_ac3d77ab2877b4e0cb0b2d5c469ce5f4e}} 
+\index{ClockModule.cpp@{ClockModule.cpp}!printDateTime@{printDateTime}}
+\index{printDateTime@{printDateTime}!ClockModule.cpp@{ClockModule.cpp}}
+\subsubsection{\texorpdfstring{printDateTime()}{printDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void print\+Date\+Time (\begin{DoxyParamCaption}\item[{const time\+\_\+t \&}]{dt }\end{DoxyParamCaption})}
+
+Print time\+\_\+t in human readable on Serial. 
+\begin{DoxyParams}{Parameters}
+{\em dt} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file Clock\+Module.\+cpp.
+

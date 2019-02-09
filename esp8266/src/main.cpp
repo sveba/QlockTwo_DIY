@@ -1,3 +1,7 @@
+/**
+@file main.cpp
+*/
+
 #include <Arduino.h>
 #include <Ticker.h>
 #include "LedControlModule.h"

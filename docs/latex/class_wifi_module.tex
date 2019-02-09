@@ -1,0 +1,197 @@
+\hypertarget{class_wifi_module}{}\section{Wifi\+Module Class Reference}
+\label{class_wifi_module}\index{WifiModule@{WifiModule}}
+
+
+{\ttfamily \#include $<$Wifi\+Module.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wifi_module_a1fad662191ce40056868f0a21d0b1ef0}{Wifi\+Module}} (String \+\_\+device\+Name)
+\item 
+\mbox{\hyperlink{class_wifi_module_a13508027d6d44f9ad4adc916a142c4e4}{$\sim$\+Wifi\+Module}} ()
+\item 
+void \mbox{\hyperlink{class_wifi_module_a78a8fa5090dc159e070d32c957e661dd}{setup}} (void($\ast$\mbox{\hyperlink{main_8cpp_a4aad99c28e20c1b4f8b50e262930e1e5}{config\+Mode\+Callback}})(Wi\+Fi\+Manager $\ast$my\+Wi\+Fi\+Manager), void($\ast$save\+Config)(void))
+\item 
+bool \mbox{\hyperlink{class_wifi_module_a0f9b83f8ed9714183df33e055323261f}{is\+Connected}} ()
+\item 
+bool \mbox{\hyperlink{class_wifi_module_a408a6374602360051d2791de4f56b067}{connect}} ()
+\item 
+void \mbox{\hyperlink{class_wifi_module_af03089b54800669d9cc57d3ac8bf3188}{reset}} ()
+\item 
+\mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_wifi_module_a1082a8799fe84e825520a61ee048da46}{get\+Enable\+Time}} ()
+\item 
+\mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_wifi_module_ae43e1f85630c40920fa87c12de0d8e1e}{get\+Disable\+Time}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{class_wifi_module_a5887fc96e71a65413c0e8645c8947e17}{device\+Name}}
+\item 
+Wi\+Fi\+Manager \mbox{\hyperlink{class_wifi_module_ad569429d746a3db2fe153e4cf063a07d}{wifi\+Manager}}
+\item 
+Wi\+Fi\+Manager\+Parameter \mbox{\hyperlink{class_wifi_module_ad138f4478faab934496f1b5679298261}{parameter\+Enable\+Time}} = Wi\+Fi\+Manager\+Parameter(\char`\"{}enable\+\_\+time\char`\"{}, \char`\"{}Enable Time (H\+H\+:\+MM)\char`\"{}, \char`\"{}\char`\"{}, 6)
+\item 
+Wi\+Fi\+Manager\+Parameter \mbox{\hyperlink{class_wifi_module_a8b457a11d91c9f4a5f88a4087580f8b8}{parameter\+Disable\+Time}} = Wi\+Fi\+Manager\+Parameter(\char`\"{}disable\+\_\+time\char`\"{}, \char`\"{}Disable Time (H\+H\+:\+MM)\char`\"{}, \char`\"{}\char`\"{}, 6)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handling connection to Wifi and setting up Wifi credentials by creating an Access Point. 
+
+Definition at line 23 of file Wifi\+Module.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_wifi_module_a1fad662191ce40056868f0a21d0b1ef0}\label{class_wifi_module_a1fad662191ce40056868f0a21d0b1ef0}} 
+\index{WifiModule@{WifiModule}!WifiModule@{WifiModule}}
+\index{WifiModule@{WifiModule}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{WifiModule()}{WifiModule()}}
+{\footnotesize\ttfamily Wifi\+Module\+::\+Wifi\+Module (\begin{DoxyParamCaption}\item[{String}]{\+\_\+device\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_a13508027d6d44f9ad4adc916a142c4e4}\label{class_wifi_module_a13508027d6d44f9ad4adc916a142c4e4}} 
+\index{WifiModule@{WifiModule}!````~WifiModule@{$\sim$WifiModule}}
+\index{````~WifiModule@{$\sim$WifiModule}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{$\sim$WifiModule()}{~WifiModule()}}
+{\footnotesize\ttfamily Wifi\+Module\+::$\sim$\+Wifi\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file Wifi\+Module.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_wifi_module_a408a6374602360051d2791de4f56b067}\label{class_wifi_module_a408a6374602360051d2791de4f56b067}} 
+\index{WifiModule@{WifiModule}!connect@{connect}}
+\index{connect@{connect}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool Wifi\+Module\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Try to connect to presaved Wifi, otherwise go into AP mode. Restarts E\+SP on failure. \begin{DoxyReturn}{Returns}
+Success 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_ae43e1f85630c40920fa87c12de0d8e1e}\label{class_wifi_module_ae43e1f85630c40920fa87c12de0d8e1e}} 
+\index{WifiModule@{WifiModule}!getDisableTime@{getDisableTime}}
+\index{getDisableTime@{getDisableTime}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{getDisableTime()}{getDisableTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Wifi\+Module\+::get\+Disable\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return Disable\+Time from set Parameters. \begin{DoxyReturn}{Returns}
+Disable\+Time 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_a1082a8799fe84e825520a61ee048da46}\label{class_wifi_module_a1082a8799fe84e825520a61ee048da46}} 
+\index{WifiModule@{WifiModule}!getEnableTime@{getEnableTime}}
+\index{getEnableTime@{getEnableTime}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{getEnableTime()}{getEnableTime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Wifi\+Module\+::get\+Enable\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return Enable\+Time from set Parameters. \begin{DoxyReturn}{Returns}
+Enable\+Time 
+\end{DoxyReturn}
+
+
+Definition at line 73 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_a0f9b83f8ed9714183df33e055323261f}\label{class_wifi_module_a0f9b83f8ed9714183df33e055323261f}} 
+\index{WifiModule@{WifiModule}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Wifi\+Module\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if Wifi is connected. \begin{DoxyReturn}{Returns}
+true on connected 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_af03089b54800669d9cc57d3ac8bf3188}\label{class_wifi_module_af03089b54800669d9cc57d3ac8bf3188}} 
+\index{WifiModule@{WifiModule}!reset@{reset}}
+\index{reset@{reset}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Wifi\+Module\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Delete saved Wifi network credentials. 
+
+Definition at line 64 of file Wifi\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_wifi_module_a78a8fa5090dc159e070d32c957e661dd}\label{class_wifi_module_a78a8fa5090dc159e070d32c957e661dd}} 
+\index{WifiModule@{WifiModule}!setup@{setup}}
+\index{setup@{setup}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Wifi\+Module\+::setup (\begin{DoxyParamCaption}\item[{void($\ast$)(Wi\+Fi\+Manager $\ast$my\+Wi\+Fi\+Manager)}]{config\+Mode\+Callback,  }\item[{void($\ast$)(void)}]{save\+Config }\end{DoxyParamCaption})}
+
+Setup Wifi\+Manger 
+\begin{DoxyParams}{Parameters}
+{\em config\+Mode\+Callback} & Gets called when Wi\+Fi\+Manager enters configuration mode. \\
+\hline
+{\em save\+Config} & Gets called when Wifi\+Manager when custom parameters have been set A\+ND a connection has been established. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file Wifi\+Module.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_wifi_module_a5887fc96e71a65413c0e8645c8947e17}\label{class_wifi_module_a5887fc96e71a65413c0e8645c8947e17}} 
+\index{WifiModule@{WifiModule}!deviceName@{deviceName}}
+\index{deviceName@{deviceName}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{deviceName}{deviceName}}
+{\footnotesize\ttfamily String Wifi\+Module\+::device\+Name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 25 of file Wifi\+Module.\+h.
+
+\mbox{\Hypertarget{class_wifi_module_a8b457a11d91c9f4a5f88a4087580f8b8}\label{class_wifi_module_a8b457a11d91c9f4a5f88a4087580f8b8}} 
+\index{WifiModule@{WifiModule}!parameterDisableTime@{parameterDisableTime}}
+\index{parameterDisableTime@{parameterDisableTime}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{parameterDisableTime}{parameterDisableTime}}
+{\footnotesize\ttfamily Wi\+Fi\+Manager\+Parameter Wifi\+Module\+::parameter\+Disable\+Time = Wi\+Fi\+Manager\+Parameter(\char`\"{}disable\+\_\+time\char`\"{}, \char`\"{}Disable Time (H\+H\+:\+MM)\char`\"{}, \char`\"{}\char`\"{}, 6)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 29 of file Wifi\+Module.\+h.
+
+\mbox{\Hypertarget{class_wifi_module_ad138f4478faab934496f1b5679298261}\label{class_wifi_module_ad138f4478faab934496f1b5679298261}} 
+\index{WifiModule@{WifiModule}!parameterEnableTime@{parameterEnableTime}}
+\index{parameterEnableTime@{parameterEnableTime}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{parameterEnableTime}{parameterEnableTime}}
+{\footnotesize\ttfamily Wi\+Fi\+Manager\+Parameter Wifi\+Module\+::parameter\+Enable\+Time = Wi\+Fi\+Manager\+Parameter(\char`\"{}enable\+\_\+time\char`\"{}, \char`\"{}Enable Time (H\+H\+:\+MM)\char`\"{}, \char`\"{}\char`\"{}, 6)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 28 of file Wifi\+Module.\+h.
+
+\mbox{\Hypertarget{class_wifi_module_ad569429d746a3db2fe153e4cf063a07d}\label{class_wifi_module_ad569429d746a3db2fe153e4cf063a07d}} 
+\index{WifiModule@{WifiModule}!wifiManager@{wifiManager}}
+\index{wifiManager@{wifiManager}!WifiModule@{WifiModule}}
+\subsubsection{\texorpdfstring{wifiManager}{wifiManager}}
+{\footnotesize\ttfamily Wi\+Fi\+Manager Wifi\+Module\+::wifi\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 26 of file Wifi\+Module.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_wifi_module_8h}{Wifi\+Module.\+h}}\item 
+src/\mbox{\hyperlink{_wifi_module_8cpp}{Wifi\+Module.\+cpp}}\end{DoxyCompactItemize}

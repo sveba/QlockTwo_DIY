@@ -1,7 +1,9 @@
 #ifndef LEDWORD_H
 #define LEDWORD_H
 
-
+/**
+ * LedWord representing on word (only horizontal) on the matrix, defined by first pixel and word length.
+ */
 class LedWord {
 public:
     LedWord();
