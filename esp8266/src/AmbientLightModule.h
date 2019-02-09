@@ -8,11 +8,16 @@
 
 class AmbientLightModule {
 private:
+    int pinNumber;
+    int brightnessCorrection;
+    int storedData[3] = {0,0,0};
+    int deadBand = 5;
+    int maxLightValue = 400; //tune for desired behaviour of ambient light adaption
+    int brightnessLevel[10];
 
 public:
-    AmbientLightModule();
+    AmbientLightModule(int _pinNumber);
     ~AmbientLightModule();
-    void setup(int pinNumber);
     void setBrightnessCorrection(int correction);
     int getBrightnessCorrection();
     int getBrightness();

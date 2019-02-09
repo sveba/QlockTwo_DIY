@@ -7,6 +7,7 @@
 #include "AceButton.h"
 #include "SimpleTime.h"
 #include "ConfigModule.h"
+#include "AmbientLightModule.h"
 
 using namespace ace_button;
 
@@ -30,10 +31,13 @@ AceButton buttonFour(new ButtonConfig());
 
 unsigned long lastClockUpdate = 0;
 unsigned long lastShowTime = 0;
+unsigned long lastLightUpdate = 0;
 bool showTimeDisabled = false;
 
 int currentLedColorId = 0;
 RgbwColor currentLedColor = LED_COLORS[currentLedColorId];
+
+AmbientLightModule ambientLight(LIGHT_SENSOR_PIN);
 
 Config config;
 
@@ -77,6 +81,7 @@ void setup() {
     updateLedColor();
 
     setupButtons();
+
 
     wifiModule.setup(configModeCallback, saveConfigCallback);
     //wifiModule.reset();
@@ -140,8 +145,13 @@ void loop() {
     }
 
     if((millis() - lastShowTime) > (TIME_UPDATE_INTERVAL * 1000) && !showTimeDisabled) {
+        updateLedColor();
         showTime();
         lastShowTime = millis();
+    }
+    if((millis() - lastLightUpdate) > TIME_UPDATE_INTERVAL*10) {
+        updateLedColor();
+        lastLightUpdate = millis();
     }
 
     buttonOne.check();
@@ -215,6 +225,8 @@ void updateClock() {
  */
 void updateLedColor() {
     currentLedColor = LED_COLORS[currentLedColorId];
+    int darken = 255 - ambientLight.getBrightness();
+    currentLedColor.Darken(darken);
 }
 
 /**
@@ -262,6 +274,8 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button Two Clicked");
+            Serial.println("Current Brightness (out of 255):");
+            Serial.println(ambientLight.getBrightness());
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Two Long Press");
