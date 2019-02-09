@@ -7,6 +7,9 @@
 
 #include "WString.h"
 
+/**
+ * A simple representation of time with hour and minutes.
+ */
 class SimpleTime {
 private:
     uint16_t hour;

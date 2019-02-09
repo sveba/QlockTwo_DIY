@@ -18,6 +18,9 @@
 #include <WiFiUdp.h>
 #include "SimpleTime.h"
 
+/**
+ * ClockModule is handling the RTC and keeps it updated over NTP.
+ */
 class ClockModule {
 private:
   RtcDS3231<TwoWire> rtc;

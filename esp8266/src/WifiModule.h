@@ -17,6 +17,9 @@
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
 #include "ConfigModule.h"
 
+/**
+ * Handling connection to Wifi and setting up Wifi credentials by creating an Access Point.
+ */
 class WifiModule {
 private:
     String deviceName;

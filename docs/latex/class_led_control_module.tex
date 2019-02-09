@@ -1,0 +1,207 @@
+\hypertarget{class_led_control_module}{}\section{Led\+Control\+Module Class Reference}
+\label{class_led_control_module}\index{LedControlModule@{LedControlModule}}
+
+
+{\ttfamily \#include $<$Led\+Control\+Module.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_led_control_module_a5a653e4a322f618a6937449fafe959bb}{Led\+Control\+Module}} (Neo\+Topology$<$ \mbox{\hyperlink{_led_control_module_8h_a49b2323848e516b3241e758de64f0b3b}{My\+Panel\+Layout}} $>$ \+\_\+topo)
+\item 
+\mbox{\hyperlink{class_led_control_module_af6763089aa43e6be196651ec6708a4cd}{$\sim$\+Led\+Control\+Module}} ()
+\item 
+void \mbox{\hyperlink{class_led_control_module_ae1eb70e65006f55b30f6a034706829b5}{setup}} (\mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}} $\ast$\+\_\+pixel\+Strip)
+\item 
+void \mbox{\hyperlink{class_led_control_module_abd6255fc5d3a54b5befd131e56674313}{disable\+Leds}} ()
+\item 
+void \mbox{\hyperlink{class_led_control_module_a873a4c44c95a7da2ca0665b0e69cf392}{show\+Time}} (const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&simple\+Time, const Rgbw\+Color \&led\+Color=Rgbw\+Color(0, 0, 0, 255))
+\item 
+void \mbox{\hyperlink{class_led_control_module_a70c42e2f9baee807bfdb9fe9bd2f6d8e}{show\+Config\+Wifi}} (const Rgbw\+Color \&led\+Color=Rgbw\+Color(0, 0, 0, 255))
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_led_control_module_ac2e92014634c3cbfbcecff4473f39dac}{enable\+Led\+Words}} (const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&simple\+Time, const Rgbw\+Color \&led\+Color)
+\item 
+void \mbox{\hyperlink{class_led_control_module_a5870c6c37010e51f6b3dbe4611a1c05c}{enable\+Led\+Word}} (const \mbox{\hyperlink{class_led_word}{Led\+Word}} $\ast$led\+Word, const Rgbw\+Color \&led\+Color)
+\item 
+void \mbox{\hyperlink{class_led_control_module_a6c8c6fcd7dc688fb8c14933f418488ed}{enable\+Minute\+Dots}} (int sub\+Minute, const Rgbw\+Color \&led\+Color)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}} $\ast$ \mbox{\hyperlink{class_led_control_module_a9d427e447c0cfb34b154f464e7682e14}{pixel\+Strip}}
+\item 
+Neo\+Topology$<$ \mbox{\hyperlink{_led_control_module_8h_a49b2323848e516b3241e758de64f0b3b}{My\+Panel\+Layout}} $>$ \mbox{\hyperlink{class_led_control_module_a0b71b57d3f564529c89be8877dbfaa6b}{topo}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Control the L\+E\+Ds resp. show the words and minute dots. 
+
+Definition at line 25 of file Led\+Control\+Module.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_led_control_module_a5a653e4a322f618a6937449fafe959bb}\label{class_led_control_module_a5a653e4a322f618a6937449fafe959bb}} 
+\index{LedControlModule@{LedControlModule}!LedControlModule@{LedControlModule}}
+\index{LedControlModule@{LedControlModule}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{LedControlModule()}{LedControlModule()}}
+{\footnotesize\ttfamily Led\+Control\+Module\+::\+Led\+Control\+Module (\begin{DoxyParamCaption}\item[{Neo\+Topology$<$ \mbox{\hyperlink{_led_control_module_8h_a49b2323848e516b3241e758de64f0b3b}{My\+Panel\+Layout}} $>$}]{\+\_\+topo }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_af6763089aa43e6be196651ec6708a4cd}\label{class_led_control_module_af6763089aa43e6be196651ec6708a4cd}} 
+\index{LedControlModule@{LedControlModule}!````~LedControlModule@{$\sim$LedControlModule}}
+\index{````~LedControlModule@{$\sim$LedControlModule}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{$\sim$LedControlModule()}{~LedControlModule()}}
+{\footnotesize\ttfamily Led\+Control\+Module\+::$\sim$\+Led\+Control\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Led\+Control\+Module.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_led_control_module_abd6255fc5d3a54b5befd131e56674313}\label{class_led_control_module_abd6255fc5d3a54b5befd131e56674313}} 
+\index{LedControlModule@{LedControlModule}!disableLeds@{disableLeds}}
+\index{disableLeds@{disableLeds}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{disableLeds()}{disableLeds()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::disable\+Leds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Show on all L\+E\+Ds black. 
+
+Definition at line 144 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_a5870c6c37010e51f6b3dbe4611a1c05c}\label{class_led_control_module_a5870c6c37010e51f6b3dbe4611a1c05c}} 
+\index{LedControlModule@{LedControlModule}!enableLedWord@{enableLedWord}}
+\index{enableLedWord@{enableLedWord}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{enableLedWord()}{enableLedWord()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Led\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_led_word}{Led\+Word}} $\ast$}]{led\+Word,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Enable single \mbox{\hyperlink{class_led_word}{Led\+Word}} on L\+ED Matrix. 
+\begin{DoxyParams}{Parameters}
+{\em led\+Word} & \\
+\hline
+{\em led\+Color} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 123 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_ac2e92014634c3cbfbcecff4473f39dac}\label{class_led_control_module_ac2e92014634c3cbfbcecff4473f39dac}} 
+\index{LedControlModule@{LedControlModule}!enableLedWords@{enableLedWords}}
+\index{enableLedWords@{enableLedWords}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{enableLedWords()}{enableLedWords()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Led\+Words (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&}]{simple\+Time,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Enable time words. 
+\begin{DoxyParams}{Parameters}
+{\em simple\+Time} & Time to be shown. \\
+\hline
+{\em led\+Color} & Optional, set L\+ED color. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_a6c8c6fcd7dc688fb8c14933f418488ed}\label{class_led_control_module_a6c8c6fcd7dc688fb8c14933f418488ed}} 
+\index{LedControlModule@{LedControlModule}!enableMinuteDots@{enableMinuteDots}}
+\index{enableMinuteDots@{enableMinuteDots}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{enableMinuteDots()}{enableMinuteDots()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Minute\+Dots (\begin{DoxyParamCaption}\item[{int}]{sub\+Minute,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Enable minute dots in edges. 
+\begin{DoxyParams}{Parameters}
+{\em sub\+Minute} & Starts from 1. \\
+\hline
+{\em led\+Color} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_ae1eb70e65006f55b30f6a034706829b5}\label{class_led_control_module_ae1eb70e65006f55b30f6a034706829b5}} 
+\index{LedControlModule@{LedControlModule}!setup@{setup}}
+\index{setup@{setup}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}} $\ast$}]{\+\_\+pixel\+Strip }\end{DoxyParamCaption})}
+
+Setup L\+E\+Ds in Neo\+Pixel library. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+pixel\+Strip} & Neo\+Pixel\+Bus\+Type object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_a70c42e2f9baee807bfdb9fe9bd2f6d8e}\label{class_led_control_module_a70c42e2f9baee807bfdb9fe9bd2f6d8e}} 
+\index{LedControlModule@{LedControlModule}!showConfigWifi@{showConfigWifi}}
+\index{showConfigWifi@{showConfigWifi}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{showConfigWifi()}{showConfigWifi()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::show\+Config\+Wifi (\begin{DoxyParamCaption}\item[{const Rgbw\+Color \&}]{led\+Color = {\ttfamily RgbwColor(0,~0,~0,~255)} }\end{DoxyParamCaption})}
+
+Show that clock is in Wifi configuration mode, in german show Word \char`\"{}\+Funk\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em led\+Color} & Optional, set L\+ED color. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Led\+Control\+Module.\+cpp.
+
+\mbox{\Hypertarget{class_led_control_module_a873a4c44c95a7da2ca0665b0e69cf392}\label{class_led_control_module_a873a4c44c95a7da2ca0665b0e69cf392}} 
+\index{LedControlModule@{LedControlModule}!showTime@{showTime}}
+\index{showTime@{showTime}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{showTime()}{showTime()}}
+{\footnotesize\ttfamily void Led\+Control\+Module\+::show\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&}]{simple\+Time,  }\item[{const Rgbw\+Color \&}]{led\+Color = {\ttfamily RgbwColor(0,~0,~0,~255)} }\end{DoxyParamCaption})}
+
+Show Time with L\+E\+Ds. 
+\begin{DoxyParams}{Parameters}
+{\em simple\+Time} & Time to be shown. \\
+\hline
+{\em led\+Color} & Optional, set L\+ED color. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file Led\+Control\+Module.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_led_control_module_a9d427e447c0cfb34b154f464e7682e14}\label{class_led_control_module_a9d427e447c0cfb34b154f464e7682e14}} 
+\index{LedControlModule@{LedControlModule}!pixelStrip@{pixelStrip}}
+\index{pixelStrip@{pixelStrip}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{pixelStrip}{pixelStrip}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}}$\ast$ Led\+Control\+Module\+::pixel\+Strip\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 28 of file Led\+Control\+Module.\+h.
+
+\mbox{\Hypertarget{class_led_control_module_a0b71b57d3f564529c89be8877dbfaa6b}\label{class_led_control_module_a0b71b57d3f564529c89be8877dbfaa6b}} 
+\index{LedControlModule@{LedControlModule}!topo@{topo}}
+\index{topo@{topo}!LedControlModule@{LedControlModule}}
+\subsubsection{\texorpdfstring{topo}{topo}}
+{\footnotesize\ttfamily Neo\+Topology$<$\mbox{\hyperlink{_led_control_module_8h_a49b2323848e516b3241e758de64f0b3b}{My\+Panel\+Layout}}$>$ Led\+Control\+Module\+::topo\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 29 of file Led\+Control\+Module.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_led_control_module_8h}{Led\+Control\+Module.\+h}}\item 
+src/\mbox{\hyperlink{_led_control_module_8cpp}{Led\+Control\+Module.\+cpp}}\end{DoxyCompactItemize}

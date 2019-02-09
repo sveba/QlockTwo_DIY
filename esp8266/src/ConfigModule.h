@@ -22,6 +22,9 @@ struct Config {
     int brightnessCorrection;
 };
 
+/**
+ * Save and Load Config to/from SPIFFS of the ESP.
+ */
 class ConfigModule {
 private:
     const String configFilePath;
