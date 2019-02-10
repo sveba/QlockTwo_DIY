@@ -1,3 +1,7 @@
+/**
+@file main.cpp
+*/
+
 #include <Arduino.h>
 #include <Ticker.h>
 #include "LedControlModule.h"
@@ -17,7 +21,7 @@ NeoTopology<MyPanelLayout> topo(PANEL_WIDTH, PANEL_HEIGHT);
 LedControlModule ledControlModule(topo);
 NeoPixelBusType pixelStrip(PIXEL_COUNT);
 
-ClockModule clockModule(Wire, LOCAL_TIMEZONE);
+ClockModule clockModule(Wire, LOCAL_TIMEZONE, NTP_SERVER_NAME);
 
 WifiModule wifiModule(DEVICE_NAME);
 
@@ -59,6 +63,10 @@ void saveConfigCallback();
 //-----------------------------------------------------
 // Function Definitions
 //-----------------------------------------------------
+
+/**
+ * Setup all Modules
+ */
 void setup() {
     Serial.begin(9600);
 
@@ -91,6 +99,11 @@ void setup() {
     Serial.println("Setup done.");
 }
 
+/**
+ * Setup Event Handlers of a Button
+ * @param buttonConfig
+ * @param eventHandler
+ */
 void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler eventHandler) {
     buttonConfig->setEventHandler(eventHandler);
     buttonConfig->setFeature(ButtonConfig::kFeatureClick);
@@ -99,6 +112,9 @@ void setButtonConfig(ButtonConfig* buttonConfig, ButtonConfig::EventHandler even
     // buttonConfig->setFeature(ButtonConfig::kFeatureRepeatPress);
 }
 
+/**
+ * Setup all four Buttons.
+ */
 void setupButtons() {
     pinMode(BUTTON_ONE_PIN, INPUT);
     buttonOne.init(BUTTON_ONE_PIN, LOW);
@@ -118,6 +134,9 @@ void setupButtons() {
     setButtonConfig(buttonFour.getButtonConfig(), handleButtonFourEvent);
 }
 
+/**
+ * Main Loop
+ */
 void loop() {
     if((millis() - lastClockUpdate) > (CLOCK_UPDATE_INTERVAL * 1000)) {
         updateClock();
@@ -135,7 +154,10 @@ void loop() {
     buttonFour.check();
 }
 
-//gets called when WiFiManager enters configuration mode
+/**
+ * Gets called when WiFiManager enters configuration mode
+ * @param myWiFiManager
+ */
 void configModeCallback (WiFiManager *myWiFiManager) {
     Serial.println("Entered config mode");
 
@@ -143,6 +165,9 @@ void configModeCallback (WiFiManager *myWiFiManager) {
     ledControlModule.showConfigWifi();
 }
 
+/**
+ * Gets called when WifiManager when custom parameters have been set AND a connection has been established.
+ */
 void saveConfigCallback() {
     Serial.println("Save callback.");
     config.enableTime = wifiModule.getEnableTime();
@@ -153,6 +178,9 @@ void saveConfigCallback() {
     showTime();
 }
 
+/**
+ * Get Time from RTC and update if it is not correct from NTP. Only show time if it is bound in enabled time range.
+ */
 void showTime() {
     Serial.println("disableTime: " + config.disableTime.toString());
     Serial.println("enableTime: " + config.enableTime.toString());
@@ -174,6 +202,9 @@ void showTime() {
     }
 }
 
+/**
+ * Connect to Wifi and update RTC over NTP.
+ */
 void updateClock() {
     Serial.println("Connect to wifi and update clock.");
     if (!wifiModule.isConnected()) {
@@ -183,10 +214,19 @@ void updateClock() {
     clockModule.update();
 }
 
+/**
+ * Apply ambient light by dimming currentLedColor.
+ */
 void updateLedColor() {
     currentLedColor = LED_COLORS[currentLedColorId];
 }
 
+/**
+ * Handle clicks of 1. button from left.
+ * @param button
+ * @param eventType
+ * @param buttonState
+ */
 void handleButtonOneEvent(AceButton* button, uint8_t eventType,
                            uint8_t buttonState) {
     switch (eventType) {
@@ -215,6 +255,12 @@ void handleButtonOneEvent(AceButton* button, uint8_t eventType,
     }
 }
 
+/**
+ * Handle clicks of 2. button from left.
+ * @param button
+ * @param eventType
+ * @param buttonState
+ */
 void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
                           uint8_t buttonState) {
     switch (eventType) {
@@ -227,12 +273,17 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
     }
 }
 
+/**
+ * Handle clicks of 3. button from left.
+ * @param button
+ * @param eventType
+ * @param buttonState
+ */
 void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
                           uint8_t buttonState) {
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button Three Clicked");
-
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Three Long Press");
@@ -240,6 +291,12 @@ void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
     }
 }
 
+/**
+ * Handle clicks of 4. button from left.
+ * @param button
+ * @param eventType
+ * @param buttonState
+ */
 void handleButtonFourEvent(AceButton* button, uint8_t eventType,
                            uint8_t buttonState) {
     switch (eventType) {
