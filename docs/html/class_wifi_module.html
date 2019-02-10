@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('class_wifi_module.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Handling connection to Wifi and setting up Wifi credentials by creating an Access Point.  
+ <a href="class_wifi_module.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_wifi_module_8h_source.html">WifiModule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -104,16 +107,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a13508027d6d44f9ad4adc916a142c4e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#a13508027d6d44f9ad4adc916a142c4e4">~WifiModule</a> ()</td></tr>
 <tr class="separator:a13508027d6d44f9ad4adc916a142c4e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78a8fa5090dc159e070d32c957e661dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#a78a8fa5090dc159e070d32c957e661dd">setup</a> (void(*<a class="el" href="main_8cpp.html#a4aad99c28e20c1b4f8b50e262930e1e5">configModeCallback</a>)(WiFiManager *myWiFiManager), void(*saveConfig)(void))</td></tr>
+<tr class="memdesc:a78a8fa5090dc159e070d32c957e661dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup WifiManger.  <a href="#a78a8fa5090dc159e070d32c957e661dd">More...</a><br /></td></tr>
 <tr class="separator:a78a8fa5090dc159e070d32c957e661dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f9b83f8ed9714183df33e055323261f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#a0f9b83f8ed9714183df33e055323261f">isConnected</a> ()</td></tr>
+<tr class="memdesc:a0f9b83f8ed9714183df33e055323261f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if Wifi is connected.  <a href="#a0f9b83f8ed9714183df33e055323261f">More...</a><br /></td></tr>
 <tr class="separator:a0f9b83f8ed9714183df33e055323261f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a408a6374602360051d2791de4f56b067"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#a408a6374602360051d2791de4f56b067">connect</a> ()</td></tr>
+<tr class="memdesc:a408a6374602360051d2791de4f56b067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to connect to presaved Wifi, otherwise go into AP mode.  <a href="#a408a6374602360051d2791de4f56b067">More...</a><br /></td></tr>
 <tr class="separator:a408a6374602360051d2791de4f56b067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af03089b54800669d9cc57d3ac8bf3188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#af03089b54800669d9cc57d3ac8bf3188">reset</a> ()</td></tr>
+<tr class="memdesc:af03089b54800669d9cc57d3ac8bf3188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete saved Wifi network credentials.  <a href="#af03089b54800669d9cc57d3ac8bf3188">More...</a><br /></td></tr>
 <tr class="separator:af03089b54800669d9cc57d3ac8bf3188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1082a8799fe84e825520a61ee048da46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_time.html">SimpleTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#a1082a8799fe84e825520a61ee048da46">getEnableTime</a> ()</td></tr>
+<tr class="memdesc:a1082a8799fe84e825520a61ee048da46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return EnableTime from set Parameters.  <a href="#a1082a8799fe84e825520a61ee048da46">More...</a><br /></td></tr>
 <tr class="separator:a1082a8799fe84e825520a61ee048da46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae43e1f85630c40920fa87c12de0d8e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_time.html">SimpleTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wifi_module.html#ae43e1f85630c40920fa87c12de0d8e1e">getDisableTime</a> ()</td></tr>
+<tr class="memdesc:ae43e1f85630c40920fa87c12de0d8e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return DisableTime from set Parameters.  <a href="#ae43e1f85630c40920fa87c12de0d8e1e">More...</a><br /></td></tr>
 <tr class="separator:ae43e1f85630c40920fa87c12de0d8e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -186,7 +195,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Try to connect to presaved Wifi, otherwise go into AP mode. Restarts ESP on failure. </p><dl class="section return"><dt>Returns</dt><dd>Success </dd></dl>
+
+<p>Try to connect to presaved Wifi, otherwise go into AP mode. </p>
+<p>Restarts ESP on failure. </p><dl class="section return"><dt>Returns</dt><dd>Success </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_wifi_module_8cpp_source.html#l00045">45</a> of file <a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a>.</p>
 
@@ -206,7 +217,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return DisableTime from set Parameters. </p><dl class="section return"><dt>Returns</dt><dd>DisableTime </dd></dl>
+
+<p>Return DisableTime from set Parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd>DisableTime </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_wifi_module_8cpp_source.html#l00081">81</a> of file <a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a>.</p>
 
@@ -226,7 +239,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return EnableTime from set Parameters. </p><dl class="section return"><dt>Returns</dt><dd>EnableTime </dd></dl>
+
+<p>Return EnableTime from set Parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd>EnableTime </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_wifi_module_8cpp_source.html#l00073">73</a> of file <a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a>.</p>
 
@@ -246,7 +261,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Check if Wifi is connected. </p><dl class="section return"><dt>Returns</dt><dd>true on connected </dd></dl>
+
+<p>Check if Wifi is connected. </p>
+<dl class="section return"><dt>Returns</dt><dd>true on connected </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_wifi_module_8cpp_source.html#l00037">37</a> of file <a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a>.</p>
 
@@ -266,6 +283,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Delete saved Wifi network credentials. </p>
 
 <p class="definition">Definition at line <a class="el" href="_wifi_module_8cpp_source.html#l00064">64</a> of file <a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a>.</p>
@@ -297,7 +315,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Setup WifiManger </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Setup WifiManger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">configModeCallback</td><td>Gets called when WiFiManager enters configuration mode. </td></tr>
     <tr><td class="paramname">saveConfig</td><td>Gets called when WifiManager when custom parameters have been set AND a connection has been established. </td></tr>
@@ -407,8 +427,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_wifi_module_8h_source.html">WifiModule.h</a></li>
-<li>src/<a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a></li>
+<li>/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/src/<a class="el" href="_wifi_module_8h_source.html">WifiModule.h</a></li>
+<li>/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/src/<a class="el" href="_wifi_module_8cpp_source.html">WifiModule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

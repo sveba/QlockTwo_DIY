@@ -2,6 +2,11 @@
 \label{class_simple_time}\index{SimpleTime@{SimpleTime}}
 
 
+A simple representation of time with hour and minutes.  
+
+
+
+
 {\ttfamily \#include $<$Simple\+Time.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -24,16 +29,16 @@ uint16\+\_\+t \mbox{\hyperlink{class_simple_time_a02c7df278fb87be739983063301980
 void \mbox{\hyperlink{class_simple_time_ac5b1e04be8f134f378950dcb6f22f966}{set\+Minute}} (uint16\+\_\+t \mbox{\hyperlink{class_simple_time_ad8cfa601eddca64717e27a8ec95cddfa}{minute}})
 \item 
 const int \mbox{\hyperlink{class_simple_time_a9fd5a5025ccd3bd60d4049c5c113ec4c}{total\+Minutes}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate total minutes since 00\+:00. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_simple_time_a9d034d06249024ed0366c99029243168}{operator int}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Compare Simple\+Times over total minutes since 00\+:00. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{class_simple_time_a9de383bf9aaf23dbba9b13e0b9b4f0ed}{to\+String}} () const
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_simple_time_ad2d133f20de1ac63166308bc77906dfb}{parse}} (String time\+String)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Parse String in format HH\+:MM. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -120,7 +125,11 @@ Definition at line 34 of file Simple\+Time.\+h.
 \subsubsection{\texorpdfstring{operator int()}{operator int()}}
 {\footnotesize\ttfamily Simple\+Time\+::operator int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Compare Simple\+Times over total minutes since 00\+:00. \begin{DoxyReturn}{Returns}
+
+
+Compare Simple\+Times over total minutes since 00\+:00. 
+
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 
@@ -133,7 +142,11 @@ Definition at line 54 of file Simple\+Time.\+h.
 \subsubsection{\texorpdfstring{parse()}{parse()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Simple\+Time\+::parse (\begin{DoxyParamCaption}\item[{String}]{time\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Parse String in format HH\+:MM 
+
+
+Parse String in format HH\+:MM. 
+
+
 
 Definition at line 62 of file Simple\+Time.\+h.
 
@@ -176,7 +189,11 @@ Definition at line 76 of file Simple\+Time.\+h.
 \subsubsection{\texorpdfstring{totalMinutes()}{totalMinutes()}}
 {\footnotesize\ttfamily const int Simple\+Time\+::total\+Minutes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-Calculate total minutes since 00\+:00. \begin{DoxyReturn}{Returns}
+
+
+Calculate total minutes since 00\+:00. 
+
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 
@@ -210,4 +227,4 @@ Definition at line 16 of file Simple\+Time.\+h.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_simple_time_8h}{Simple\+Time.\+h}}\end{DoxyCompactItemize}
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_simple_time_8h}{Simple\+Time.\+h}}\end{DoxyCompactItemize}

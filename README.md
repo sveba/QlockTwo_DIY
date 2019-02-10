@@ -1,3 +1,45 @@
 # QlockTwo DIY
+*Project by Jonas Lauener and Frederic Letsch*
 
-A perfect copy of the original QlockTwo.
+As we could not afford the hefty price tag of the original QlockTwo Classic, our aim was to build a perfect copy of it. Over the course of two years we built five units for us and our parents. In the spirit of the open source community we would like to enable everyone to build their own perfect QlockTwo.
+
+## Front Panel
+
+## Baseplate
+
+## Electronics
+### Used parts
+- RGBW LED strip
+- ESP8266 (WEMOS D1)
+- DS3231 (RTC Clock)
+- 4 push buttons ([Multimec 5GTH935](https://de.farnell.com/multimec/5gth935/taster-tht-ip67-3-5n-0-05a-24v/dp/2280480))
+- FET for voltage level shifter
+- 5528 Light Dependent Resistor
+- 5V power adapter with textile cable and [DC power plug](https://www.te.com/usa-en/product-1-2129334-1.html)/[jack](https://www.te.com/usa-en/product-2129567-1.html)
+
+### Schematics
+The schematics are fairly simple. We realised it on a stripboard.
+![schematics](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/schematics/QlockTwo_Wemos_v0.png) 
+Only the voltage level shifter is to be remarked. As the LED strip are on a 5V level and the ESP8266 has 3V3, a voltage level shifter is implemented to shift the signal from 3V3 to 5V.
+
+## Software
+The ESP8266 is programed with the Arduino platform by PlatformIO. Many thanks to all the incredibles Arduino libraries.
+### Used libraries
+- [NeoPixelBus](https://github.com/Makuna/NeoPixelBus): Control the RGBW LED strip.
+- [WifiManager](https://github.com/tzapu/WiFiManager): Handle Wifi connection and enter AP mode to enter Wifi credentials and enable/disable time of QlockTwo.
+- [RTC](https://github.com/Makuna/Rtc): Handle the DS3231 RTC module.
+- [AceButton](https://github.com/bxparks/AceButton): Handle the four push buttons.
+- [ArduinoJson](https://arduinojson.org/): Used to serialize the configuration object for saving it on SPIFF (file system of ESP8266). 
+- [Time](https://github.com/PaulStoffregen/Time) and [Timezone](https://github.com/JChristensen/Timezone): Convert the UTC time to local time (with timezone and daylight saving adjustement).
+
+###  Code architecture
+The code is structured in independant modules. These are then wired together and used in the main.cpp.
+- **AmbientLightModule**: 
+- **ClockModule**: ClockModule is handling the RTC and keeps it updated over NTP
+- **ConfigModule**: Save and Load Config to/from SPIFF of the ESP
+- **LedControlModule**:	Control the LEDs resp show the words and minute dots
+- **LedWord**: LedWord representing on word (only horizontal) on the matrix, defined by first pixel and word length
+- **SimpleTime**: A simple representation of time with hour and minutes
+- **WifiModule**: Handling connection to Wifi and setting up Wifi credentials by creating an Access Point 
+
+All documentation of the code can be found here: [Doxygen](https://jolau.github.io/QlockTwo_DIY/html/index.html)

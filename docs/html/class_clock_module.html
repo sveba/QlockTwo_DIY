@@ -97,30 +97,41 @@ $(document).ready(function(){initNavTree('class_clock_module.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_clock_module.html" title="ClockModule is handling the RTC and keeps it updated over NTP.">ClockModule</a> is handling the RTC and keeps it updated over NTP.  
+ <a href="class_clock_module.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_clock_module_8h_source.html">ClockModule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a13599210b0032bbc5312d93e690c763b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a13599210b0032bbc5312d93e690c763b">ClockModule</a> (RtcDS3231&lt; TwoWire &gt; _rtc, Timezone _localTZ, String _ntpServerName)</td></tr>
+<tr class="memdesc:a13599210b0032bbc5312d93e690c763b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_clock_module.html" title="ClockModule is handling the RTC and keeps it updated over NTP.">ClockModule</a> is handling the RTC and keeps it updated over NTP.  <a href="#a13599210b0032bbc5312d93e690c763b">More...</a><br /></td></tr>
 <tr class="separator:a13599210b0032bbc5312d93e690c763b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e2e3fc944235bc3d779150fb2ea5063"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a7e2e3fc944235bc3d779150fb2ea5063">~ClockModule</a> ()</td></tr>
 <tr class="separator:a7e2e3fc944235bc3d779150fb2ea5063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6113cfe778efff0aa237696f85516796"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a6113cfe778efff0aa237696f85516796">setup</a> ()</td></tr>
+<tr class="memdesc:a6113cfe778efff0aa237696f85516796"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup NTP client and RTC connection.  <a href="#a6113cfe778efff0aa237696f85516796">More...</a><br /></td></tr>
 <tr class="separator:a6113cfe778efff0aa237696f85516796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05053d7409ef43d1729113a7912fa866"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a05053d7409ef43d1729113a7912fa866">isDateTimeValid</a> ()</td></tr>
+<tr class="memdesc:a05053d7409ef43d1729113a7912fa866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Either true if rtc time is not valid or the updateInterval is reached.  <a href="#a05053d7409ef43d1729113a7912fa866">More...</a><br /></td></tr>
 <tr class="separator:a05053d7409ef43d1729113a7912fa866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbc823bb09d912dbdc25f9d38ec78624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#afbc823bb09d912dbdc25f9d38ec78624">update</a> ()</td></tr>
+<tr class="memdesc:afbc823bb09d912dbdc25f9d38ec78624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current time from NTP server and update RTC.  <a href="#afbc823bb09d912dbdc25f9d38ec78624">More...</a><br /></td></tr>
 <tr class="separator:afbc823bb09d912dbdc25f9d38ec78624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0faab0171ded0fdb37dcbff757f451e"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#af0faab0171ded0fdb37dcbff757f451e">getUtcTime</a> ()</td></tr>
+<tr class="memdesc:af0faab0171ded0fdb37dcbff757f451e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current time from RTC in UTC.  <a href="#af0faab0171ded0fdb37dcbff757f451e">More...</a><br /></td></tr>
 <tr class="separator:af0faab0171ded0fdb37dcbff757f451e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa208cd29a002d60e4e5f064813acf9f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_simple_time.html">SimpleTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#aa208cd29a002d60e4e5f064813acf9f3">getLocalSimpleTime</a> ()</td></tr>
+<tr class="memdesc:aa208cd29a002d60e4e5f064813acf9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current time from RTC in local time.  <a href="#aa208cd29a002d60e4e5f064813acf9f3">More...</a><br /></td></tr>
 <tr class="separator:aa208cd29a002d60e4e5f064813acf9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a4e1dc771d7467c2bd5e9c7885231982e"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a4e1dc771d7467c2bd5e9c7885231982e">getNtpTime</a> ()</td></tr>
+<tr class="memdesc:a4e1dc771d7467c2bd5e9c7885231982e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get NTP time from set NTP server over UDP.  <a href="#a4e1dc771d7467c2bd5e9c7885231982e">More...</a><br /></td></tr>
 <tr class="separator:a4e1dc771d7467c2bd5e9c7885231982e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a266855ecf4aa1f466d1a3556caff008c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_clock_module.html#a266855ecf4aa1f466d1a3556caff008c">sendNTPpacket</a> (IPAddress &amp;address)</td></tr>
+<tr class="memdesc:a266855ecf4aa1f466d1a3556caff008c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an NTP request to the time server at the given address.  <a href="#a266855ecf4aa1f466d1a3556caff008c">More...</a><br /></td></tr>
 <tr class="separator:a266855ecf4aa1f466d1a3556caff008c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -144,7 +155,7 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:ab12ec0e0e1a0a02861feae0272840cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_clock_module.html">ClockModule</a> is handling the RTC and keeps it updated over NTP. </p>
+<div class="textblock"><p><a class="el" href="class_clock_module.html" title="ClockModule is handling the RTC and keeps it updated over NTP.">ClockModule</a> is handling the RTC and keeps it updated over NTP. </p>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8h_source.html#l00024">24</a> of file <a class="el" href="_clock_module_8h_source.html">ClockModule.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -179,7 +190,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="class_clock_module.html">ClockModule</a> is handling the RTC and keeps it updated over NTP. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p><a class="el" href="class_clock_module.html" title="ClockModule is handling the RTC and keeps it updated over NTP.">ClockModule</a> is handling the RTC and keeps it updated over NTP. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_rtc</td><td>Arduino Wire object </td></tr>
     <tr><td class="paramname">_updateInterval</td><td>Interval of updating RTC in Seconds </td></tr>
@@ -226,7 +239,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get current time from RTC in local time. With timezone and daylight saving adjustment. </p><dl class="section return"><dt>Returns</dt><dd>Current Local Time as <a class="el" href="class_simple_time.html">SimpleTime</a>. </dd></dl>
+
+<p>Get current time from RTC in local time. </p>
+<p>With timezone and daylight saving adjustment. </p><dl class="section return"><dt>Returns</dt><dd>Current Local Time as <a class="el" href="class_simple_time.html" title="A simple representation of time with hour and minutes.">SimpleTime</a>. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00140">140</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
 
@@ -254,7 +269,9 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Get NTP time from set NTP server over UDP. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Get NTP time from set NTP server over UDP. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00150">150</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
 
@@ -274,7 +291,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get current time from RTC in UTC. </p><dl class="section return"><dt>Returns</dt><dd>Current Time as time_t in UTC. </dd></dl>
+
+<p>Get current time from RTC in UTC. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current Time as time_t in UTC. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00132">132</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
 
@@ -294,7 +313,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Either true if rtc time is not valid or the updateInterval is reached. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Either true if rtc time is not valid or the updateInterval is reached. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00047">47</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
 
@@ -323,7 +344,9 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Send an NTP request to the time server at the given address </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Send an NTP request to the time server at the given address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">address</td><td>IP address </td></tr>
   </table>
@@ -348,6 +371,7 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Setup NTP client and RTC connection. </p>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00032">32</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
@@ -368,7 +392,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get current time from NTP server and update RTC. </p><dl class="section return"><dt>Returns</dt><dd>true if updating successful </dd></dl>
+
+<p>Get current time from NTP server and update RTC. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if updating successful </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_clock_module_8cpp_source.html#l00093">93</a> of file <a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a>.</p>
 
@@ -544,8 +570,8 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_clock_module_8h_source.html">ClockModule.h</a></li>
-<li>src/<a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a></li>
+<li>/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/src/<a class="el" href="_clock_module_8h_source.html">ClockModule.h</a></li>
+<li>/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/src/<a class="el" href="_clock_module_8cpp_source.html">ClockModule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -23,7 +23,7 @@ struct Config {
 };
 
 /**
- * Save and Load Config to/from SPIFFS of the ESP.
+ * Save and Load Config to/from SPIFF of the ESP.
  */
 class ConfigModule {
 private:

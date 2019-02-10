@@ -20,7 +20,7 @@ typedef  NeoPixelBus<NeoGrbwFeature, Neo800KbpsMethod>  NeoPixelBusType;
 typedef RowMajorAlternating270Layout MyPanelLayout;
 
 /**
- * Control the LEDs resp. show the words and minute dots.
+ * Control the LEDs resp show the words and minute dots.
  */
 class LedControlModule {
 private:
