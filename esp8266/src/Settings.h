@@ -15,6 +15,7 @@ const int BUTTON_THREE_PIN = D6;
 const int BUTTON_FOUR_PIN = D7;
 
 const int LIGHT_SENSOR_PIN = A0;
+const int MAXIMUM_LIGHT_VALUE = 400; //tune for desired behaviour of ambient light adaption
 
 const long TIME_UPDATE_INTERVAL = 10; // in seconds
 const long CLOCK_UPDATE_INTERVAL = 86400; // in seconds
