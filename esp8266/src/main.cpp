@@ -41,7 +41,7 @@ bool showTimeDisabled = false;
 int currentLedColorId = 0;
 RgbwColor currentLedColor = LED_COLORS[currentLedColorId];
 
-AmbientLightModule ambientLight(LIGHT_SENSOR_PIN, MAXIMUM_LIGHT_VALUE);
+AmbientLightModule ambientLight(LIGHT_SENSOR_PIN);
 
 Config config;
 
@@ -143,7 +143,6 @@ void setupButtons() {
  * Main Loop
  */
 void loop() {
-
     if((millis() - lastClockUpdate) > (CLOCK_UPDATE_INTERVAL * 1000)) {
         updateClock();
         lastClockUpdate = millis();
@@ -153,6 +152,10 @@ void loop() {
         updateLedColor();
         showTime();
         lastShowTime = millis();
+    }
+    if((millis() - lastLightUpdate) > TIME_UPDATE_INTERVAL*10) {
+        updateLedColor();
+        lastLightUpdate = millis();
     }
 
     buttonOne.check();
@@ -275,24 +278,11 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button Two Clicked");
-            if(ambientLight.getBrightnessCorrection() > -9){
-              ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() - 1);
-            };
             Serial.println("Current Brightness (out of 255):");
             Serial.println(ambientLight.getBrightness());
-            Serial.println("with User Brightness Correction [-9 9]:");
-            Serial.println(ambientLight.getBrightnessCorrection());
-            updateLedColor();
-            showTime();
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Two Long Press");
-            ambientLight.setBrightnessCorrection(0);
-            Serial.println("User Brightness Correction Reset");
-            Serial.println("Current Brightness (out of 255):");
-            Serial.println(ambientLight.getBrightness());
-            updateLedColor();
-            showTime();
             break;
     }
 }
@@ -308,15 +298,6 @@ void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
     switch (eventType) {
         case AceButton::kEventClicked:
             Serial.println("Button Three Clicked");
-            if(ambientLight.getBrightnessCorrection() < 9){
-              ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() + 1);
-            };
-            Serial.println("Current Brightness (out of 255):");
-            Serial.println(ambientLight.getBrightness());
-            Serial.println("with User Brightness Correction [-9 9]:");
-            Serial.println(ambientLight.getBrightnessCorrection());
-            updateLedColor();
-            showTime();
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Three Long Press");
