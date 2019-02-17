@@ -2,6 +2,11 @@
 \label{class_config_module}\index{ConfigModule@{ConfigModule}}
 
 
+Save and Load \mbox{\hyperlink{struct_config}{Config}} to/from S\+P\+I\+FF of the E\+SP.  
+
+
+
+
 {\ttfamily \#include $<$Config\+Module.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -12,16 +17,16 @@
 void \mbox{\hyperlink{class_config_module_a3ab8220b02e11fdb12af8111ef77c6ac}{setup}} ()
 \item 
 bool \mbox{\hyperlink{class_config_module_ab7b7cb9aba4ab90bec664eef2b4a00f3}{save\+Config}} (const \mbox{\hyperlink{struct_config}{Config}} \&\mbox{\hyperlink{main_8cpp_a4a8dd3a2de125b72d4fe6251a0a271b5}{config}})
-\item 
+\begin{DoxyCompactList}\small\item\em Serialize \mbox{\hyperlink{struct_config}{Config}} to J\+S\+ON and save to S\+P\+I\+FF. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{struct_config}{Config}} \mbox{\hyperlink{class_config_module_a1a9cda5559839cac0f4444d6352e9067}{load\+Config}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Load config J\+S\+ON from S\+P\+I\+FF and deserialize it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{struct_config}{Config}} \mbox{\hyperlink{class_config_module_a937d05a9dd8761526d35b648d5823030}{parse\+Json\+Config}} (const Json\+Object \&json\+Object)
-\item 
+\begin{DoxyCompactList}\small\item\em Fill config values from Json\+Object to \mbox{\hyperlink{struct_config}{Config}} struct. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_config_module_a19014d9b2ce8d8dee2333a52886d86d8}{copy\+To\+Json\+Config}} (Json\+Object \&json, const \mbox{\hyperlink{struct_config}{Config}} \&\mbox{\hyperlink{main_8cpp_a4a8dd3a2de125b72d4fe6251a0a271b5}{config}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Copy \mbox{\hyperlink{struct_config}{Config}} values to Json\+Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,7 +35,7 @@ const String \mbox{\hyperlink{class_config_module_a0738d7b1088e75c5503a894e88d43
 
 
 \subsection{Detailed Description}
-Save and Load \mbox{\hyperlink{struct_config}{Config}} to/from S\+P\+I\+F\+FS of the E\+SP. 
+Save and Load \mbox{\hyperlink{struct_config}{Config}} to/from S\+P\+I\+FF of the E\+SP. 
 
 Definition at line 28 of file Config\+Module.\+h.
 
@@ -56,7 +61,11 @@ Definition at line 7 of file Config\+Module.\+cpp.
 \subsubsection{\texorpdfstring{copyToJsonConfig()}{copyToJsonConfig()}}
 {\footnotesize\ttfamily void Config\+Module\+::copy\+To\+Json\+Config (\begin{DoxyParamCaption}\item[{Json\+Object \&}]{json,  }\item[{const \mbox{\hyperlink{struct_config}{Config}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-Copy \mbox{\hyperlink{struct_config}{Config}} values to Json\+Object 
+
+
+Copy \mbox{\hyperlink{struct_config}{Config}} values to Json\+Object. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em json} & To be filled Json\+Object, by reference \\
 \hline
@@ -73,7 +82,11 @@ Definition at line 103 of file Config\+Module.\+cpp.
 \subsubsection{\texorpdfstring{loadConfig()}{loadConfig()}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{struct_config}{Config}} Config\+Module\+::load\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Load config J\+S\+ON from S\+P\+I\+FF and deserialize it. \begin{DoxyReturn}{Returns}
+
+
+Load config J\+S\+ON from S\+P\+I\+FF and deserialize it. 
+
+\begin{DoxyReturn}{Returns}
 On success\+: Saved \mbox{\hyperlink{struct_config}{Config}}; On Failure\+: Empty \mbox{\hyperlink{struct_config}{Config}} 
 \end{DoxyReturn}
 
@@ -86,7 +99,11 @@ Definition at line 49 of file Config\+Module.\+cpp.
 \subsubsection{\texorpdfstring{parseJsonConfig()}{parseJsonConfig()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_config}{Config}} Config\+Module\+::parse\+Json\+Config (\begin{DoxyParamCaption}\item[{const Json\+Object \&}]{json\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Fill config values from Json\+Object to \mbox{\hyperlink{struct_config}{Config}} struct. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em json\+Object} & \\
 \hline
@@ -104,7 +121,11 @@ Definition at line 83 of file Config\+Module.\+cpp.
 \subsubsection{\texorpdfstring{saveConfig()}{saveConfig()}}
 {\footnotesize\ttfamily bool Config\+Module\+::save\+Config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_config}{Config}} \&}]{config }\end{DoxyParamCaption})}
 
+
+
 Serialize \mbox{\hyperlink{struct_config}{Config}} to J\+S\+ON and save to S\+P\+I\+FF. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em config} & \\
 \hline
@@ -143,5 +164,5 @@ Definition at line 30 of file Config\+Module.\+h.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_config_module_8h}{Config\+Module.\+h}}\item 
-src/\mbox{\hyperlink{_config_module_8cpp}{Config\+Module.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_config_module_8h}{Config\+Module.\+h}}\item 
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_config_module_8cpp}{Config\+Module.\+cpp}}\end{DoxyCompactItemize}

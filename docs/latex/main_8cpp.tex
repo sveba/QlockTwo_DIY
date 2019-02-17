@@ -1,5 +1,5 @@
-\hypertarget{main_8cpp}{}\section{src/main.cpp File Reference}
-\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+\hypertarget{main_8cpp}{}\section{/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/main.cpp File Reference}
+\label{main_8cpp}\index{/Users/jolau/Documents/Projekte/QlockTwo\_DIY/GIT/esp8266/src/main.cpp@{/Users/jolau/Documents/Projekte/QlockTwo\_DIY/GIT/esp8266/src/main.cpp}}
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 {\ttfamily \#include $<$Ticker.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}Led\+Control\+Module.\+h\char`\"{}}\newline
@@ -24,32 +24,32 @@ Ace\+Button \mbox{\hyperlink{main_8cpp_a0bc1d3d6627924a65c2c6c21b5252d91}{button
 \item 
 Ace\+Button \mbox{\hyperlink{main_8cpp_abcfa205173ea6d53f34108a963193cb2}{button\+Four}} (new Button\+Config())
 \item 
-void \mbox{\hyperlink{main_8cpp_a80dea534736a9eb94f717e09a3ca6efa}{handle\+Button\+One\+Event}} (Ace\+Button $\ast$, uint8\+\_\+t, uint8\+\_\+t)
-\item 
-void \mbox{\hyperlink{main_8cpp_a45ad2bb3005997f3f8fb9feb85d84b5f}{handle\+Button\+Two\+Event}} (Ace\+Button $\ast$, uint8\+\_\+t, uint8\+\_\+t)
-\item 
-void \mbox{\hyperlink{main_8cpp_a5965d87eb30a935e5a941c84f4d36156}{handle\+Button\+Three\+Event}} (Ace\+Button $\ast$, uint8\+\_\+t, uint8\+\_\+t)
-\item 
-void \mbox{\hyperlink{main_8cpp_a86fa1a0dd76237846ee907ea51d6ba65}{handle\+Button\+Four\+Event}} (Ace\+Button $\ast$, uint8\+\_\+t, uint8\+\_\+t)
-\item 
+void \mbox{\hyperlink{main_8cpp_a5a56597496d1757e705e6b95eb96756b}{handle\+Button\+One\+Event}} (Ace\+Button $\ast$button, uint8\+\_\+t event\+Type, uint8\+\_\+t button\+State)
+\begin{DoxyCompactList}\small\item\em Handle clicks of 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a6b9b8217d739619241d8cd0fb32083e8}{handle\+Button\+Two\+Event}} (Ace\+Button $\ast$button, uint8\+\_\+t event\+Type, uint8\+\_\+t button\+State)
+\begin{DoxyCompactList}\small\item\em Handle clicks of 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad030511a83339fbbe02c90fa62518b08}{handle\+Button\+Three\+Event}} (Ace\+Button $\ast$button, uint8\+\_\+t event\+Type, uint8\+\_\+t button\+State)
+\begin{DoxyCompactList}\small\item\em Handle clicks of 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a859a4caaa6d89d03acf3518f2f973fd6}{handle\+Button\+Four\+Event}} (Ace\+Button $\ast$button, uint8\+\_\+t event\+Type, uint8\+\_\+t button\+State)
+\begin{DoxyCompactList}\small\item\em Handle clicks of 4. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_aface0710712eeff3c3721b361e2db58f}{update\+Clock}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Connect to Wifi and update R\+TC over N\+TP. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_a82a4d4d10e465cdf37a718bb5daffec2}{update\+Led\+Color}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Apply ambient light by dimming current\+Led\+Color. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_aeb5a54b91d6a748dcc3a6896cfd3f5a7}{set\+Button\+Config}} (Button\+Config $\ast$button\+Config, Button\+Config\+::\+Event\+Handler event\+Handler)
-\item 
+\begin{DoxyCompactList}\small\item\em Setup Event Handlers of a Button. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_afc3d7157574387f5a54d6b002c527860}{setup\+Buttons}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Setup all four Buttons. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_af0c88ea180e73ee60842341790d31b44}{show\+Time}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get Time from R\+TC and update if it is not correct from N\+TP. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_a4aad99c28e20c1b4f8b50e262930e1e5}{config\+Mode\+Callback}} (Wi\+Fi\+Manager $\ast$my\+Wi\+Fi\+Manager)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets called when Wi\+Fi\+Manager enters configuration mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_a3a93d19401009ce28e89880837e3ec79}{save\+Config\+Callback}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets called when Wifi\+Manager when custom parameters have been set A\+ND a connection has been established. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Setup all Modules. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Main Loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -106,7 +106,11 @@ Rgbw\+Color \mbox{\hyperlink{main_8cpp_ad89ec9d1e21b9b575759a2af25b13237}{curren
 \subsubsection{\texorpdfstring{configModeCallback()}{configModeCallback()}}
 {\footnotesize\ttfamily void config\+Mode\+Callback (\begin{DoxyParamCaption}\item[{Wi\+Fi\+Manager $\ast$}]{my\+Wi\+Fi\+Manager }\end{DoxyParamCaption})}
 
-Gets called when Wi\+Fi\+Manager enters configuration mode 
+
+
+Gets called when Wi\+Fi\+Manager enters configuration mode. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em my\+Wi\+Fi\+Manager} & \\
 \hline
@@ -115,13 +119,17 @@ Gets called when Wi\+Fi\+Manager enters configuration mode
 
 Definition at line 161 of file main.\+cpp.
 
-\mbox{\Hypertarget{main_8cpp_a86fa1a0dd76237846ee907ea51d6ba65}\label{main_8cpp_a86fa1a0dd76237846ee907ea51d6ba65}} 
+\mbox{\Hypertarget{main_8cpp_a859a4caaa6d89d03acf3518f2f973fd6}\label{main_8cpp_a859a4caaa6d89d03acf3518f2f973fd6}} 
 \index{main.cpp@{main.cpp}!handleButtonFourEvent@{handleButtonFourEvent}}
 \index{handleButtonFourEvent@{handleButtonFourEvent}!main.cpp@{main.cpp}}
 \subsubsection{\texorpdfstring{handleButtonFourEvent()}{handleButtonFourEvent()}}
 {\footnotesize\ttfamily void handle\+Button\+Four\+Event (\begin{DoxyParamCaption}\item[{Ace\+Button $\ast$}]{button,  }\item[{uint8\+\_\+t}]{event\+Type,  }\item[{uint8\+\_\+t}]{button\+State }\end{DoxyParamCaption})}
 
-Handle clicks of 4. button from left. 
+
+
+Handle clicks of 4. 
+
+button from left. 
 \begin{DoxyParams}{Parameters}
 {\em button} & \\
 \hline
@@ -134,13 +142,17 @@ Handle clicks of 4. button from left.
 
 Definition at line 300 of file main.\+cpp.
 
-\mbox{\Hypertarget{main_8cpp_a80dea534736a9eb94f717e09a3ca6efa}\label{main_8cpp_a80dea534736a9eb94f717e09a3ca6efa}} 
+\mbox{\Hypertarget{main_8cpp_a5a56597496d1757e705e6b95eb96756b}\label{main_8cpp_a5a56597496d1757e705e6b95eb96756b}} 
 \index{main.cpp@{main.cpp}!handleButtonOneEvent@{handleButtonOneEvent}}
 \index{handleButtonOneEvent@{handleButtonOneEvent}!main.cpp@{main.cpp}}
 \subsubsection{\texorpdfstring{handleButtonOneEvent()}{handleButtonOneEvent()}}
 {\footnotesize\ttfamily void handle\+Button\+One\+Event (\begin{DoxyParamCaption}\item[{Ace\+Button $\ast$}]{button,  }\item[{uint8\+\_\+t}]{event\+Type,  }\item[{uint8\+\_\+t}]{button\+State }\end{DoxyParamCaption})}
 
-Handle clicks of 1. button from left. 
+
+
+Handle clicks of 1. 
+
+button from left. 
 \begin{DoxyParams}{Parameters}
 {\em button} & \\
 \hline
@@ -153,13 +165,17 @@ Handle clicks of 1. button from left.
 
 Definition at line 230 of file main.\+cpp.
 
-\mbox{\Hypertarget{main_8cpp_a5965d87eb30a935e5a941c84f4d36156}\label{main_8cpp_a5965d87eb30a935e5a941c84f4d36156}} 
+\mbox{\Hypertarget{main_8cpp_ad030511a83339fbbe02c90fa62518b08}\label{main_8cpp_ad030511a83339fbbe02c90fa62518b08}} 
 \index{main.cpp@{main.cpp}!handleButtonThreeEvent@{handleButtonThreeEvent}}
 \index{handleButtonThreeEvent@{handleButtonThreeEvent}!main.cpp@{main.cpp}}
 \subsubsection{\texorpdfstring{handleButtonThreeEvent()}{handleButtonThreeEvent()}}
 {\footnotesize\ttfamily void handle\+Button\+Three\+Event (\begin{DoxyParamCaption}\item[{Ace\+Button $\ast$}]{button,  }\item[{uint8\+\_\+t}]{event\+Type,  }\item[{uint8\+\_\+t}]{button\+State }\end{DoxyParamCaption})}
 
-Handle clicks of 3. button from left. 
+
+
+Handle clicks of 3. 
+
+button from left. 
 \begin{DoxyParams}{Parameters}
 {\em button} & \\
 \hline
@@ -172,13 +188,17 @@ Handle clicks of 3. button from left.
 
 Definition at line 282 of file main.\+cpp.
 
-\mbox{\Hypertarget{main_8cpp_a45ad2bb3005997f3f8fb9feb85d84b5f}\label{main_8cpp_a45ad2bb3005997f3f8fb9feb85d84b5f}} 
+\mbox{\Hypertarget{main_8cpp_a6b9b8217d739619241d8cd0fb32083e8}\label{main_8cpp_a6b9b8217d739619241d8cd0fb32083e8}} 
 \index{main.cpp@{main.cpp}!handleButtonTwoEvent@{handleButtonTwoEvent}}
 \index{handleButtonTwoEvent@{handleButtonTwoEvent}!main.cpp@{main.cpp}}
 \subsubsection{\texorpdfstring{handleButtonTwoEvent()}{handleButtonTwoEvent()}}
 {\footnotesize\ttfamily void handle\+Button\+Two\+Event (\begin{DoxyParamCaption}\item[{Ace\+Button $\ast$}]{button,  }\item[{uint8\+\_\+t}]{event\+Type,  }\item[{uint8\+\_\+t}]{button\+State }\end{DoxyParamCaption})}
 
-Handle clicks of 2. button from left. 
+
+
+Handle clicks of 2. 
+
+button from left. 
 \begin{DoxyParams}{Parameters}
 {\em button} & \\
 \hline
@@ -197,7 +217,11 @@ Definition at line 264 of file main.\+cpp.
 \subsubsection{\texorpdfstring{loop()}{loop()}}
 {\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Main Loop 
+
+
+Main Loop. 
+
+
 
 Definition at line 140 of file main.\+cpp.
 
@@ -213,7 +237,11 @@ Definition at line 140 of file main.\+cpp.
 \subsubsection{\texorpdfstring{saveConfigCallback()}{saveConfigCallback()}}
 {\footnotesize\ttfamily void save\+Config\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Gets called when Wifi\+Manager when custom parameters have been set A\+ND a connection has been established. 
+
+
 
 Definition at line 171 of file main.\+cpp.
 
@@ -223,7 +251,11 @@ Definition at line 171 of file main.\+cpp.
 \subsubsection{\texorpdfstring{setButtonConfig()}{setButtonConfig()}}
 {\footnotesize\ttfamily void set\+Button\+Config (\begin{DoxyParamCaption}\item[{Button\+Config $\ast$}]{button\+Config,  }\item[{Button\+Config\+::\+Event\+Handler}]{event\+Handler }\end{DoxyParamCaption})}
 
-Setup Event Handlers of a Button 
+
+
+Setup Event Handlers of a Button. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em button\+Config} & \\
 \hline
@@ -240,7 +272,11 @@ Definition at line 107 of file main.\+cpp.
 \subsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Setup all Modules 
+
+
+Setup all Modules. 
+
+
 
 Definition at line 70 of file main.\+cpp.
 
@@ -250,7 +286,11 @@ Definition at line 70 of file main.\+cpp.
 \subsubsection{\texorpdfstring{setupButtons()}{setupButtons()}}
 {\footnotesize\ttfamily void setup\+Buttons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Setup all four Buttons. 
+
+
 
 Definition at line 118 of file main.\+cpp.
 
@@ -260,7 +300,11 @@ Definition at line 118 of file main.\+cpp.
 \subsubsection{\texorpdfstring{showTime()}{showTime()}}
 {\footnotesize\ttfamily void show\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get Time from R\+TC and update if it is not correct from N\+TP. Only show time if it is bound in enabled time range. 
+
+
+Get Time from R\+TC and update if it is not correct from N\+TP. 
+
+Only show time if it is bound in enabled time range. 
 
 Definition at line 184 of file main.\+cpp.
 
@@ -276,7 +320,11 @@ Definition at line 184 of file main.\+cpp.
 \subsubsection{\texorpdfstring{updateClock()}{updateClock()}}
 {\footnotesize\ttfamily void update\+Clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Connect to Wifi and update R\+TC over N\+TP. 
+
+
 
 Definition at line 208 of file main.\+cpp.
 
@@ -286,7 +334,11 @@ Definition at line 208 of file main.\+cpp.
 \subsubsection{\texorpdfstring{updateLedColor()}{updateLedColor()}}
 {\footnotesize\ttfamily void update\+Led\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Apply ambient light by dimming current\+Led\+Color. 
+
+
 
 Definition at line 220 of file main.\+cpp.
 

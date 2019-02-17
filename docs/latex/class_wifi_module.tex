@@ -2,6 +2,11 @@
 \label{class_wifi_module}\index{WifiModule@{WifiModule}}
 
 
+Handling connection to Wifi and setting up Wifi credentials by creating an Access Point.  
+
+
+
+
 {\ttfamily \#include $<$Wifi\+Module.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -12,17 +17,17 @@
 \mbox{\hyperlink{class_wifi_module_a13508027d6d44f9ad4adc916a142c4e4}{$\sim$\+Wifi\+Module}} ()
 \item 
 void \mbox{\hyperlink{class_wifi_module_a78a8fa5090dc159e070d32c957e661dd}{setup}} (void($\ast$\mbox{\hyperlink{main_8cpp_a4aad99c28e20c1b4f8b50e262930e1e5}{config\+Mode\+Callback}})(Wi\+Fi\+Manager $\ast$my\+Wi\+Fi\+Manager), void($\ast$save\+Config)(void))
-\item 
+\begin{DoxyCompactList}\small\item\em Setup Wifi\+Manger. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_wifi_module_a0f9b83f8ed9714183df33e055323261f}{is\+Connected}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Check if Wifi is connected. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_wifi_module_a408a6374602360051d2791de4f56b067}{connect}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Try to connect to presaved Wifi, otherwise go into AP mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_wifi_module_af03089b54800669d9cc57d3ac8bf3188}{reset}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Delete saved Wifi network credentials. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_wifi_module_a1082a8799fe84e825520a61ee048da46}{get\+Enable\+Time}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Return Enable\+Time from set Parameters. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{class_wifi_module_ae43e1f85630c40920fa87c12de0d8e1e}{get\+Disable\+Time}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Return Disable\+Time from set Parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -73,7 +78,11 @@ Definition at line 13 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{connect()}{connect()}}
 {\footnotesize\ttfamily bool Wifi\+Module\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Try to connect to presaved Wifi, otherwise go into AP mode. Restarts E\+SP on failure. \begin{DoxyReturn}{Returns}
+
+
+Try to connect to presaved Wifi, otherwise go into AP mode. 
+
+Restarts E\+SP on failure. \begin{DoxyReturn}{Returns}
 Success 
 \end{DoxyReturn}
 
@@ -86,7 +95,11 @@ Definition at line 45 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{getDisableTime()}{getDisableTime()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Wifi\+Module\+::get\+Disable\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Return Disable\+Time from set Parameters. \begin{DoxyReturn}{Returns}
+
+
+Return Disable\+Time from set Parameters. 
+
+\begin{DoxyReturn}{Returns}
 Disable\+Time 
 \end{DoxyReturn}
 
@@ -99,7 +112,11 @@ Definition at line 81 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{getEnableTime()}{getEnableTime()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} Wifi\+Module\+::get\+Enable\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Return Enable\+Time from set Parameters. \begin{DoxyReturn}{Returns}
+
+
+Return Enable\+Time from set Parameters. 
+
+\begin{DoxyReturn}{Returns}
 Enable\+Time 
 \end{DoxyReturn}
 
@@ -112,7 +129,11 @@ Definition at line 73 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{isConnected()}{isConnected()}}
 {\footnotesize\ttfamily bool Wifi\+Module\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Check if Wifi is connected. \begin{DoxyReturn}{Returns}
+
+
+Check if Wifi is connected. 
+
+\begin{DoxyReturn}{Returns}
 true on connected 
 \end{DoxyReturn}
 
@@ -125,7 +146,11 @@ Definition at line 37 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{reset()}{reset()}}
 {\footnotesize\ttfamily void Wifi\+Module\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Delete saved Wifi network credentials. 
+
+
 
 Definition at line 64 of file Wifi\+Module.\+cpp.
 
@@ -135,7 +160,11 @@ Definition at line 64 of file Wifi\+Module.\+cpp.
 \subsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void Wifi\+Module\+::setup (\begin{DoxyParamCaption}\item[{void($\ast$)(Wi\+Fi\+Manager $\ast$my\+Wi\+Fi\+Manager)}]{config\+Mode\+Callback,  }\item[{void($\ast$)(void)}]{save\+Config }\end{DoxyParamCaption})}
 
-Setup Wifi\+Manger 
+
+
+Setup Wifi\+Manger. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em config\+Mode\+Callback} & Gets called when Wi\+Fi\+Manager enters configuration mode. \\
 \hline
@@ -193,5 +222,5 @@ Definition at line 26 of file Wifi\+Module.\+h.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_wifi_module_8h}{Wifi\+Module.\+h}}\item 
-src/\mbox{\hyperlink{_wifi_module_8cpp}{Wifi\+Module.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_wifi_module_8h}{Wifi\+Module.\+h}}\item 
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_wifi_module_8cpp}{Wifi\+Module.\+cpp}}\end{DoxyCompactItemize}

@@ -96,6 +96,9 @@ $(document).ready(function(){initNavTree('class_simple_time.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>A simple representation of time with hour and minutes.  
+ <a href="class_simple_time.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -117,8 +120,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac5b1e04be8f134f378950dcb6f22f966"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_time.html#ac5b1e04be8f134f378950dcb6f22f966">setMinute</a> (uint16_t <a class="el" href="class_simple_time.html#ad8cfa601eddca64717e27a8ec95cddfa">minute</a>)</td></tr>
 <tr class="separator:ac5b1e04be8f134f378950dcb6f22f966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fd5a5025ccd3bd60d4049c5c113ec4c"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_time.html#a9fd5a5025ccd3bd60d4049c5c113ec4c">totalMinutes</a> () const</td></tr>
+<tr class="memdesc:a9fd5a5025ccd3bd60d4049c5c113ec4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate total minutes since 00:00.  <a href="#a9fd5a5025ccd3bd60d4049c5c113ec4c">More...</a><br /></td></tr>
 <tr class="separator:a9fd5a5025ccd3bd60d4049c5c113ec4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d034d06249024ed0366c99029243168"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_time.html#a9d034d06249024ed0366c99029243168">operator int</a> () const</td></tr>
+<tr class="memdesc:a9d034d06249024ed0366c99029243168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare SimpleTimes over total minutes since 00:00.  <a href="#a9d034d06249024ed0366c99029243168">More...</a><br /></td></tr>
 <tr class="separator:a9d034d06249024ed0366c99029243168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9de383bf9aaf23dbba9b13e0b9b4f0ed"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_time.html#a9de383bf9aaf23dbba9b13e0b9b4f0ed">toString</a> () const</td></tr>
 <tr class="separator:a9de383bf9aaf23dbba9b13e0b9b4f0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +131,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2d133f20de1ac63166308bc77906dfb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_simple_time.html">SimpleTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simple_time.html#ad2d133f20de1ac63166308bc77906dfb">parse</a> (String timeString)</td></tr>
+<tr class="memdesc:ad2d133f20de1ac63166308bc77906dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse String in format HH:MM.  <a href="#ad2d133f20de1ac63166308bc77906dfb">More...</a><br /></td></tr>
 <tr class="separator:ad2d133f20de1ac63166308bc77906dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -338,7 +344,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Compare SimpleTimes over total minutes since 00:00. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Compare SimpleTimes over total minutes since 00:00. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_simple_time_8h_source.html#l00054">54</a> of file <a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a>.</p>
 
@@ -367,7 +375,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Parse String in format HH:MM </p>
+
+<p>Parse String in format HH:MM. </p>
 
 <p class="definition">Definition at line <a class="el" href="_simple_time_8h_source.html#l00062">62</a> of file <a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a>.</p>
 
@@ -451,7 +460,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_simple_time.html">SimpleTime</a> as String in format HH:MM </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_simple_time.html" title="A simple representation of time with hour and minutes.">SimpleTime</a> as String in format HH:MM </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_simple_time_8h_source.html#l00076">76</a> of file <a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a>.</p>
 
@@ -479,7 +488,9 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Calculate total minutes since 00:00. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p>Calculate total minutes since 00:00. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_simple_time_8h_source.html#l00046">46</a> of file <a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a>.</p>
 
@@ -535,7 +546,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a></li>
+<li>/Users/jolau/Documents/Projekte/QlockTwo_DIY/GIT/esp8266/src/<a class="el" href="_simple_time_8h_source.html">SimpleTime.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

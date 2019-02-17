@@ -1,5 +1,5 @@
-\hypertarget{_clock_module_8cpp}{}\section{src/\+Clock\+Module.cpp File Reference}
-\label{_clock_module_8cpp}\index{src/ClockModule.cpp@{src/ClockModule.cpp}}
+\hypertarget{_clock_module_8cpp}{}\section{/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\+Clock\+Module.cpp File Reference}
+\label{_clock_module_8cpp}\index{/Users/jolau/Documents/Projekte/QlockTwo\_DIY/GIT/esp8266/src/ClockModule.cpp@{/Users/jolau/Documents/Projekte/QlockTwo\_DIY/GIT/esp8266/src/ClockModule.cpp}}
 {\ttfamily \#include \char`\"{}Clock\+Module.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
 \subsection*{Macros}
@@ -11,11 +11,11 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{_clock_module_8cpp_a8771a313ed8db0ac1d4ce6524940ab4f}{print\+Date\+Time}} (const Rtc\+Date\+Time \&dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Print Rtc\+Date\+Time in human readable on Serial. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_clock_module_8cpp_ac3d77ab2877b4e0cb0b2d5c469ce5f4e}{print\+Date\+Time}} (const time\+\_\+t \&dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Print time\+\_\+t in human readable on Serial. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \mbox{\hyperlink{_clock_module_8cpp_ab0f0086402130646275572caf9cea3e0}{convert\+To\+Simple\+Time}} (const time\+\_\+t \&time)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Convert time\+\_\+t to \mbox{\hyperlink{class_simple_time}{Simple\+Time}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
@@ -38,7 +38,11 @@ Definition at line 13 of file Clock\+Module.\+cpp.
 \subsubsection{\texorpdfstring{convertToSimpleTime()}{convertToSimpleTime()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_simple_time}{Simple\+Time}} convert\+To\+Simple\+Time (\begin{DoxyParamCaption}\item[{const time\+\_\+t \&}]{time }\end{DoxyParamCaption})}
 
-Convert time\+\_\+t to \mbox{\hyperlink{class_simple_time}{Simple\+Time}} 
+
+
+Convert time\+\_\+t to \mbox{\hyperlink{class_simple_time}{Simple\+Time}}. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em time} & \\
 \hline
@@ -56,7 +60,11 @@ Definition at line 124 of file Clock\+Module.\+cpp.
 \subsubsection{\texorpdfstring{printDateTime()}{printDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void print\+Date\+Time (\begin{DoxyParamCaption}\item[{const Rtc\+Date\+Time \&}]{dt }\end{DoxyParamCaption})}
 
+
+
 Print Rtc\+Date\+Time in human readable on Serial. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em dt} & \\
 \hline
@@ -71,7 +79,11 @@ Definition at line 55 of file Clock\+Module.\+cpp.
 \subsubsection{\texorpdfstring{printDateTime()}{printDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void print\+Date\+Time (\begin{DoxyParamCaption}\item[{const time\+\_\+t \&}]{dt }\end{DoxyParamCaption})}
 
+
+
 Print time\+\_\+t in human readable on Serial. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em dt} & \\
 \hline

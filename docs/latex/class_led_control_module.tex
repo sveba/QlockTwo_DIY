@@ -2,6 +2,11 @@
 \label{class_led_control_module}\index{LedControlModule@{LedControlModule}}
 
 
+Control the L\+E\+Ds resp show the words and minute dots.  
+
+
+
+
 {\ttfamily \#include $<$Led\+Control\+Module.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -12,22 +17,22 @@
 \mbox{\hyperlink{class_led_control_module_af6763089aa43e6be196651ec6708a4cd}{$\sim$\+Led\+Control\+Module}} ()
 \item 
 void \mbox{\hyperlink{class_led_control_module_ae1eb70e65006f55b30f6a034706829b5}{setup}} (\mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}} $\ast$\+\_\+pixel\+Strip)
-\item 
+\begin{DoxyCompactList}\small\item\em Setup L\+E\+Ds in Neo\+Pixel library. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_led_control_module_abd6255fc5d3a54b5befd131e56674313}{disable\+Leds}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Show on all L\+E\+Ds black. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_led_control_module_a873a4c44c95a7da2ca0665b0e69cf392}{show\+Time}} (const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&simple\+Time, const Rgbw\+Color \&led\+Color=Rgbw\+Color(0, 0, 0, 255))
-\item 
+\begin{DoxyCompactList}\small\item\em Show Time with L\+E\+Ds. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_led_control_module_a70c42e2f9baee807bfdb9fe9bd2f6d8e}{show\+Config\+Wifi}} (const Rgbw\+Color \&led\+Color=Rgbw\+Color(0, 0, 0, 255))
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Show that clock is in Wifi configuration mode, in german show Word \char`\"{}\+Funk\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_led_control_module_ac2e92014634c3cbfbcecff4473f39dac}{enable\+Led\+Words}} (const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&simple\+Time, const Rgbw\+Color \&led\+Color)
-\item 
+\begin{DoxyCompactList}\small\item\em Enable time words. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_led_control_module_a5870c6c37010e51f6b3dbe4611a1c05c}{enable\+Led\+Word}} (const \mbox{\hyperlink{class_led_word}{Led\+Word}} $\ast$led\+Word, const Rgbw\+Color \&led\+Color)
-\item 
+\begin{DoxyCompactList}\small\item\em Enable single \mbox{\hyperlink{class_led_word}{Led\+Word}} on L\+ED Matrix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_led_control_module_a6c8c6fcd7dc688fb8c14933f418488ed}{enable\+Minute\+Dots}} (int sub\+Minute, const Rgbw\+Color \&led\+Color)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enable minute dots in edges. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,7 +43,7 @@ Neo\+Topology$<$ \mbox{\hyperlink{_led_control_module_8h_a49b2323848e516b3241e75
 
 
 \subsection{Detailed Description}
-Control the L\+E\+Ds resp. show the words and minute dots. 
+Control the L\+E\+Ds resp show the words and minute dots. 
 
 Definition at line 25 of file Led\+Control\+Module.\+h.
 
@@ -74,7 +79,11 @@ Definition at line 12 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{disableLeds()}{disableLeds()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::disable\+Leds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
 Show on all L\+E\+Ds black. 
+
+
 
 Definition at line 144 of file Led\+Control\+Module.\+cpp.
 
@@ -84,7 +93,11 @@ Definition at line 144 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{enableLedWord()}{enableLedWord()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Led\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_led_word}{Led\+Word}} $\ast$}]{led\+Word,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Enable single \mbox{\hyperlink{class_led_word}{Led\+Word}} on L\+ED Matrix. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em led\+Word} & \\
 \hline
@@ -101,7 +114,11 @@ Definition at line 123 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{enableLedWords()}{enableLedWords()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Led\+Words (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&}]{simple\+Time,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Enable time words. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em simple\+Time} & Time to be shown. \\
 \hline
@@ -118,7 +135,11 @@ Definition at line 53 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{enableMinuteDots()}{enableMinuteDots()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::enable\+Minute\+Dots (\begin{DoxyParamCaption}\item[{int}]{sub\+Minute,  }\item[{const Rgbw\+Color \&}]{led\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
 Enable minute dots in edges. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em sub\+Minute} & Starts from 1. \\
 \hline
@@ -135,7 +156,11 @@ Definition at line 134 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{setup()}{setup()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_led_control_module_8h_a51a7b766d62733fca1ec20e82e024f9f}{Neo\+Pixel\+Bus\+Type}} $\ast$}]{\+\_\+pixel\+Strip }\end{DoxyParamCaption})}
 
+
+
 Setup L\+E\+Ds in Neo\+Pixel library. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em \+\_\+pixel\+Strip} & Neo\+Pixel\+Bus\+Type object \\
 \hline
@@ -150,7 +175,11 @@ Definition at line 18 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{showConfigWifi()}{showConfigWifi()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::show\+Config\+Wifi (\begin{DoxyParamCaption}\item[{const Rgbw\+Color \&}]{led\+Color = {\ttfamily RgbwColor(0,~0,~0,~255)} }\end{DoxyParamCaption})}
 
+
+
 Show that clock is in Wifi configuration mode, in german show Word \char`\"{}\+Funk\char`\"{}. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em led\+Color} & Optional, set L\+ED color. \\
 \hline
@@ -165,7 +194,11 @@ Definition at line 42 of file Led\+Control\+Module.\+cpp.
 \subsubsection{\texorpdfstring{showTime()}{showTime()}}
 {\footnotesize\ttfamily void Led\+Control\+Module\+::show\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_simple_time}{Simple\+Time}} \&}]{simple\+Time,  }\item[{const Rgbw\+Color \&}]{led\+Color = {\ttfamily RgbwColor(0,~0,~0,~255)} }\end{DoxyParamCaption})}
 
+
+
 Show Time with L\+E\+Ds. 
+
+
 \begin{DoxyParams}{Parameters}
 {\em simple\+Time} & Time to be shown. \\
 \hline
@@ -203,5 +236,5 @@ Definition at line 29 of file Led\+Control\+Module.\+h.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{_led_control_module_8h}{Led\+Control\+Module.\+h}}\item 
-src/\mbox{\hyperlink{_led_control_module_8cpp}{Led\+Control\+Module.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_led_control_module_8h}{Led\+Control\+Module.\+h}}\item 
+/\+Users/jolau/\+Documents/\+Projekte/\+Qlock\+Two\+\_\+\+D\+I\+Y/\+G\+I\+T/esp8266/src/\mbox{\hyperlink{_led_control_module_8cpp}{Led\+Control\+Module.\+cpp}}\end{DoxyCompactItemize}
