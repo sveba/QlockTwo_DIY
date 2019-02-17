@@ -278,19 +278,19 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
             if(ambientLight.getBrightnessCorrection() > -9){
               ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() - 1);
             };
-            Serial.println("Current Brightness (out of 255):");
-            Serial.println(ambientLight.getBrightness());
-            Serial.println("with User Brightness Correction [-9 9]:");
-            Serial.println(ambientLight.getBrightnessCorrection());
+            // Serial.println("Current Brightness (out of 255):");
+            // Serial.println(ambientLight.getBrightness());
+            // Serial.println("with User Brightness Correction [-9 9]:");
+            // Serial.println(ambientLight.getBrightnessCorrection());
             updateLedColor();
             showTime();
             break;
         case AceButton::kEventLongPressed:
             Serial.println("Button Two Long Press");
             ambientLight.setBrightnessCorrection(0);
-            Serial.println("User Brightness Correction Reset");
-            Serial.println("Current Brightness (out of 255):");
-            Serial.println(ambientLight.getBrightness());
+            // Serial.println("User Brightness Correction Reset");
+            // Serial.println("Current Brightness (out of 255):");
+            // Serial.println(ambientLight.getBrightness());
             updateLedColor();
             showTime();
             break;
@@ -311,10 +311,10 @@ void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
             if(ambientLight.getBrightnessCorrection() < 9){
               ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() + 1);
             };
-            Serial.println("Current Brightness (out of 255):");
-            Serial.println(ambientLight.getBrightness());
-            Serial.println("with User Brightness Correction [-9 9]:");
-            Serial.println(ambientLight.getBrightnessCorrection());
+            // Serial.println("Current Brightness (out of 255):");
+            // Serial.println(ambientLight.getBrightness());
+            // Serial.println("with User Brightness Correction [-9 9]:");
+            // Serial.println(ambientLight.getBrightnessCorrection());
             updateLedColor();
             showTime();
             break;
