@@ -6,6 +6,8 @@ As we could not afford the hefty price tag of the original QlockTwo Classic, our
 ## Front Panel
 
 ## Baseplate
+The Baseplate was manufactered on a CNC milling machine. The pattern to shiled the LEDs was laser cutted.
+![cad_overview](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/CAD%20files/001_000002_00_A_Qlocktwo_Assembly_VersionSchale.png)
 
 ## Electronics
 ### Used parts
