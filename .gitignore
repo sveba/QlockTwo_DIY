@@ -3,3 +3,4 @@
 .gcc-flags.json
 .pioenvs/do-not-modify-files-here.url
 .pioenvs/structure.hash
+.vscode

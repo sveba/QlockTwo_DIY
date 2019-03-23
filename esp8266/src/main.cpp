@@ -143,7 +143,6 @@ void setupButtons() {
  * Main Loop
  */
 void loop() {
-
     if((millis() - lastClockUpdate) > (CLOCK_UPDATE_INTERVAL * 1000)) {
         updateClock();
         lastClockUpdate = millis();
