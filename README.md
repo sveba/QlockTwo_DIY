@@ -4,9 +4,14 @@
 As we could not afford the hefty price tag of the original QlockTwo Classic, our aim was to build a perfect copy of it. Over the course of two years we built five units for us and our parents. In the spirit of the open source community we would like to enable everyone to build their own perfect QlockTwo.
 
 ## Front Panel
+The front panel is a complete reproduction of the original QlockTwo panel in terms of proportions, font and words. Due to copyright issues we only provide an Ilustrater template here. It should be easy tough to replace the letters to get the version you want. As raw material for the front plate we used an acrylic glass with a thin black color film on the back side, where we engraved the letters with a laser cutter.
+<p align="center">
+  <img width="400" height="400" src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/front/Qlocktwo_blank-1.png">
+</p>
 
 ## Baseplate
-The Baseplate was manufactered on a CNC milling machine. The pattern to shiled the LEDs was laser cutted.
+The dimensions of the clock were derived from the distance betweend to LEDs on a strip (33.3 mm) such that the proportions of our front panel matches the original ones. Since we had acces to a CNC milling machine, we designed a unibody to hold our LEDs and the front panel. If you don't have access to a milling machine, you may slice the CAD file in layers to use a laser cutter and some glue instead.
+To avoid the LEDs shining trough to other letter we build a pattern using a laser cutter to shield the LEDs. The front panel is held in place by magnets in the baseplate and metal discs glued to the front panel. This enabels a seamless and easy mount of the front panel.
 ![cad_overview](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/CAD%20files/001_000002_00_A_Qlocktwo_Assembly_VersionSchale.png)
 
 ## Electronics
@@ -36,7 +41,7 @@ The ESP8266 is programed with the Arduino platform by PlatformIO. Many thanks to
 
 ###  Code architecture
 The code is structured in independant modules. These are then wired together and used in the main.cpp.
-- **AmbientLightModule**: 
+- **AmbientLightModule**: Adapts the light intensity based on readings from a light sensor
 - **ClockModule**: ClockModule is handling the RTC and keeps it updated over NTP
 - **ConfigModule**: Save and Load Config to/from SPIFF of the ESP
 - **LedControlModule**:	Control the LEDs resp show the words and minute dots
