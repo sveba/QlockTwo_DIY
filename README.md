@@ -3,6 +3,8 @@
 
 As we could not afford the hefty price tag of the original QlockTwo Classic, our aim was to build a perfect copy of it. Over the course of two years we built five units for us and our parents. In the spirit of the open source community we would like to enable everyone to build their own perfect QlockTwo.
 
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
 ## Front Panel
 The front panel is a complete reproduction of the original QlockTwo panel in terms of proportions, font and words. Due to copyright issues we only provide an Ilustrater template here. It should be easy tough to replace the letters to get the version you want. As raw material for the front plate we used an acrylic glass with a thin black color film on the back side, where we engraved the letters with a laser cutter. (TG4-400 https://www.gravurmaterialien.ch/gravurmaterial/acrylglas/troglass-reverse.html)
 <p align="center">
