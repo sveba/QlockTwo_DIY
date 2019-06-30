@@ -25,7 +25,7 @@ const TimeChangeRule TIME_CHANGE_RULE_DST = {"MESZ", Last, Sun, Mar, 2, 120};   
 const TimeChangeRule TIME_CHANGE_RULE_STD = {"MEZ", Last, Sun, Oct, 3, 60};     // Standard time = UTC+1 hours
 const Timezone LOCAL_TIMEZONE(TIME_CHANGE_RULE_DST, TIME_CHANGE_RULE_STD);
 
-const String DEVICE_NAME = "QlockTwo_No1";
+const String DEVICE_NAME = "QlockTwo";
 
 const char *const CONFIG_FILE_PATH = "/config.json";
 

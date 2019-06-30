@@ -28,6 +28,8 @@ WifiModule wifiModule(DEVICE_NAME);
 
 ConfigModule configModule(CONFIG_FILE_PATH);
 
+AmbientLightModule ambientLight(LIGHT_SENSOR_PIN, MAXIMUM_LIGHT_VALUE);
+
 AceButton buttonOne(new ButtonConfig());
 AceButton buttonTwo(new ButtonConfig());
 AceButton buttonThree(new ButtonConfig());
@@ -40,8 +42,6 @@ bool showTimeDisabled = false;
 
 int currentLedColorId = 0;
 RgbwColor currentLedColor = LED_COLORS[currentLedColorId];
-
-AmbientLightModule ambientLight(LIGHT_SENSOR_PIN, MAXIMUM_LIGHT_VALUE);
 
 Config config;
 
