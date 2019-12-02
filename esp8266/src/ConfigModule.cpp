@@ -22,10 +22,10 @@ void ConfigModule::setup() {
  */
 bool ConfigModule::saveConfig(const Config &config) {
     Serial.println("saving config");
-    DynamicJsonBuffer jsonBuffer;
-    JsonObject &json = jsonBuffer.createObject();
+    const size_t capacity = JSON_OBJECT_SIZE(10);
+    DynamicJsonDocument doc(capacity);
 
-    copyToJsonConfig(json, config);
+    copyToJsonConfig(config, doc);
 
     File configFile = SPIFFS.open(configFilePath, "w");
     if (!configFile) {
@@ -33,13 +33,13 @@ bool ConfigModule::saveConfig(const Config &config) {
         return false;
     }
 
-    json.printTo(Serial);
-    json.printTo(configFile);
+    serializeJson(doc, Serial);
+    serializeJson(doc, configFile);
+
     configFile.close();
     //end save
 
     return true;
-
 }
 
 /**
@@ -53,22 +53,18 @@ const Config ConfigModule::loadConfig() {
         File configFile = SPIFFS.open(configFilePath, "r");
         if (configFile) {
             Serial.println("opened config file");
-            size_t size = configFile.size();
-            // Allocate a buffer to store contents of the file.
-            std::unique_ptr<char[]> buf(new char[size]);
 
-            configFile.readBytes(buf.get(), size);
-            DynamicJsonBuffer jsonBuffer;
-            JsonObject &json = jsonBuffer.parseObject(buf.get());
-            json.printTo(Serial);
-            if (json.success()) {
-                Serial.println("\nparsed json");
+            const size_t capacity = JSON_OBJECT_SIZE(10) + 90;
+            DynamicJsonDocument doc(capacity);
+            DeserializationError error = deserializeJson(doc, configFile);
 
-                return parseJsonConfig(json);
-            } else {
+            if (error) {
                 Serial.println("failed to load json config");
+                Serial.println(error.c_str());
             }
+
             configFile.close();
+            return parseJsonConfig(doc);
         }
     }
 
@@ -80,7 +76,7 @@ const Config ConfigModule::loadConfig() {
  * @param jsonObject
  * @return Filled Config Object.
  */
-Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
+Config ConfigModule::parseJsonConfig(const JsonDocument &jsonObject) {
     Config config;
 
     config.enableTime = SimpleTime::parse(jsonObject[ENABLE_TIME_ID]);
@@ -100,9 +96,9 @@ Config ConfigModule::parseJsonConfig(const JsonObject &jsonObject) {
  * @param json To be filled JsonObject, by reference
  * @param config Source Config
  */
-void ConfigModule::copyToJsonConfig(JsonObject &json, const Config &config) {
-    json[ENABLE_TIME_ID] = config.enableTime.toString();
-    json[DISABLE_TIME_ID] = config.disableTime.toString();
-    json[SET_LED_COLOR_ID] = config.setLedColor;
-    json[BRIGHTNESS_CORRECTION_ID] = config.brightnessCorrection;
+void ConfigModule::copyToJsonConfig(const Config &config, JsonDocument &doc) {
+    doc[DISABLE_TIME_ID] = config.disableTime.toString();
+    doc[ENABLE_TIME_ID] = config.enableTime.toString();
+    doc[SET_LED_COLOR_ID] = config.setLedColor;
+    doc[BRIGHTNESS_CORRECTION_ID] = config.brightnessCorrection;
 }

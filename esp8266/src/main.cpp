@@ -67,7 +67,6 @@ void saveConfigCallback();
 //-----------------------------------------------------
 // Function Definitions
 //-----------------------------------------------------
-
 /**
  * Setup all Modules
  */
@@ -84,8 +83,8 @@ void setup() {
     currentLedColorId = config.setLedColor;
     updateLedColor();
 
+    ledControlModule.setup(&pixelStrip);
     setupButtons();
-
 
     wifiModule.setup(configModeCallback, saveConfigCallback);
     //wifiModule.reset();
@@ -93,7 +92,7 @@ void setup() {
 
     clockModule.setup();
 
-    ledControlModule.setup(&pixelStrip);
+
 
     updateClock();
     lastClockUpdate = millis();
@@ -276,6 +275,7 @@ void handleButtonTwoEvent(AceButton* button, uint8_t eventType,
             Serial.println("Button Two Clicked");
             if(ambientLight.getBrightnessCorrection() > -9){
               ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() - 1);
+              Serial.println("Brightness Correction: " + ambientLight.getBrightnessCorrection());
             };
             // Serial.println("Current Brightness (out of 255):");
             // Serial.println(ambientLight.getBrightness());
@@ -309,6 +309,7 @@ void handleButtonThreeEvent(AceButton* button, uint8_t eventType,
             Serial.println("Button Three Clicked");
             if(ambientLight.getBrightnessCorrection() < 9){
               ambientLight.setBrightnessCorrection(ambientLight.getBrightnessCorrection() + 1);
+              Serial.println("Brightness Correction: " + ambientLight.getBrightnessCorrection());
             };
             // Serial.println("Current Brightness (out of 255):");
             // Serial.println(ambientLight.getBrightness());

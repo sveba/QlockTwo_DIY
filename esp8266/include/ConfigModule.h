@@ -28,8 +28,8 @@ struct Config {
 class ConfigModule {
 private:
     const String configFilePath;
-    Config parseJsonConfig(const JsonObject &jsonObject);
-    void copyToJsonConfig(JsonObject& json, const Config &config);
+    Config parseJsonConfig(const JsonDocument &jsonObject);
+    void copyToJsonConfig(const Config &config, JsonDocument &doc);
 public:
     ConfigModule(String _configFilePath);
     void setup();
