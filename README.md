@@ -23,7 +23,7 @@ To avoid the LEDs shining trough to other letter we build a pattern using a lase
 - RGBW LED strip
 - ESP8266 (WEMOS D1)
 - DS3231 (RTC Clock)
-- 4 push buttons ([Multimec 5GTH935](https://de.farnell.com/multimec/5gth935/taster-tht-ip67-3-5n-0-05a-24v/dp/2280480))
+- 4 push buttons ([Multimec 5GTH935](https://www.digikey.ch/product-detail/en/mec-switches/5GTH935/679-2612-ND/2411559)) with white caps ([1DS06](https://www.digikey.ch/product-detail/en/mec-switches/1DS06/679-2520-ND/2411577)
 - FET for voltage level shifter
 - 5528 Light Dependent Resistor
 - 5V power adapter with textile cable and [DC power plug](https://www.te.com/usa-en/product-1-2129334-1.html)/[jack](https://www.te.com/usa-en/product-2129567-1.html)
