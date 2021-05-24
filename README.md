@@ -30,7 +30,7 @@ To avoid the LEDs shining trough to other letter we build a pattern using a lase
 
 ### Schematics
 The schematics are fairly simple. We realised it on a stripboard.
-![schematics](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/schematics/QlockTwo_Wemos_v0.png) 
+![schematics](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/schematics/QlockTwo_Wemos_schem.png) 
 Only the voltage level shifter is to be remarked. As the LED strip are on a 5V level and the ESP8266 has 3V3, a voltage level shifter is implemented to shift the signal from 3V3 to 5V.
 
 ## Software
