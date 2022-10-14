@@ -3,6 +3,8 @@
 
 As we could not afford the hefty price tag of the original QlockTwo Classic, our aim was to build a perfect copy of it. Over the course of two years we built five units for us and our parents. In the spirit of the open source community we would like to enable everyone to build their own perfect QlockTwo.
 
+**For any technical questions, please open an issue: https://github.com/jolau/QlockTwo_DIY/issues/new/choose**
+
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080219.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080262.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080293.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080243.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080252.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080278.jpg" width="30%"></img> 
