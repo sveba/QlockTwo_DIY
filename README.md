@@ -36,7 +36,7 @@ The schematics are fairly simple. We realised it on a stripboard.
 Only the voltage level shifter is to be remarked. As the LED strip are on a 5V level and the ESP8266 has 3V3, a voltage level shifter is implemented to shift the signal from 3V3 to 5V.
 
 ### Close-ups
-<img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234625.jpg?raw=true" width="45%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234705.jpg?raw=true" width="45%"></img> 
+<img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234625.jpg?raw=true" width="38.5%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234705.jpg?raw=true" width="38.5%"></img> 
 <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234609.jpg?raw=true" width="30%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234429.jpg?raw=true" width="30%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234451.jpg?raw=true" width="16.85%"></img> 
 
 ## Software
