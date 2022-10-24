@@ -16,7 +16,7 @@ The front panel is a complete reproduction of the original QlockTwo panel in ter
 </p>
 
 ## Baseplate
-The dimensions of the clock were derived from the distance betweend to LEDs on a strip (33.3 mm) such that the proportions of our front panel matches the original ones. Since we had acces to a CNC milling machine, we designed a unibody to hold our LEDs and the front panel. If you don't have access to a milling machine, you may slice the CAD file in layers to use a laser cutter and some glue instead.
+The dimensions of the clock were derived from the distance betweend to LEDs on a strip (33.3 mm) such that the proportions of our front panel matches the original ones. Since we had access to a CNC milling machine, we designed a unibody to hold our LEDs and the front panel. If you don't have access to a milling machine, you may slice the CAD file in layers to use a laser cutter and some glue instead.
 To avoid the LEDs shining trough to other letter we build a pattern using a laser cutter to shield the LEDs. The front panel is held in place by magnets in the baseplate and metal discs glued to the front panel. This enabels a seamless and easy mount of the front panel.
 ![cad_overview](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/CAD%20files/001_000002_00_A_Qlocktwo_Assembly_VersionSchale.png)
 
@@ -35,7 +35,7 @@ The schematics are fairly simple. We realised it on a stripboard.
 ![schematics](https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/schematics/QlockTwo_Wemos_schem.png) 
 Only the voltage level shifter is to be remarked. As the LED strip are on a 5V level and the ESP8266 has 3V3, a voltage level shifter is implemented to shift the signal from 3V3 to 5V.
 
-### Close-ups
+### Internal Pictures
 <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234625.jpg?raw=true" width="38.5%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234705.jpg?raw=true" width="38.5%"></img> 
 <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234609.jpg?raw=true" width="30%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234429.jpg?raw=true" width="30%"></img> <img src="https://github.com/jolau/QlockTwo_DIY/blob/master/docs/images/IMG_20220517_234451.jpg?raw=true" width="16.85%"></img> 
 
