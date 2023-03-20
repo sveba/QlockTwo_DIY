@@ -10,10 +10,7 @@ As we could not afford the hefty price tag of the original QlockTwo Classic, our
 <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080219.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080262.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080293.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080243.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080252.jpg" width="30%"></img> <img src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/docs/images/P1080278.jpg" width="30%"></img> 
 
 ## Front Panel
-The front panel is a complete reproduction of the original QlockTwo panel in terms of proportions, font and words. Due to copyright issues we only provide an Ilustrater template here. It should be easy tough to replace the letters to get the version you want. As raw material for the front plate we used an acrylic glass with a thin black color film on the back side, where we engraved the letters with a laser cutter. (TG4-400 https://www.gravurmaterialien.ch/gravurmaterial/acrylglas/troglass-reverse.html)
-<p align="center">
-  <img width="400" height="400" src="https://raw.githubusercontent.com/jolau/QlockTwo_DIY/master/front/Qlocktwo_blank-1.png">
-</p>
+The front panel is a complete reproduction of the original QlockTwo panel in terms of proportions, font and words. Due to copyright issues we do not provide the front. As raw material for the front plate we used an acrylic glass with a thin black color film on the back side, where we engraved the letters with a laser cutter. (TG4-400 https://www.gravurmaterialien.ch/gravurmaterial/acrylglas/troglass-reverse.html)
 
 ## Baseplate
 The dimensions of the clock were derived from the distance betweend to LEDs on a strip (33.3 mm) such that the proportions of our front panel matches the original ones. Since we had access to a CNC milling machine, we designed a unibody to hold our LEDs and the front panel. If you don't have access to a milling machine, you may slice the CAD file in layers to use a laser cutter and some glue instead.
