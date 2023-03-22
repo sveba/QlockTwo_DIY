@@ -1,6 +1,5 @@
 # QlockTwo DIY
 *Project by Jonas Lauener and Frederic Letsch*
-
 As we could not afford the hefty price tag of the original QlockTwo Classic, our aim was to build a perfect copy of it. Over the course of two years we built five units for us and our parents. In the spirit of the open source community we would like to enable everyone to build their own perfect QlockTwo.
 
 **For any technical questions, please open an issue: https://github.com/jolau/QlockTwo_DIY/issues/new/choose**
